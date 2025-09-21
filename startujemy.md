@@ -34,3 +34,4 @@ Od lat pracuję z SQL Serverem i codziennie trafiam na ciekawe przypadki – jed
 ---
 
 Do zobaczenia wkrótce – startujemy **14 października**! 🎉
+
