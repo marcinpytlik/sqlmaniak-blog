@@ -1,0 +1,32 @@
+{{ define "title" }}{{ .Title }}{{ end }}
+{{ define "main" }}
+  <article class="post">
+    <h1>{{ .Title }}</h1>
+    <p class="meta">{{ .Description }}</p>
+
+    {{ $pages := where .Site.RegularPages "Params.attachments" "ne" nil }}
+    {{ if not (gt (len $pages) 0) }}
+      <p>Na razie brak plików do pobrania.</p>
+    {{ else }}
+      {{ $sorted := sort $pages "Date" "desc" }}
+      <ul>
+      {{ range $sorted }}
+        <li style="margin-bottom:1rem">
+          <strong><a href="{{ .Permalink }}">{{ .Title }}</a></strong>
+          <span class="meta"> — {{ .Date.Format "2006-01-02" }}</span>
+          {{ with .Params.attachments }}
+            <ul>
+            {{ range . }}
+              <li>
+                <a href="{{ .url }}">{{ .name }}</a>
+                {{ with .desc }} — <span class="meta">{{ . }}</span>{{ end }}
+              </li>
+            {{ end }}
+            </ul>
+          {{ end }}
+        </li>
+      {{ end }}
+      </ul>
+    {{ end }}
+  </article>
+{{ end }}
