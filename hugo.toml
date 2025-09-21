@@ -24,16 +24,16 @@ enableRobotsTXT = true
   description = "Blog o SQL Server 2016-2022, monitoringu baz danych, optymalizacji zapytań oraz narzędziach PowerShell i Grafana dla administratorów"
   canonicalURL = "https://sqlmaniak.blog/"
 
-[params.featuredScripts]
-  [[params.featuredScripts.items]]
-    name = "DMV Demo"
-    url  = "/files/dmv-demo.sql"
-  [[params.featuredScripts.items]]
-    name = "PowerShell: Get-SqlServices"
-    url  = "/files/Get-SqlServices.ps1"
-  [[params.featuredScripts.items]]
-    name = "Repo GitHub: o SQL "
-    url  = "https://github.com/marcinpytlik/SQLManiak"
+#[params.featuredScripts]
+#  [[params.featuredScripts.items]]
+#    name = "DMV Demo"
+#    url  = "/files/dmv-demo.sql"
+#  [[params.featuredScripts.items]]
+#    name = "PowerShell: Get-SqlServices"
+#    url  = "/files/Get-SqlServices.ps1"
+#  [[params.featuredScripts.items]]
+#    name = "Repo GitHub: o SQL "
+#    url  = "https://github.com/marcinpytlik/SQLManiak"
 
 [params.authorProfile]
   name = "Marcin Pytlik"
