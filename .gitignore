@@ -1,0 +1,14 @@
+
+# Hugo build artifacts
+/public/
+/resources/
+/hugo_cache/
+/node_modules/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# VS Code
+.vscode/*
+!.vscode/tasks.json

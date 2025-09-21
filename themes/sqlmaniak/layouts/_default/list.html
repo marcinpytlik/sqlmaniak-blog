@@ -1,0 +1,25 @@
+
+{{ define "title" }}{{ .Title }}{{ end }}
+{{ define "main" }}
+  <h1>{{ .Title }}</h1>
+  {{ if .Paginator }}
+    {{ range .Paginator.Pages }}
+      <article class="post">
+        <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+        <p class="meta">{{ .Date.Format "2006-01-02" }} · {{ .ReadingTime }} min</p>
+        {{ if .Params.description }}<p>{{ .Params.description }}</p>{{ else }}<p>{{ .Summary }}</p>{{ end }}
+      </article>
+    {{ end }}
+    <div class="pager">
+      {{ template "_internal/pagination.html" . }}
+    </div>
+  {{ else }}
+    {{ range .Pages }}
+      <article class="post">
+        <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+        <p class="meta">{{ .Date.Format "2006-01-02" }} · {{ .ReadingTime }} min</p>
+        <p>{{ .Summary }}</p>
+      </article>
+    {{ end }}
+  {{ end }}
+{{ end }}

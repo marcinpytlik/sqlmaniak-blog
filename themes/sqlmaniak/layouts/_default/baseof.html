@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ block "title" . }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+  {{ if .IsHome }}<meta name="description" content="{{ .Site.Params.description }}">{{ end }}
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/posts/">Posty</a>
+        <a href="/index.xml">RSS</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    {{ block "main" . }}{{ end }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© {{ now.Format "2006" }} {{ .Site.Title }} · Wykonano w Hugo · Hostowane na GitHub Pages</p>
+    </div>
+  </footer>
+</body>
+</html>

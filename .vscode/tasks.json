@@ -1,0 +1,17 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Hugo: dev server",
+      "type": "shell",
+      "command": "hugo server -D",
+      "problemMatcher": []
+    },
+    {
+      "label": "Hugo: build",
+      "type": "shell",
+      "command": "hugo --minify",
+      "problemMatcher": []
+    }
+  ]
+}

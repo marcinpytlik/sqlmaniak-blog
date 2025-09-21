@@ -1,0 +1,23 @@
+
+baseURL = "https://marcinpytlik.github.io/"
+title = "SQL Maniak"
+languageCode = "pl-pl"
+theme = "sqlmaniak"
+enableRobotsTXT = true
+[pagination]
+  pagerSize = 10
+
+[params]
+  author = "Marcin"
+  description = "SQL Server • Monitoring • Grafana/InfluxDB • PowerShell"
+  showReadingTime = true
+
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.highlight]
+    noClasses = false
+    lineNos = true
+    codeFences = true
+    guessSyntax = true
+    tabWidth = 4
