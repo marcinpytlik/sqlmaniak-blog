@@ -21,7 +21,7 @@ enableRobotsTXT = true
 
 [params]
   author = "Marcin"
-  description = "SQL Server • Monitoring • Grafana/InfluxDB • PowerShell"
+  description = "Blog techniczny o SQL Server 2022, monitoringu baz danych, optymalizacji zapytań, Grafanie, InfluxDB oraz PowerShell w codziennej pracy DBA."
   canonicalURL = "https://sqlmaniak.blog/"
 
 [params.featuredScripts]
