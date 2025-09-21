@@ -1,0 +1,23 @@
+
+/* Chroma classes */
+.chroma { background: transparent; }
+.chroma .hl { background-color: rgba(255,255,0,0.08) }
+.chroma .ln { color: #6b7280 }
+.chroma .err { color: #ef4444 }
+/* Keywords */
+.chroma .k, .chroma .kc, .chroma .kd, .chroma .kn, .chroma .kr, .chroma .kt { color: #c084fc; font-weight: 600; }
+/* Strings */
+.chroma .s, .chroma .sa, .chroma .sb, .chroma .sc, .chroma .sd, .chroma .s2, .chroma .sh, .chroma .sx { color: #7dd3fc; }
+/* Names / identifiers */
+.chroma .na, .chroma .nb, .chroma .nc, .chroma .no, .chroma .nd, .chroma .ni { color: #a7f3d0; }
+/* Functions */
+.chroma .nf, .chroma .nx { color: #93c5fd; }
+/* Operators / punctuation */
+.chroma .o, .chroma .ow, .chroma .p { color: #cbd5e1 }
+/* Comments */
+.chroma .c, .chroma .cm, .chroma .c1, .chroma .cs { color: #94a3b8; font-style: italic; }
+/* Light overrides */
+html:not(.theme-dark) .chroma .k { color: #7c3aed }
+html:not(.theme-dark) .chroma .s { color: #0369a1 }
+html:not(.theme-dark) .chroma .nf { color: #1d4ed8 }
+html:not(.theme-dark) .chroma .c { color: #64748b }

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630">
+  <rect width="1200" height="630" fill="#0b0f14"/>
+  <text x="600" y="320" text-anchor="middle" font-family="Verdana, Arial" font-size="64" fill="#e7edf3">SQL Maniak</text>
+  <text x="600" y="380" text-anchor="middle" font-family="Verdana, Arial" font-size="28" fill="#8bd3ff">SQL Server • Monitoring • Grafana/InfluxDB • PowerShell</text>
+</svg>

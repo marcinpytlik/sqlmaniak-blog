@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96">
+  <rect rx="20" width="96" height="96" fill="#111822"/>
+  <g transform="translate(12,18)" fill="none" stroke="#5df2a3" stroke-width="3">
+    <rect x="0" y="0" width="72" height="44" rx="6"/>
+    <path d="M10 54h52"/>
+    <circle cx="18" cy="54" r="3" fill="#5df2a3"/>
+    <circle cx="54" cy="54" r="3" fill="#5df2a3"/>
+  </g>
+  <text x="48" y="56" text-anchor="middle" font-family="Verdana, Arial" font-size="14" fill="#7fd3ff">SQL</text>
+</svg>

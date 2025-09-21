@@ -1,0 +1,1 @@
+Get-Service *SQL* | Sort-Object Status, DisplayName | Format-Table -Auto

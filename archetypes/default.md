@@ -6,12 +6,8 @@ draft: false
 description: ""
 tags: []
 categories: []
+featured: false
+attachments: []
 ---
 
-Treść posta w **Markdown**. Możesz używać bloków kodu:
-
-```sql
-SELECT TOP (10) * FROM sys.databases;
-```
-
-I diagramów ASCII, list, obrazów itd.
+Treść posta w **Markdown**.

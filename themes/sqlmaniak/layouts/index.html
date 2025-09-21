@@ -1,0 +1,49 @@
+
+{{ define "title" }}{{ .Site.Title }}{{ end }}
+{{ define "main" }}
+<section class="hero">
+  <h1>SQL Maniak</h1>
+  <p>SQL Server • Monitoring • Grafana/InfluxDB • PowerShell</p>
+</section>
+
+{{ $featured := where .Site.RegularPages "Params.featured" true }}
+{{ if gt (len $featured) 0 }}
+<section>
+  <h2>Wyróżnione</h2>
+  {{ range first 3 (sort $featured "Date" "desc") }}
+    <article class="post featured">
+      <span class="badge">FEATURED</span>
+      <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+      <p class="meta">{{ .Date.Format "2006-01-02" }} · {{ .ReadingTime }} min</p>
+      {{ if .Params.description }}<p>{{ .Params.description }}</p>{{ else }}<p>{{ .Summary }}</p>{{ end }}
+    </article>
+  {{ end }}
+</section>
+{{ end }}
+
+{{ with .Site.Params.featuredScripts.items }}
+<section>
+  <h2>Polecane skrypty</h2>
+  <div class="featured-scripts">
+    {{ range . }}
+      <a class="chip" href="{{ .url }}">{{ .name }}</a>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
+
+<section>
+  <h2>Najnowsze wpisy</h2>
+  {{ $p := where .Site.RegularPages "Type" "in" (slice "posts") }}
+  {{ range first 10 (sort $p "Date" "desc") }}
+    <article class="post">
+      <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+      <p class="meta">{{ .Date.Format "2006-01-02" }} · {{ .ReadingTime }} min</p>
+      {{ if .Params.description }}<p>{{ .Params.description }}</p>{{ else }}<p>{{ .Summary }}</p>{{ end }}
+      <p class="tags">
+        {{ range .Params.tags }}<a class="chip" href="/tags/{{ . | urlize }}">#{{ . }}</a>{{ end }}
+      </p>
+    </article>
+  {{ end }}
+</section>
+{{ end }}

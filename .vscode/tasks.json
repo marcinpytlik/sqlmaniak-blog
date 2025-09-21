@@ -4,14 +4,12 @@
     {
       "label": "Hugo: dev server",
       "type": "shell",
-      "command": "hugo server -D",
-      "problemMatcher": []
+      "command": "hugo server -D"
     },
     {
       "label": "Hugo: build",
       "type": "shell",
-      "command": "hugo --minify",
-      "problemMatcher": []
+      "command": "hugo --minify"
     }
   ]
 }

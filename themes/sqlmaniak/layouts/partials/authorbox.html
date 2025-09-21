@@ -1,0 +1,9 @@
+
+{{ with .Site.Params.authorProfile }}
+<div class="authorbox post">
+  <strong>{{ .name }}</strong><br>
+  {{ with .linkedin }}<a href="{{ . }}" target="_blank" rel="noopener">LinkedIn</a>{{ end }}
+  {{ if and .linkedin .github }} · {{ end }}
+  {{ with .github }}<a href="{{ . }}" target="_blank" rel="noopener">GitHub</a>{{ end }}
+</div>
+{{ end }}

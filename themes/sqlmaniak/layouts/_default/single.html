@@ -1,13 +1,36 @@
 
 {{ define "title" }}{{ .Title }}{{ end }}
 {{ define "main" }}
-  <article class="post">
+  <article class="post post-single">
     <h1>{{ .Title }}</h1>
     <p class="meta">{{ .Date.Format "2006-01-02" }} · {{ .ReadingTime }} min</p>
+    {{ if .TableOfContents }}
+    <aside class="toc">
+      <h3>Spis treści</h3>
+      {{ .TableOfContents }}
+    </aside>
+    {{ end }}
     <div class="content">
       {{ .Content }}
     </div>
+    {{ partial "attachments.html" . }}
     <hr>
-    <p class="meta">Tagi: {{ range $i, $t := .Params.tags }}{{ if $i }}, {{ end }}<a href="/tags/{{ $t | urlize }}">{{ $t }}</a>{{ end }}</p>
+    <p class="meta">Tagi:
+      {{ range $i, $t := .Params.tags }}
+        {{ if $i }}, {{ end }}<a href="/tags/{{ $t | urlize }}">{{ $t }}</a>
+      {{ end }}
+    </p>
+  {{ partial "authorbox.html" . }}
   </article>
+
+  {{ with .Site.Params.authorProfile }}
+  <div class="author-box">
+    <p><strong>{{ .name }}</strong></p>
+    <p>
+      {{ with .linkedin }}<a href="{{ . }}" target="_blank">LinkedIn</a>{{ end }}
+      {{ if and .linkedin .github }} · {{ end }}
+      {{ with .github }}<a href="{{ . }}" target="_blank">GitHub</a>{{ end }}
+    </p>
+  </div>
+  {{ end }}
 {{ end }}

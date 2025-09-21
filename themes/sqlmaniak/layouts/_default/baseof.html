@@ -1,33 +1,108 @@
 
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl" class="theme-dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ block "title" . }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
-  {{ if .IsHome }}<meta name="description" content="{{ .Site.Params.description }}">{{ end }}
+  <meta name="description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+  <meta property="og:title" content="{{ .Title }} | {{ .Site.Title }}">
+  <meta property="og:description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:image" content="{{ .Site.BaseURL }}images/social-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" href="/index.xml">
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/code.css">
+  <script>
+    (function() {
+      const saved = localStorage.getItem('theme');
+      if(saved === 'light') document.documentElement.classList.remove('theme-dark');
+    })();
+  </script>
+  {{ if eq .Kind "page" }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "{{ .Title | safeJS }}",
+  "description": "{{ with .Description }}{{ . | safeJS }}{{ else }}{{ .Summary | plainify | safeJS }}{{ end }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ .Site.Params.authorProfile.name }}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "SQL Maniak",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ .Site.BaseURL }}images/logo.svg"
+    }
+  },
+  "datePublished": "{{ .PublishDate }}",
+  "dateModified": "{{ .Lastmod }}",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ .Permalink }}"
+  }
+}
+</script>
+{{ end }}
+
 </head>
 <body>
   <header class="site-header">
-    <div class="container">
-      <a class="brand" href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
+    <div class="container header-row">
+      <a class="brand" href="/">
+        <img src="/images/logo.svg" alt="SQL Maniak" width="28" height="28">
+        <span>{{ .Site.Title }}</span>
+      </a>
       <nav>
         <a href="/">Home</a>
         <a href="/posts/">Posty</a>
+        <a href="/tags/">Tagi</a>
+        <a href="/categories/">Kategorie</a>
         <a href="/index.xml">RSS</a>
+        <button id="themeToggle" title="Tryb jasny/ciemny">🌓</button>
       </nav>
     </div>
   </header>
-
   <main class="container">
     {{ block "main" . }}{{ end }}
   </main>
-
   <footer class="site-footer">
     <div class="container">
       <p>© {{ now.Format "2006" }} {{ .Site.Title }} · Wykonano w Hugo · Hostowane na GitHub Pages</p>
     </div>
   </footer>
+  <script>
+    const btn = document.getElementById('themeToggle');
+    if (btn){
+      btn.addEventListener('click', () => {
+        const dark = document.documentElement.classList.toggle('theme-dark');
+        localStorage.setItem('theme', dark ? 'dark' : 'light');
+      });
+    }
+  </script>
+
+<script>
+document.querySelectorAll('pre').forEach((pre) => {
+  const btn = document.createElement('button');
+  btn.innerText = 'Kopiuj';
+  btn.className = 'copy-btn';
+  btn.addEventListener('click', () => {
+    const code = pre.innerText;
+    navigator.clipboard.writeText(code).then(() => {
+      btn.innerText = 'Skopiowano!';
+      setTimeout(()=>btn.innerText='Kopiuj',1500);
+    });
+  });
+  pre.appendChild(btn);
+});
+</script>
+
+  <script src="/js/copy.js"></script>
 </body>
 </html>

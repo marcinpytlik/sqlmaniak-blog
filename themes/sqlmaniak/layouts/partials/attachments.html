@@ -1,0 +1,14 @@
+
+{{ with .Params.attachments }}
+<div class="attachments">
+  <h3>Pliki do pobrania</h3>
+  <ul>
+  {{ range . }}
+    <li>
+      <a href="{{ .url }}">{{ .name }}</a>
+      {{ with .desc }} — <span class="meta">{{ . }}</span>{{ end }}
+    </li>
+  {{ end }}
+  </ul>
+</div>
+{{ end }}
