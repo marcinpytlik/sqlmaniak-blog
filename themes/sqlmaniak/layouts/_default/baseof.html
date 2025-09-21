@@ -1,55 +1,75 @@
-
 <!DOCTYPE html>
 <html lang="pl" class="theme-dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>{{ block "title" . }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+
+  <!-- Canonical -->
+  <link rel="canonical" href="{{ .Permalink }}" />
+
+  <!-- Meta description -->
   <meta name="description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
-  <meta property="og:title" content="{{ .Title }} | {{ .Site.Title }}">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="{{ if .Title }}{{ .Title }} | {{ .Site.Title }}{{ else }}{{ .Site.Title }}{{ end }}">
   <meta property="og:description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{ .Permalink }}">
-  <meta property="og:image" content="{{ .Site.BaseURL }}images/social-card.png">
+  <meta property="og:image" content="{{ .Site.BaseURL }}images/og-image.png">
+
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ if .Title }}{{ .Title }} | {{ .Site.Title }}{{ else }}{{ .Site.Title }}{{ end }}">
+  <meta name="twitter:description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+  <meta name="twitter:image" content="{{ .Site.BaseURL }}images/og-image.png">
+
+  <!-- SEO basics -->
+  <meta name="author" content="{{ .Site.Params.authorProfile.name }}">
+  <meta name="keywords" content="SQL Server, Monitoring, PowerShell, Grafana, InfluxDB, DBA, performance tuning">
+
   <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
   <link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" href="/index.xml">
+
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/code.css">
+
   <script>
     (function() {
       const saved = localStorage.getItem('theme');
       if(saved === 'light') document.documentElement.classList.remove('theme-dark');
     })();
   </script>
+
   {{ if eq .Kind "page" }}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "{{ .Title | safeJS }}",
-  "description": "{{ with .Description }}{{ . | safeJS }}{{ else }}{{ .Summary | plainify | safeJS }}{{ end }}",
-  "author": {
-    "@type": "Person",
-    "name": "{{ .Site.Params.authorProfile.name }}"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "SQL Maniak",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "{{ .Site.BaseURL }}images/logo.svg"
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "{{ .Title | safeJS }}",
+    "description": "{{ with .Description }}{{ . | safeJS }}{{ else }}{{ .Summary | plainify | safeJS }}{{ end }}",
+    "author": {
+      "@type": "Person",
+      "name": "{{ .Site.Params.authorProfile.name }}"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "SQL Maniak",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{ .Site.BaseURL }}images/logo.svg"
+      }
+    },
+    "datePublished": "{{ .PublishDate }}",
+    "dateModified": "{{ .Lastmod }}",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "{{ .Permalink }}"
     }
-  },
-  "datePublished": "{{ .PublishDate }}",
-  "dateModified": "{{ .Lastmod }}",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "{{ .Permalink }}"
   }
-}
-</script>
-{{ end }}
+  </script>
+  {{ end }}
 
 </head>
 <body>
@@ -90,21 +110,21 @@
     }
   </script>
 
-<script>
-document.querySelectorAll('pre').forEach((pre) => {
-  const btn = document.createElement('button');
-  btn.innerText = 'Kopiuj';
-  btn.className = 'copy-btn';
-  btn.addEventListener('click', () => {
-    const code = pre.innerText;
-    navigator.clipboard.writeText(code).then(() => {
-      btn.innerText = 'Skopiowano!';
-      setTimeout(()=>btn.innerText='Kopiuj',1500);
+  <script>
+  document.querySelectorAll('pre').forEach((pre) => {
+    const btn = document.createElement('button');
+    btn.innerText = 'Kopiuj';
+    btn.className = 'copy-btn';
+    btn.addEventListener('click', () => {
+      const code = pre.innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.innerText = 'Skopiowano!';
+        setTimeout(()=>btn.innerText='Kopiuj',1500);
+      });
     });
+    pre.appendChild(btn);
   });
-  pre.appendChild(btn);
-});
-</script>
+  </script>
 
   <script src="/js/copy.js"></script>
 </body>
