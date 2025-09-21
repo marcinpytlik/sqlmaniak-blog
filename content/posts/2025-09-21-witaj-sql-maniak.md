@@ -2,7 +2,7 @@
 ---
 title: "Witaj, SQL Maniak!"
 date: 2025-09-21
-draft: false
+draft: true
 description: "Start bloga technicznego o SQL Server, monitoringu i DevOps."
 tags: ["SQL Server", "Monitoring", "Grafana", "InfluxDB", "PowerShell"]
 categories: ["Start"]
