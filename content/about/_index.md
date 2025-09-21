@@ -18,6 +18,7 @@ Uwielbiam monitoring (Grafana + InfluxDB + Telegraf), automatyzację PowerShelle
 - 🔧 Prod i lab: Windows Server 2022, SQL Server 2022 Developer, Docker Desktop  
 - 📊 Monitoring: InfluxDB 2.x, Telegraf, Grafana  
 - 🧰 Narzędzia: VS Code, PowerShell, GitHub Actions  
+  
 
 ### Linki
 - 📧 [kontakt@sqlmaniak.blog](mailto:marcin.pytlik@pracowniait.com)  
