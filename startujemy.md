@@ -1,6 +1,6 @@
 ---
 title: "Startujemy 14 października!"
-date: 2025-10-14T08:00:00+02:00
+date: 2025-09-21T08:00:00+02:00
 description: "Rusza blog SQL Maniak! Od 14 października będę publikował techniczne artykuły o SQL Server, monitoringu, Grafanie, InfluxDB i PowerShell."
 tags: ["SQL Server","Monitoring","Grafana","PowerShell","DevOps"]
 categories: ["Ogłoszenia"]
