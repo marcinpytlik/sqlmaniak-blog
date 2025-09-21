@@ -34,16 +34,30 @@
 
 <section>
   <h2>Najnowsze wpisy</h2>
-  {{ $p := where .Site.RegularPages "Type" "in" (slice "posts") }}
-  {{ range first 10 (sort $p "Date" "desc") }}
+  {{/* 1) Zbierz wpisy z sekcji posts */}}
+  {{ $posts := where .Site.RegularPages "Section" "posts" }}
+
+  {{/* 2) Jeśli coś poszło nie tak, obejmij też typy 'post'/'posts' */}}
+  {{ if not (gt (len $posts) 0) }}
+    {{ $posts = where .Site.RegularPages "Type" "in" (slice "post" "posts") }}
+  {{ end }}
+
+  {{ range first 10 (sort $posts "Date" "desc") }}
     <article class="post">
       <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
       <p class="meta">{{ .Date.Format "2006-01-02" }} · {{ .ReadingTime }} min</p>
-      {{ if .Params.description }}<p>{{ .Params.description }}</p>{{ else }}<p>{{ .Summary }}</p>{{ end }}
+      {{ if .Params.description }}
+        <p>{{ .Params.description }}</p>
+      {{ else }}
+        <p>{{ .Summary | plainify | truncate 180 }}</p>
+      {{ end }}
       <p class="tags">
-        {{ range .Params.tags }}<a class="chip" href="/tags/{{ . | urlize }}">#{{ . }}</a>{{ end }}
+        {{ range .Params.tags }}
+          <a class="chip" href="/tags/{{ . | urlize }}">#{{ . }}</a>
+        {{ end }}
       </p>
     </article>
   {{ end }}
 </section>
+
 {{ end }}
