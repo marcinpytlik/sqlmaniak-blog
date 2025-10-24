@@ -99,7 +99,7 @@ Warto je mieć w planie DR jako **operację punktową**, np.:
 > — *inspiracja: William James*
 
 📚 **Do repo:**  
-[SQLManiak/docs/PageRestore](https://github.com/marcinpytlik/SQLManiak/tree/master/docs/PageRestore)
+[SQLManiak/docs/PageRestore](https://github.com/marcinpytlik/SQLManiak/tree/master/docs/PageRestore.sql)
 
 ### 🧩 Checklista:
 - [ ] Tryb FULL / BULK_LOGGED  
