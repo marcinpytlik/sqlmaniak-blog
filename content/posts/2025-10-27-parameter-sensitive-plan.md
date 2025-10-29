@@ -16,7 +16,7 @@ Przy każdym wywołaniu optymalizator używa **dispatcher’a**, który dobiera 
 - 1 `query_id` → wiele `plan_id`
 - Query Store zapisuje warianty (łatwo je analizować)
 - Runtime wybiera plan na podstawie „bucketów” selektywności
-📂 Repo: [SQLManiak/QueryStore-Labs](https://github.com/marcinpytlik/SQLManiak/tree/master/sqlmaniak_blog/PSP-DEMO)
+📂 Repo: [PSP](https://github.com/marcinpytlik/SQLManiak/tree/master/sqlmaniak_blog/PSP-DEMO)
 
 ## ⚙️ Jak uruchomić demo
 1. Otwórz repo w VS Code

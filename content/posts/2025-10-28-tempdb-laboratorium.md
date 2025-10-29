@@ -63,5 +63,5 @@ Podczas testu śledź DMV i perfmon.
 ```sql
 SELECT * FROM sys.dm_os_waiting_tasks WHERE wait_type LIKE 'PAGELATCH_%' AND resource_description LIKE '2:%';
 ```
-📂 Repo: [SQLManiak/QueryStore-Labs](https://github.com/marcinpytlik/SQLManiak/tree/master/sqlmaniak_blog/TEMP_DB)
+📂 Repo: [TempDB](https://github.com/marcinpytlik/SQLManiak/tree/master/sqlmaniak_blog/TEMP_DB)
 > „Nie ma kreatywności bez kontrolowanego chaosu.” — inspiracja: Feynman
