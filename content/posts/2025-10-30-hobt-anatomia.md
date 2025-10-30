@@ -5,46 +5,69 @@ slug: hobt-anatomia
 tags: [SQLServer, Internals, Indexes, HOBT, Storage]
 draft: false
 ---
-Dane w SQL Serverze nie leżą luzem. Tworzą drzewa, a ich gałęzie prowadzą do stron danych.
-HOBT (Heap Or B-Tree) to jednostka składowania stojąca za każdym indeksem B-tree i za każdą tabelą heap (bez klastrowanego). To „szkielet” porządku i adresowania danych — od korzenia (root), przez poziomy pośrednie, aż po liście (leaf).
 
-„Struktura jest formą istnienia porządku.” — SQLManiak
+Dane w SQL Serverze nie leżą luzem. Tworzą drzewa, a ich gałęzie prowadzą do stron danych.  
+**HOBT (Heap Or B-Tree)** to jednostka składowania stojąca za każdym indeksem B-tree i za każdą tabelą heap (bez klastrowanego).  
+To „szkielet” porządku i adresowania danych — od korzenia (*root*), przez poziomy pośrednie, aż po liście (*leaf*).
 
-Co to jest HOBT w praktyce?
+> „Struktura jest formą istnienia porządku.” — SQLManiak
 
-Każda partycja indeksu lub heap’a = jeden HOBT.
+---
+
+## 🧩 Co to jest HOBT w praktyce?
+
+Każda partycja indeksu lub heap’a = **jeden HOBT**  
 (tabela 1-partycja i 3 indeksy ⇒ 4 HOBT; tabela 4-partycje i 2 indeksy ⇒ 8 HOBT).
 
-HOBT ≠ indeks jako obiekt — to fizyczne drzewo/układ stron i przydziałów dla danej partycji indeksu/heap’a.
+**HOBT ≠ indeks** jako obiekt — to fizyczne drzewo/układ stron i przydziałów dla danej partycji indeksu/heap’a.
 
-Identyfikator HOBT: hobt_id (stabilny w czasie istnienia, ale może się zmienić po niektórych operacjach odbudowy/przebudowy).
+🆔 **Identyfikator HOBT:** `hobt_id` — stabilny w czasie istnienia, ale może się zmienić po niektórych operacjach odbudowy/przebudowy.
 
-HOBT a jednostki przydziału (Allocation Units)
+---
 
-Każdy HOBT może mieć do 3 allocation units:
+## 📦 HOBT a jednostki przydziału (Allocation Units)
 
-IN_ROW_DATA – wiersze mieszczące się w 8 KB strony,
+Każdy HOBT może mieć do **3 allocation units:**
 
-ROW_OVERFLOW_DATA – dane przepełnione (kolumny VARCHAR/NVARCHAR/VARBINARY przekraczające limit wiersza),
+- **IN_ROW_DATA** – wiersze mieszczące się w 8 KB strony,  
+- **ROW_OVERFLOW_DATA** – dane przepełnione (kolumny `VARCHAR`/`NVARCHAR`/`VARBINARY` przekraczające limit wiersza),  
+- **LOB_DATA** – obiekty LOB (`XML`, `(N)TEXT*`, `VARBINARY(MAX)` itp.).
 
-LOB_DATA – obiekty LOB (XML, (N)TEXT*, VARBINARY(MAX), itp.).
+📎 Powiązanie:  
+`sys.allocation_units.container_id = sys.partitions.hobt_id`
 
-Powiązanie: sys.allocation_units.container_id = sys.partitions.hobt_id.
+---
 
-Heapy vs B-tree — co się różni?
+## 🌲 Heapy vs B-tree — co się różni?
 
-Heap: brak klucza klastra, liściem są strony danych NIEPOSORTOWANE logicznie; możliwe „forwarded records” (przekierowania) przy aktualizacjach zwiększających rozmiar wiersza.
+**Heap:**  
+- brak klucza klastra,  
+- liściem są strony danych **nieposortowane logicznie**,  
+- możliwe *forwarded records* (przekierowania) przy aktualizacjach zwiększających rozmiar wiersza.
 
-B-tree (index): uporządkowana struktura; liść klastrowanego indeksu = strony danych tabeli; liść nieklastrowanego = strony z kluczami + wskaźniki (RID lub klucz klastra).
+**B-tree (index):**  
+- uporządkowana struktura,  
+- liść klastrowanego indeksu = strony danych tabeli,  
+- liść nieklastrowanego = strony z kluczami + wskaźniki (`RID` lub klucz klastra).
 
-Mapka stron i metadane
+---
 
-Metadane i mapy: PFS (Page Free Space), GAM/SGAM (alokacje extentów), IAM (Index Allocation Map) spinają HOBT z przydzielonymi stronami.
+## 🗺️ Mapka stron i metadane
 
-Diagnostyka drzewa: sys.dm_db_index_physical_stats (poziomy, fragmentacja, forwarded), sys.dm_db_database_page_allocations (szczegóły alokacji, nieudokumentowane), DBCC PAGE/IND (głębokie nurkowanie — nieudokumentowane).
+**Metadane i mapy:**  
+`PFS` (Page Free Space), `GAM`/`SGAM` (alokacje extentów), `IAM` (Index Allocation Map) — spinają HOBT z przydzielonymi stronami.
 
-🔍 Szybkie DMV: HOBT w Twojej bazie
--- Przegląd HOBT-ów: tabela/indeks/partycja → HOBT → allocation units
+**Diagnostyka drzewa:**
+- `sys.dm_db_index_physical_stats` – poziomy, fragmentacja, forwarded,
+- `sys.dm_db_database_page_allocations` – szczegóły alokacji (nieudokumentowane),
+- `DBCC PAGE/IND` – głębokie nurkowanie (nieudokumentowane).
+
+---
+
+## 🔍 Szybkie DMV: HOBT w Twojej bazie
+
+### 📘 Przegląd HOBT-ów
+```sql
 SELECT
   o.name              AS ObjectName,
   i.name              AS IndexName,
@@ -60,9 +83,12 @@ LEFT JOIN sys.indexes   AS i  ON i.object_id = p.object_id AND i.index_id = p.in
 LEFT JOIN sys.allocation_units AS au ON au.container_id = p.hobt_id
 WHERE o.type = 'U'
 ORDER BY ObjectName, IndexName, partition_number, AU_Type;
+```
 
-Poziomy drzewa i statystyki fizyczne
--- Poziomy B-tree, liczba stron, forwarded records (dla heapów)
+---
+
+### 📊 Poziomy drzewa i statystyki fizyczne
+```sql
 SELECT
   OBJECT_NAME(ips.object_id) AS ObjectName,
   ips.index_id,
@@ -74,23 +100,33 @@ SELECT
   ips.forwarded_record_count
 FROM sys.dm_db_index_physical_stats(DB_ID(), NULL, NULL, NULL, 'DETAILED') AS ips
 ORDER BY ObjectName, index_id, index_level DESC;
+```
 
-Które heapy mają przekierowane wiersze?
+---
+
+### 🔦 Które heapy mają przekierowane wiersze?
+```sql
 SELECT
   OBJECT_NAME(object_id) AS HeapName,
   forwarded_record_count
 FROM sys.dm_db_index_physical_stats(DB_ID(), NULL, 0, NULL, 'SAMPLED')
-WHERE index_id = 0                      -- heap
+WHERE index_id = 0
   AND forwarded_record_count > 0
 ORDER BY forwarded_record_count DESC;
+```
 
-🧪 Lab: zobacz HOBT w działaniu (kopiuj-wklej)
+---
+
+## 🧪 Lab: zobacz HOBT w działaniu (kopiuj–wklej)
+
+```sql
 USE tempdb;
 GO
+
 IF OBJECT_ID('dbo.HobtDemo') IS NOT NULL DROP TABLE dbo.HobtDemo;
 GO
 
--- 1) Start: HEAP
+-- 1️⃣ Start: HEAP
 CREATE TABLE dbo.HobtDemo
 (
   Id       INT IDENTITY(1,1) NOT NULL,
@@ -110,7 +146,7 @@ JOIN sys.allocation_units au ON au.container_id = p.hobt_id
 WHERE p.object_id = OBJECT_ID('dbo.HobtDemo')
 ORDER BY au.type_desc;
 
--- 2) Dodaj indeks nieklastrowany (drugi HOBT)
+-- 2️⃣ Dodaj indeks nieklastrowany (drugi HOBT)
 CREATE INDEX IX_HobtDemo_K1 ON dbo.HobtDemo(K1);
 
 SELECT i.name, i.index_id, p.hobt_id
@@ -119,7 +155,7 @@ JOIN sys.partitions p ON p.object_id = i.object_id AND p.index_id = i.index_id
 WHERE i.object_id = OBJECT_ID('dbo.HobtDemo')
 ORDER BY i.index_id;
 
--- 3) Zamień na indeks klastrowany (heap → B-tree) – zmienia się układ HOBT
+-- 3️⃣ Zamień na indeks klastrowany (heap → B-tree)
 CREATE CLUSTERED INDEX CX_HobtDemo_Id ON dbo.HobtDemo(Id);
 
 SELECT i.name, i.index_id, p.hobt_id
@@ -128,76 +164,70 @@ JOIN sys.partitions p ON p.object_id = i.object_id AND p.index_id = i.index_id
 WHERE i.object_id = OBJECT_ID('dbo.HobtDemo')
 ORDER BY i.index_id;
 
--- 4) Poziomy drzewa po zmianie
+-- 4️⃣ Poziomy drzewa po zmianie
 SELECT ips.index_type_desc, ips.index_level, ips.page_count, ips.record_count
 FROM sys.dm_db_index_physical_stats(DB_ID(), OBJECT_ID('dbo.HobtDemo'), NULL, NULL, 'DETAILED') ips
 ORDER BY index_level DESC;
+```
 
+> 🔎 Po przejściu z heap’a na indeks klastrowany układ stron i identyfikatory mogą się zmienić (`hobt_id`). To normalne.
 
-🔎 Uwaga: po przejściu z heap’a na indeks klastrowany układ stron i identyfikatory mogą się zmienić (w tym hobt_id). To normalne.
+---
 
-🧭 Lokalizacja fizyczna wiersza (RID/klucz klastra)
+## 🧭 Lokalizacja fizyczna wiersza (RID / klucz klastra)
 
-Czasem chcesz „dotknąć” konkretnej strony. Pomagają pseudokolumny i funkcje:
-
--- Gdzie leży dany wiersz? (potrzebne uprawnienia VIEW SERVER STATE)
+```sql
 SELECT TOP (10)
   %%physloc%% AS FilePageSlot,
   sys.fn_PhysLocFormatter(%%physloc%%) AS Formatted,
   *
 FROM dbo.HobtDemo
 ORDER BY Id;
+```
 
+A jeśli chcesz iść głębiej (na labie, **ostrożnie w prod**):
 
-A jeśli chcesz iść głębiej (dla labu, ostrożnie w prod):
-
--- NIEUDOKUMENTOWANE: czytaj strony (wymaga TF 3604)
+```sql
 DBCC TRACEON(3604);
 -- DBCC PAGE (db_id, file_id, page_id, printopt)
--- DBCC IND pokazuje listę stron dla obiektu
 -- DBCC IND (DB_ID(), 'dbo.HobtDemo', 1);
+```
 
-Typowe „zapachy” i szybkie remedia
-1) Heap z forwarded records
+---
 
-Objaw: forwarded_record_count > 0
+## 🚨 Typowe „zapachy” i szybkie remedia
 
-Skutek: dodatkowe skoki stron = gorsze I/O
+### 1️⃣ Heap z forwarded records
+- Objaw: `forwarded_record_count > 0`
+- Skutek: dodatkowe skoki stron = gorsze I/O  
+- Remedium: przebudowa do klastrowanego, `ALTER TABLE ... REBUILD` lub zaprojektowanie klucza klastra.
 
-Remedium: przebuduj do klastrowanego (jeśli to ma sens), ewentualnie ALTER TABLE ... REBUILD/ALTER INDEX ... REBUILD lub zaprojektuj docelowy klucz klastra.
+### 2️⃣ Zbyt głębokie drzewo
+- Objaw: `index_level` wysoki, `page_count` duży  
+- Skutek: więcej odczytów pośrednich  
+- Remedium: przegląd klucza, `fillfactor`, partycjonowanie, kompresja stron.
 
-2) Zbyt głębokie drzewo (dużo poziomów)
+### 3️⃣ Nadmiar ROW_OVERFLOW / LOB
+- Objaw: duże `ROW_OVERFLOW_DATA` / `LOB_DATA` w `sys.allocation_units`  
+- Skutek: dodatkowe skoki przy odczycie  
+- Remedium: skrócenie kolumn, separacja rzadko używanych, kompresja.
 
-Objaw: index_level wysoki, page_count duży
+---
 
-Skutek: więcej odczytów pośrednich
+## 🧰 Checklista DBA (HOBT-aware)
 
-Remedium: przegląd klucza (szerokość i selektywność), fillfactor, partycjonowanie, kompresja stron/wierszy.
+- Inwentaryzacja HOBT (`sys.partitions` + `sys.allocation_units`)  
+- Poziomy i fragmentacja (`sys.dm_db_index_physical_stats`)  
+- Heapy z przekierowaniami — szybka lista do przebudowy  
+- Rozmiary AU (`IN_ROW_DATA` / `ROW_OVERFLOW_DATA` / `LOB_DATA`)  
+- Plan przebudów (`REBUILD` / `REORGANIZE`)  
+- Monitoring w Grafanie: metryki `page_count`, `forwarded`, `avg_page_space`
 
-3) Nadmiar ROW_OVERFLOW/LOB
+---
 
-Objaw: duże ROW_OVERFLOW_DATA/LOB_DATA w sys.allocation_units
+## 🧩 Przykładowy widok: `dbo.vHobtHealth`
 
-Skutek: dodatkowe skoki przy odczycie wiersza
-
-Remedium: projekt kolumn (np. krótsze NVARCHAR, separacja kolumn rzadko używanych, archiwizacja), ewentualnie kompresja.
-
-🧰 Checklista DBA (HOBT-aware)
-
-Inwentaryzacja HOBT (DMV sys.partitions + sys.allocation_units).
-
-Poziomy i fragmentacja (sys.dm_db_index_physical_stats).
-
-Heapy z przekierowaniami — szybka lista do przebudowy.
-
-Rozmiary AU (IN_ROW_DATA/ROW_OVERFLOW_DATA/LOB_DATA).
-
-Plan przebudów (REBUILD/REORGANIZE, zmiana klucza klastra, partycje).
-
-Monitoring: dorzuć metryki z DMV do Twojej Grafany (page_count, forwarded, avg_page_space).
-
-Przykładowy „pakiet metryk” do widoku:
-
+```sql
 CREATE OR ALTER VIEW dbo.vHobtHealth AS
 SELECT
   DB_NAME()                         AS DbName,
@@ -220,29 +250,33 @@ LEFT JOIN sys.indexes i ON i.object_id = p.object_id AND i.index_id = p.index_id
 OUTER APPLY (SELECT SUM(total_pages) AS total_pages FROM sys.allocation_units WHERE container_id = p.hobt_id AND type_desc='IN_ROW_DATA') au_in
 OUTER APPLY (SELECT SUM(total_pages) AS total_pages FROM sys.allocation_units WHERE container_id = p.hobt_id AND type_desc='ROW_OVERFLOW_DATA') au_ro
 OUTER APPLY (SELECT SUM(total_pages) AS total_pages FROM sys.allocation_units WHERE container_id = p.hobt_id AND type_desc='LOB_DATA') au_lob
-OUTER APPLY (SELECT TOP (1) * 
-  FROM sys.dm_db_index_physical_stats(DB_ID(), p.object_id, p.index_id, p.partition_number, 'SAMPLED') 
+OUTER APPLY (SELECT TOP (1) *
+  FROM sys.dm_db_index_physical_stats(DB_ID(), p.object_id, p.index_id, p.partition_number, 'SAMPLED')
 ) ips;
 GO
+```
 
-Podsumowanie
+---
 
-HOBT to punkt, w którym logika indeksu spotyka się z fizyką stron. Rozumiejąc hobt_id i powiązane allocation units:
+## 🧭 Podsumowanie
 
-wiesz, gdzie Twoje wiersze naprawdę żyją,
+**HOBT** to punkt, w którym **logika indeksu spotyka się z fizyką stron**.  
+Rozumiejąc `hobt_id` i powiązane allocation units:
 
-potrafisz diagnozować forwarded records, głębokość drzewa i fragmentację,
+- wiesz, gdzie Twoje wiersze naprawdę żyją,  
+- potrafisz diagnozować *forwarded records*, głębokość drzewa i fragmentację,  
+- projektujesz klucze klastrowane i partycje świadomie.
 
-projektujesz klucze klastrowane i partycje świadomie, a nie „na czuja”.
+---
 
-🔧 TL;DR – narzędziówka
+## 🔧 TL;DR – narzędziówka
 
-sys.partitions.hobt_id ⇄ sys.allocation_units.container_id
+| Cel | DMV / Funkcja |
+|------|----------------|
+| Powiązanie stron | `sys.partitions.hobt_id ⇄ sys.allocation_units.container_id` |
+| Statystyki fizyczne | `sys.dm_db_index_physical_stats` |
+| Alokacje stron | `sys.dm_db_database_page_allocations` |
+| Lokalizacja wiersza | `%%physloc%%`, `fn_PhysLocFormatter` |
+| Diagnostyka stron (lab) | `DBCC IND`, `DBCC PAGE` |
 
-sys.dm_db_index_physical_stats — poziomy, fragmentacja, forwarded
-
-sys.dm_db_database_page_allocations — alokacje stron (deep dive)
-
-%%physloc%%, fn_PhysLocFormatter — lokalizacja wiersza
-
-(opcjonalnie) DBCC IND/PAGE — diagnostyka stron (na labie)
+---
