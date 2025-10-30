@@ -1,9 +1,10 @@
+---
 title: "HOBT – hierarchia porządku danych"
 date: 2025-10-30
 slug: hobt-anatomia
 tags: [SQLServer, Internals, Indexes, HOBT, Storage]
 draft: false
-
+---
 Dane w SQL Serverze nie leżą luzem. Tworzą drzewa, a ich gałęzie prowadzą do stron danych.
 HOBT (Heap Or B-Tree) to jednostka składowania stojąca za każdym indeksem B-tree i za każdą tabelą heap (bez klastrowanego). To „szkielet” porządku i adresowania danych — od korzenia (root), przez poziomy pośrednie, aż po liście (leaf).
 
