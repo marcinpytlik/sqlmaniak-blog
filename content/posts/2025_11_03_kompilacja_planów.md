@@ -1,6 +1,6 @@
 ---
 title: "Kiedy SQL Server kompiluje nowy plan zapytania?"
-date: 2025-11-05
+date: 2025-11-03
 slug: kompilacja-planow
 tags: [SQLServer, Internals, QueryOptimizer, PlanCache]
 draft: false
