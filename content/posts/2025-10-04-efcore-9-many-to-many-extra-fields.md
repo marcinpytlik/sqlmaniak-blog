@@ -6,7 +6,6 @@ draft: false
 description: "Prosty przykład many‑to‑many z tabelą łącznikową, która ma własne kolumny (Grade, EnrolledDate) i walidację po stronie UI."
 tags: ["EF Core", "C# .NET 9", "Razor Pages", "Relacje", "ORM"]
 author: "Marcin Pytlik | SQLManiak"
-lang: "pl"
 banner: "/images/efcore-9-many-to-many-extra-fields.png"
 canonical: "https://sqlmaniak.blog/efcore-9-many-to-many-extra-fields"
 ---

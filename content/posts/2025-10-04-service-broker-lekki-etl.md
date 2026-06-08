@@ -6,7 +6,6 @@ draft: false
 description: "Projektowanie asynchronicznego zasilania raportów: po wstawieniu faktury komunikat trafia do kolejki i w tle aktualizuje tabelę faktów."
 tags: ["SQL Server", "Service Broker", "ETL", "Asynchroniczność", "Reporting"]
 author: "Marcin Pytlik | SQLManiak"
-lang: "pl"
 banner: "/images/service-broker-lekki-etl.png"
 canonical: "https://sqlmaniak.blog/service-broker-lekki-etl"
 ---

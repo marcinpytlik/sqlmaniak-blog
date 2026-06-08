@@ -6,7 +6,6 @@ draft: false
 description: "Zbieramy metryki IIS (requests/sec, queue length, HTTP 500) i logi z access.log do InfluxDB 2.x z użyciem Telegrafa."
 tags: ["IIS", "Monitoring", "Grafana", "InfluxDB", "Windows"]
 author: "Marcin Pytlik | SQLManiak"
-lang: "pl"
 banner: "/images/iis-monitoring-grafana-windows.png"
 canonical: "https://sqlmaniak.blog/iis-monitoring-grafana-windows"
 ---

@@ -6,7 +6,6 @@ draft: false
 description: "Masz wrażenie, że SHRINKFILE na pliku log nic nie daje? Tu jest kompletna mapa pułapek: VLF, otwarte transakcje, brak backupów logu i nieuśpione replikacje."
 tags: ["SQL Server", "Transaction Log", "VLF", "Backup", "DBA"]
 author: "Marcin Pytlik | SQLManiak"
-lang: "pl"
 banner: "/images/dlaczego-log-nie-maleje-po-shrink.png"
 canonical: "https://sqlmaniak.blog/dlaczego-log-nie-maleje-po-shrink"
 ---

@@ -6,7 +6,6 @@ draft: false
 description: "Praktyczny przewodnik po PSP: jak zobaczyć trzy plany dla różnych zakresów parametrów, jak je stabilizować i jak diagnozować regresje w Query Store."
 tags: ["SQL Server", "Query Store", "PSP", "Performance", "Tuning"]
 author: "Marcin Pytlik | SQLManiak"
-lang: "pl"
 banner: "/images/query-store-i-psp-w-praktyce.png"
 canonical: "https://sqlmaniak.blog/query-store-i-psp-w-praktyce"
 ---

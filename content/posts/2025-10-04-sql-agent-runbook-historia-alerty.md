@@ -6,7 +6,6 @@ draft: false
 description: "Krótkie i skuteczne: jak wydłużyć historię zadań, sprzątać ją automatycznie, oraz zakładać alerty i operatorów bez klikania."
 tags: ["SQL Server", "SQL Agent", "Runbook", "Monitoring", "DBA"]
 author: "Marcin Pytlik | SQLManiak"
-lang: "pl"
 banner: "/images/sql-agent-runbook-historia-alerty.png"
 canonical: "https://sqlmaniak.blog/sql-agent-runbook-historia-alerty"
 ---

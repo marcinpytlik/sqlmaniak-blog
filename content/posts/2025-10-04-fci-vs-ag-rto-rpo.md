@@ -6,7 +6,6 @@ draft: false
 description: "Porównanie w praktyce: kiedy FCI, kiedy AG, i jak policzyć RTO/RPO bez zgadywania. Proste scenariusze decyzyjne."
 tags: ["SQL Server", "FCI", "AlwaysOn AG", "HA/DR", "Architecture"]
 author: "Marcin Pytlik | SQLManiak"
-lang: "pl"
 banner: "/images/fci-vs-ag-rto-rpo.png"
 canonical: "https://sqlmaniak.blog/fci-vs-ag-rto-rpo"
 ---

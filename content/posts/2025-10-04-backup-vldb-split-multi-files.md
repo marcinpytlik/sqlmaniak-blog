@@ -6,7 +6,6 @@ draft: false
 description: "Praktyczna strategia backupu/restore dla bardzo dużych baz: striped backup, kompresja, MAXTRANSFERSIZE, BUFFERCOUT."
 tags: ["SQL Server", "Backup", "VLDB", "Restore", "Storage"]
 author: "Marcin Pytlik | SQLManiak"
-lang: "pl"
 banner: "/images/backup-vldb-split-multi-files.png"
 canonical: "https://sqlmaniak.blog/backup-vldb-split-multi-files"
 ---

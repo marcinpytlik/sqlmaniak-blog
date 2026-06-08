@@ -6,7 +6,6 @@ draft: false
 description: "Krok po kroku: włączenie audytu na kolekcji witryn, konfiguracja Document ID, PowerShell do hurtowych działań i weryfikacja."
 tags: ["SharePoint 2016", "Audyt", "Document ID", "PowerShell", "Governance"]
 author: "Marcin Pytlik | SQLManiak"
-lang: "pl"
 banner: "/images/sharepoint-2016-audyt-document-id.png"
 canonical: "https://sqlmaniak.blog/sharepoint-2016-audyt-document-id"
 ---

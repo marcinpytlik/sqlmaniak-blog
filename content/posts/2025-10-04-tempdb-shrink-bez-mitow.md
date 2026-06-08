@@ -6,7 +6,6 @@ draft: false
 description: "Jak diagnozować rozrost tempdb i bezpiecznie ją przyciąć – krok po kroku, z gotowymi skryptami i checklistą weryfikacji."
 tags: ["SQL Server", "tempdb", "Performance", "DBA", "Runbook"]
 author: "Marcin Pytlik | SQLManiak"
-lang: "pl"
 banner: "/images/tempdb-shrink-bez-mitow.png"
 canonical: "https://sqlmaniak.blog/tempdb-shrink-bez-mitow"
 ---

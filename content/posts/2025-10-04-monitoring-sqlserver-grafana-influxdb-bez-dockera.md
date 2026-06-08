@@ -6,7 +6,6 @@ draft: false
 description: "Instalacja krok po kroku na Windows: InfluxDB 2.x, Telegraf i Grafana, plus gotowe dashboardy i alerty pod SQL Server 2022."
 tags: ["Monitoring", "Grafana", "InfluxDB", "Telegraf", "SQL Server", "Windows"]
 author: "Marcin Pytlik | SQLManiak"
-lang: "pl"
 banner: "/images/monitoring-sqlserver-grafana-influxdb-bez-dockera.png"
 canonical: "https://sqlmaniak.blog/monitoring-sqlserver-grafana-influxdb-bez-dockera"
 ---

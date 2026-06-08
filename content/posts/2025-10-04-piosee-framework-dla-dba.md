@@ -6,7 +6,6 @@ draft: false
 description: "Praktyczny szablon rozwiązywania incydentów (Problem–Information–Options–Select–Execute–Evaluate) z przykładami dla SQL Server."
 tags: ["DBA", "Incydenty", "Runbook", "PIOSEE", "Productivity"]
 author: "Marcin Pytlik | SQLManiak"
-lang: "pl"
 banner: "/images/piosee-framework-dla-dba.png"
 canonical: "https://sqlmaniak.blog/piosee-framework-dla-dba"
 ---
