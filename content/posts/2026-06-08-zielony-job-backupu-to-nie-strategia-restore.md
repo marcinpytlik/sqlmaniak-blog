@@ -1,6 +1,6 @@
 ---
 title: "SQL Server Backup: zielony job to jeszcze nie strategia odtwarzania"
-date: 2026-06-08T20:00:00+01:00
+date: 2026-06-07T20:00:00+01:00
 slug: sql-server-backup-zielony-job-to-nie-strategia-restore
 description: "Zielony status joba backupu w SQL Server Agent to dopiero początek. Prawdziwa strategia zaczyna się wtedy, gdy umiemy odtworzyć bazę do właściwego punktu w czasie i w akceptowalnym czasie."
 tags: [SQLServer, Backup, Restore, DBA, DisasterRecovery]
