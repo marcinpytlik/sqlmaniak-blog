@@ -1,6 +1,6 @@
 ---
 title: "Centralny rejestr instancji SQL Server — własny mini-CMDB dla DBA"
-date: 2026-09-01T20:00:00+02:00
+date: 2026-09-01
 slug: centralny-rejestr-instancji-sql-server-mini-cmdb
 description: "Jak zbudować centralny rejestr instancji SQL Server przechowujący wersje, środowiska, właścicieli, status monitoringu i historię skanowania."
 tags: [SQLServer, CMDB, DBA, Automation, PowerShell, Inventory]

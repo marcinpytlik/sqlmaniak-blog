@@ -1,6 +1,6 @@
 ---
 title: "Query Store przed zmianą Compatibility Level — jak przygotować bezpieczną migrację?"
-date: 2026-09-29T20:00:00+02:00
+date: 2026-09-29
 slug: query-store-przed-zmiana-compatibility-level
 description: "Jak użyć Query Store do zbudowania baseline przed zmianą Compatibility Level i wykrywania regresji planów zapytań po migracji SQL Server."
 tags: [SQLServer, QueryStore, CompatibilityLevel, Migration, Performance]

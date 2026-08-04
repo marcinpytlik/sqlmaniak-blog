@@ -1,6 +1,6 @@
 ---
 title: "Dlaczego job SQL Server Agent zakończył się błędem? Diagnostyka krok po kroku"
-date: 2026-08-25T20:00:00+02:00
+date: 2026-08-25
 slug: diagnostyka-bledow-sql-server-agent-krok-po-kroku
 description: "Metodyczna diagnostyka błędów jobów SQL Server Agent: historia, pierwszy błędny krok, konto wykonawcze, proxy, harmonogram i logi."
 tags: [SQLServer, SQLServerAgent, Troubleshooting, Jobs, DBA]

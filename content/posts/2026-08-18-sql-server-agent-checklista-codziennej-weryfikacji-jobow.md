@@ -1,6 +1,6 @@
 ---
 title: "SQL Server Agent pod kontrolą — checklista codziennej weryfikacji jobów"
-date: 2026-08-18T20:00:00+02:00
+date: 2026-08-18
 slug: sql-server-agent-checklista-codziennej-weryfikacji-jobow
 description: "Codzienna checklista kontroli jobów SQL Server Agent: błędy, opóźnienia, czas wykonania, wyłączone zadania i brakujące powiadomienia."
 tags: [SQLServer, SQLServerAgent, Jobs, DBA, Monitoring, Checklist]

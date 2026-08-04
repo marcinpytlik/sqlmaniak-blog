@@ -1,6 +1,6 @@
 ---
 title: "Soft Delete w SQL Server i EF Core — wygoda, która może stworzyć problemy"
-date: 2026-09-22T20:00:00+02:00
+date: 2026-09-22
 slug: soft-delete-sql-server-ef-core-problemy
 description: "Soft Delete w SQL Server i EF Core: global query filters, filtrowane indeksy unikalne, audyt, relacje i typowe pułapki."
 tags: [SQLServer, EFCore, SoftDelete, Indexes, DataModeling]

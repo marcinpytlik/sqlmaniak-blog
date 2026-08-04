@@ -1,6 +1,6 @@
 ---
 title: "Migracja SQL Server 2016 do 2022 — czego nie mówi kreator aktualizacji?"
-date: 2026-10-06T20:00:00+02:00
+date: 2026-10-06
 slug: migracja-sql-server-2016-do-2022-ryzyka
 description: "Najważniejsze obszary migracji SQL Server 2016 do 2022: compatibility level, plany wykonania, loginy, joby, SSIS, HA/DR i testy powdrożeniowe."
 tags: [SQLServer, Migration, SQLServer2022, DBA, Upgrade]

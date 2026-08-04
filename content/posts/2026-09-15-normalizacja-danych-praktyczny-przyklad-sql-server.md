@@ -1,6 +1,6 @@
 ---
 title: "Normalizacja danych bez akademickiej teorii — praktyczny przykład w SQL Server"
-date: 2026-09-15T20:00:00+02:00
+date: 2026-09-15
 slug: normalizacja-danych-praktyczny-przyklad-sql-server
 description: "Praktyczny przykład normalizacji modelu danych w SQL Server: od jednej problematycznej tabeli do spójnego modelu relacyjnego."
 tags: [SQLServer, DataModeling, Normalization, DatabaseDesign, DBA]

@@ -1,6 +1,6 @@
 ---
 title: "Jak sprawdzić rzeczywiste wykorzystanie plików danych i logu transakcyjnego?"
-date: 2026-08-11T20:00:00+02:00
+date: 2026-08-11
 slug: jak-sprawdzic-wykorzystanie-plikow-danych-i-logu-sql-server
 description: "Praktyczne zapytania T-SQL pokazujące rozmiar, zajętość i wolne miejsce w plikach danych oraz logu transakcyjnym SQL Server."
 tags: [SQLServer, MDF, NDF, LDF, TransactionLog, DBA, Monitoring]

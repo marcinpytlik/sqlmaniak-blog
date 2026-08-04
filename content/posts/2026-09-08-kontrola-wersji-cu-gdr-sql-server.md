@@ -1,6 +1,6 @@
 ---
 title: "Jak kontrolować wersje, CU i GDR na wielu instancjach SQL Server?"
-date: 2026-09-08T20:00:00+02:00
+date: 2026-09-08
 slug: kontrola-wersji-cu-gdr-sql-server
 description: "Praktyczne podejście do inwentaryzacji buildów SQL Server, rozróżniania CU i GDR oraz planowania patchowania wielu instancji."
 tags: [SQLServer, CU, GDR, Patching, DBA, Security]
