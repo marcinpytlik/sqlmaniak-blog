@@ -1,6 +1,6 @@
 ---
 title: "Autogrowth jest włączony, a plik bazy nadal się nie rozszerza. Jak to możliwe?"
-date: 2026-08-04T20:00:00+02:00
+date: 2026-08-04
 slug: autogrowth-wlaczony-plik-bazy-nie-rozszerza-sql-server
 description: "Autogrowth w SQL Server nie gwarantuje, że plik bazy danych zawsze się rozszerzy. Sprawdź najczęstsze przyczyny, zapytania diagnostyczne i dobre praktyki zarządzania przestrzenią."
 tags: [SQLServer, Autogrowth, MDF, NDF, LDF, DBA, Troubleshooting]
