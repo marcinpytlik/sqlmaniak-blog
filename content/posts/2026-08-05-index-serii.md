@@ -1,6 +1,6 @@
 ---
 title: "Ewolucja schematu SQL Server — seria praktycznych wzorców"
-date: 2026-08-05
+date: 2026-08-05T00:01:00+02:00
 slug: "ewolucja-schematu-sql-server-wzorce"
 description: "Spis serii o bezpiecznej ewolucji schematu: Expand–Contract, Dual Write, Shadow Column, Backfill, widoki zgodności, Parallel Table, Blue-Green i Feature Flags."
 categories: "Relacyjny Renesans"

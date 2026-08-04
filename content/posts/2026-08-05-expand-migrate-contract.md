@@ -1,5 +1,6 @@
 ---
 title: "Expand–Migrate–Contract: jak zmieniać schemat bez zatrzymywania aplikacji"
+date: 2026-08-05T00:01:00+02:00
 slug: "expand-migrate-contract-ewolucja-schematu"
 description: "Praktyczny wzorzec bezpiecznej ewolucji schematu SQL Server: rozszerzenie modelu, migracja danych, okres zgodności, walidacja i usunięcie starej struktury."
 category: "Relacyjny Renesans"
