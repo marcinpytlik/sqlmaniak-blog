@@ -9,7 +9,7 @@ tags:
   - ewolucja schematu
   - deployment
   - migracja danych
-status: "draft"
+draft: false
 ---
 
 # Expand–Migrate–Contract: jak zmieniać schemat bez zatrzymywania aplikacji
