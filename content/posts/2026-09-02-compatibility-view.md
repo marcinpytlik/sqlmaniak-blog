@@ -1,5 +1,6 @@
 ---
 title: "Compatibility View: jak zmienić model i nie zepsuć starych raportów"
+date: 2026-09-02T00:01:00+02:00
 slug: "compatibility-view-widok-zgodnosci"
 description: "Widok zgodności jako przejściowa warstwa pomiędzy starym kontraktem danych a nowym modelem SQL Server."
 category: "Relacyjny Renesans"
@@ -9,7 +10,7 @@ tags:
   - kompatybilność
   - raporty
   - migracja schematu
-status: "draft"
+draft: false
 ---
 
 # Compatibility View: jak zmienić model i nie zepsuć starych raportów

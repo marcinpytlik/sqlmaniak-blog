@@ -1,5 +1,6 @@
 ---
 title: "Feature Flag dla zmian schematu: kontrolowane przełączanie nowego modelu danych"
+date: 2026-09-23T00:01:00+02:00
 slug: "feature-flag-schema-change"
 description: "Jak używać flag funkcjonalnych podczas migracji schematu i stopniowo przełączać odczyty oraz zapisy."
 category: "Relacyjny Renesans"
@@ -9,7 +10,7 @@ tags:
   - schema evolution
   - deployment
   - migracja danych
-status: "draft"
+draft: false
 ---
 
 # Feature Flag dla zmian schematu: kontrolowane przełączanie nowego modelu danych

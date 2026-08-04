@@ -1,5 +1,6 @@
 ---
 title: "Parallel Table: migracja do nowej tabeli bez ryzykownej przebudowy starej"
+date: 2026-09-09T00:01:00+02:00
 slug: "parallel-table-migracja-tabeli"
 description: "Jak zbudować nową wersję tabeli obok starej, przenieść dane i kontrolowanie przełączyć aplikację."
 category: "Relacyjny Renesans"
@@ -9,7 +10,7 @@ tags:
   - migracja tabeli
   - schema evolution
   - zero downtime
-status: "draft"
+draft: false
 ---
 
 # Parallel Table: migracja do nowej tabeli bez ryzykownej przebudowy starej

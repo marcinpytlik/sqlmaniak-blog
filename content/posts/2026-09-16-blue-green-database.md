@@ -1,5 +1,6 @@
 ---
 title: "Blue-Green Database Deployment: dlaczego baza jest trudniejsza niż aplikacja"
+date: 2026-09-16T00:01:00+02:00
 slug: "blue-green-database-deployment"
 description: "Jak zastosować ideę blue-green do wdrożeń baz danych i gdzie kończy się prosta analogia z aplikacją."
 category: "Relacyjny Renesans"
@@ -9,7 +10,7 @@ tags:
   - deployment
   - zero downtime
   - database DevOps
-status: "draft"
+draft: false
 ---
 
 # Blue-Green Database Deployment: dlaczego baza jest trudniejsza niż aplikacja

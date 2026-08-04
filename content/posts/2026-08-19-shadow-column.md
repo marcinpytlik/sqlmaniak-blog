@@ -1,5 +1,6 @@
 ---
 title: "Shadow Column: bezpieczna zmiana typu kolumny w SQL Server"
+date: 2026-08-19T00:01:00+02:00
 slug: "shadow-column-zmiana-typu-kolumny"
 description: "Jak zmienić typ lub znaczenie kolumny bez ryzykownego ALTER COLUMN na dużej tabeli."
 category: "Relacyjny Renesans"
@@ -9,7 +10,7 @@ tags:
   - ALTER TABLE
   - migracja danych
   - zero downtime
-status: "draft"
+draft: false
 ---
 
 # Shadow Column: bezpieczna zmiana typu kolumny w SQL Server
