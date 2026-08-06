@@ -76,3 +76,105 @@ pre { position: relative; }
   font-size: .8rem; padding:.2rem .4rem; cursor:pointer; color:var(--fg);
 }
 html:not(.theme-dark) .copy-btn { background:var(--card-light); border-color:var(--border-light); color:var(--fg-light); }
+
+/* Publications */
+.publication-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+  margin: 1.5rem 0 2rem;
+}
+.publication-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: rgba(127, 211, 255, 0.035);
+}
+html:not(.theme-dark) .publication-card {
+  border-color: var(--border-light);
+  background: var(--card-light);
+}
+.publication-card__cover {
+  margin: 0 auto 1rem;
+  max-width: 230px;
+}
+.publication-card__cover img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 10px 28px rgba(0,0,0,.25);
+}
+.publication-card__content {
+  flex: 1;
+}
+.publication-card__content h2 {
+  margin-top: .25rem;
+}
+.publication-card__content ul {
+  padding-left: 1.2rem;
+}
+.publication-card__eyebrow {
+  margin: 0;
+  color: var(--accent);
+  font-size: .82rem;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+html:not(.theme-dark) .publication-card__eyebrow {
+  color: var(--accent-light);
+}
+.publication-card__question {
+  padding-top: .75rem;
+  border-top: 1px solid var(--border);
+}
+html:not(.theme-dark) .publication-card__question {
+  border-color: var(--border-light);
+}
+.publication-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .65rem;
+  margin-top: 1rem;
+}
+.publication-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: .7rem 1rem;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  font-weight: 750;
+  text-align: center;
+}
+.publication-button:hover {
+  text-decoration: none;
+  filter: brightness(1.07);
+}
+.publication-button--primary,
+html:not(.theme-dark) .publication-button--primary {
+  background: #15803d;
+  color: #fff;
+}
+.publication-button--secondary {
+  border-color: var(--border);
+  background: var(--card);
+  color: var(--fg);
+}
+html:not(.theme-dark) .publication-button--secondary {
+  border-color: var(--border-light);
+  background: #fff;
+  color: var(--fg-light);
+}
+@media (max-width: 780px) {
+  .header-row { align-items: flex-start; }
+  nav { line-height: 2; }
+  .publication-grid { grid-template-columns: 1fr; }
+  .publication-actions { flex-direction: column; }
+  .publication-button { width: 100%; }
+}
