@@ -1,6 +1,6 @@
 ---
 title: "Dual Write w bazie danych: pomocny most czy źródło niespójności?"
-date: 2026-08-12T00:01:00+02:00
+date: 2026-08-11T00:01:00+02:00
 slug: "dual-write-baza-danych"
 description: "Jak bezpiecznie stosować równoległy zapis do starego i nowego modelu podczas migracji schematu SQL Server."
 category: "Relacyjny Renesans"
