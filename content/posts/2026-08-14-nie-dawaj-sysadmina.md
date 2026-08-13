@@ -7,12 +7,12 @@ description: "Jak zaprojektować uprawnienia w SQL Server zgodnie z zasadą leas
 category: "Piątkowe różności"
 tags:
 
-* SQL Server
-* bezpieczeństwo
-* sysadmin
-* least privilege
-* uprawnienia
-* SQL Server Agent
+- SQL Server
+- bezpieczeństwo
+- sysadmin
+- least privilege
+- uprawnienia
+- SQL Server Agent
   draft: false
 
 ---
