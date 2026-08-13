@@ -127,11 +127,11 @@ GO
 
 CREATE LOGIN [SQLDeployDemo]
 WITH
-(
+
     PASSWORD = N'SQL-Demo-Only!2026',
     CHECK_POLICY = OFF,
     CHECK_EXPIRATION = OFF
-);
+;
 GO
 ```
 
@@ -695,11 +695,11 @@ GO
 
 CREATE LOGIN [SQLDeployDemo]
 WITH
-(
+
     PASSWORD = N'SQL-Demo-Only!2026',
     CHECK_POLICY = OFF,
     CHECK_EXPIRATION = OFF
-);
+;
 GO
 
 ALTER SERVER ROLE [dbcreator]
