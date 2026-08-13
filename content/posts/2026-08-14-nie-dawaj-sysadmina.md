@@ -1,19 +1,17 @@
 ---
-
 title: "Nie dawaj sysadmina. Zaprojektuj uprawnienia w SQL Server"
 date: 2026-08-14T00:01:00+02:00
 slug: "nie-dawaj-sysadmina-uprawnienia-sql-server"
 description: "Jak zaprojektować uprawnienia w SQL Server zgodnie z zasadą least privilege zamiast nadawać rolę sysadmin przy każdym problemie z dostępem."
 category: "Piątkowe różności"
 tags:
-- SQL Server
-- bezpieczeństwo
-- sysadmin
-- least privilege
-- uprawnienia
-- SQL Server Agent
-  draft: false
-
+  - SQL Server
+  - bezpieczeństwo
+  - sysadmin
+  - least privilege
+  - uprawnienia
+  - SQL Server Agent
+draft: false
 ---
 
 # Nie dawaj sysadmina. Zaprojektuj uprawnienia w SQL Server
