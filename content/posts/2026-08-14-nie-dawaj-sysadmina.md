@@ -6,7 +6,6 @@ slug: "nie-dawaj-sysadmina-uprawnienia-sql-server"
 description: "Jak zaprojektować uprawnienia w SQL Server zgodnie z zasadą least privilege zamiast nadawać rolę sysadmin przy każdym problemie z dostępem."
 category: "Piątkowe różności"
 tags:
-
 - SQL Server
 - bezpieczeństwo
 - sysadmin
