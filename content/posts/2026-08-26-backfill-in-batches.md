@@ -1,6 +1,6 @@
 ---
 title: "Backfill in Batches: jak migrować miliony rekordów bez jednej wielkiej transakcji"
-date: 2026-08-26T00:01:00+02:00
+date: 2026-08-25T00:01:00+02:00
 slug: "backfill-in-batches-sql-server"
 description: "Praktyczne podejście do uzupełniania nowych kolumn i migracji danych partiami w SQL Server."
 category: "Relacyjny Renesans"
