@@ -58,6 +58,43 @@ draft: false
 </article>
 </div>
 </section>
+<section class="offer-section">
+<p class="offer-eyebrow">Z praktyki, nie z prezentacji</p>
+<h2>Zobacz, jak pracuję z tymi tematami</h2>
+<p class="offer-lead">Na blogu pokazuję konkretne problemy administracyjne, diagnostykę i sposób dochodzenia do rozwiązania. Te materiały dobrze pokazują, czego możesz się spodziewać po współpracy.</p>
+<div class="offer-grid">
+<article class="offer-card">
+<p class="offer-card__eyebrow">Performance</p>
+<h3><a href="/posts/query-store-i-psp-w-praktyce/">Query Store i Parameter Sensitive Plan (PSP): ćwiczenia z życia</a></h3>
+<p>Praktyczne podejście do regresji planów, różnych zakresów parametrów i stabilizacji wydajności.</p>
+</article>
+<article class="offer-card">
+<p class="offer-card__eyebrow">Performance</p>
+<h3><a href="/posts/resource-governor/">Resource Governor – ogranicz CPU, nie ludzi</a></h3>
+<p>Jak kontrolować wpływ różnych workloadów na CPU, pamięć i I/O zamiast reagować dopiero po przeciążeniu.</p>
+</article>
+<article class="offer-card">
+<p class="offer-card__eyebrow">High Availability</p>
+<h3><a href="/posts/fci-vs-ag-rto-rpo/">FCI vs Always On AG: co wybrać i jak myśleć o RTO/RPO</a></h3>
+<p>Porównanie FCI i AG z perspektywy architektury, czasu odzyskania i akceptowalnej utraty danych.</p>
+</article>
+<article class="offer-card">
+<p class="offer-card__eyebrow">High Availability</p>
+<h3><a href="/posts/fci-vs-ag/">FCI czy AlwaysOn AG – jak SQL trzyma fason po awarii</a></h3>
+<p>Praktyczne spojrzenie na ochronę instancji, ochronę danych, storage i scenariusze failover.</p>
+</article>
+<article class="offer-card">
+<p class="offer-card__eyebrow">Backup & Recovery</p>
+<h3><a href="/posts/sql-server-backup-zielony-job-to-nie-strategia-restore/">SQL Server Backup: zielony job to jeszcze nie strategia odtwarzania</a></h3>
+<p>Dlaczego prawdziwa strategia zaczyna się od testów restore, RPO/RTO, log chain i odtwarzalności.</p>
+</article>
+<article class="offer-card">
+<p class="offer-card__eyebrow">Backup & Recovery</p>
+<h3><a href="/posts/backup-vldb/">Backup VLDB – gdy rozmiar bazy zmienia zasady gry</a></h3>
+<p>Problemy i decyzje, które pojawiają się przy backupie bardzo dużych baz danych.</p>
+</article>
+</div>
+</section>
 <section class="offer-section offer-section--split">
 <div>
 <p class="offer-eyebrow">Jak pracuję</p>
