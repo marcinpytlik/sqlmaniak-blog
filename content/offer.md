@@ -95,6 +95,37 @@ draft: false
 </article>
 </div>
 </section>
+<section class="offer-section">
+<p class="offer-eyebrow">Anonimowe przykłady z praktyki</p>
+<h2>Problem → diagnoza → działanie → efekt</h2>
+<p class="offer-lead">Bez nazw firm i systemów. Tylko typ problemu, sposób analizy i rezultat techniczny.</p>
+<div class="offer-grid">
+<article class="offer-card">
+<p class="offer-card__eyebrow">Case study · Performance</p>
+<h3>Duża operacja DML, rosnący log i coraz dłuższy czas wykonania</h3>
+<p><strong>Problem:</strong> ciężka operacja na dużej bazie powodowała szybkie zużywanie logu transakcyjnego i nieprzewidywalny czas wykonania.</p>
+<p><strong>Diagnoza:</strong> analiza wykorzystania plików, <code>log_reuse_wait_desc</code>, autogrowth, kolejności operacji oraz kosztu przebudowy indeksów.</p>
+<p><strong>Działanie:</strong> przygotowanie odpowiedniego rozmiaru plików przed startem, stały autogrowth, kontrola backupów logu, przeniesienie części maintenance poza główną fazę DML i batchowanie operacji.</p>
+<p class="offer-result"><strong>Efekt:</strong> bardziej przewidywalne wykonanie, mniej niekontrolowanych rozszerzeń plików i jasna informacja, gdzie faktycznie znajduje się wąskie gardło.</p>
+</article>
+<article class="offer-card">
+<p class="offer-card__eyebrow">Case study · High Availability</p>
+<h3>Patching klastra bez zgadywania, która instancja działa na którym nodzie</h3>
+<p><strong>Problem:</strong> środowisko klastrowe z wieloma instancjami wymagało bezpiecznej kolejności aktualizacji i wiarygodnej inwentaryzacji aktywnych oraz pasywnych węzłów.</p>
+<p><strong>Diagnoza:</strong> zestawienie metadanych klastra, zasobów SQL Server, owner node, wersji buildów i portów instancji. Tam, gdzie połączenie do SQL nie było wiarygodnym źródłem, konfiguracja była odczytywana z rejestru.</p>
+<p><strong>Działanie:</strong> automatyzacja inwentaryzacji i rozdzielenie procesu na aktualizację nodów pasywnych, kontrolowane przełączenie oraz aktualizację pozostałych węzłów.</p>
+<p class="offer-result"><strong>Efekt:</strong> powtarzalny runbook patchingu, mniejsze ryzyko pomyłki i możliwość weryfikacji stanu przed każdym etapem.</p>
+</article>
+<article class="offer-card">
+<p class="offer-card__eyebrow">Case study · Backup & Recovery</p>
+<h3>Backup działał — pytanie brzmiało, czy środowisko da się naprawdę odtworzyć</h3>
+<p><strong>Problem:</strong> poprawny status jobów backupowych nie odpowiadał na pytania o RPO, RTO, ciągłość log chain i realny czas restore.</p>
+<p><strong>Diagnoza:</strong> przegląd harmonogramu FULL/DIFF/LOG, historii backupów, zależności od TDE, dostępności plików oraz sposobu wykonywania testów odtworzeniowych.</p>
+<p><strong>Działanie:</strong> zdefiniowanie scenariusza test restore, mierzenie czasu odtworzenia, weryfikacja wymaganych certyfikatów i przygotowanie checklisty DR.</p>
+<p class="offer-result"><strong>Efekt:</strong> przejście od monitorowania „zielonych jobów” do mierzalnej odpowiedzi: do jakiego punktu i w jakim czasie bazę można odtworzyć.</p>
+</article>
+</div>
+</section>
 <section class="offer-section offer-section--split">
 <div>
 <p class="offer-eyebrow">Jak pracuję</p>
