@@ -10,7 +10,7 @@ draft: false
   <h1>Pomagam uporządkować, przyspieszyć i zabezpieczyć środowiska SQL Server</h1>
   <p class="offer-lead">Pracuję z istniejącymi środowiskami produkcyjnymi, gdzie liczy się dostępność, przewidywalność i możliwość podejmowania decyzji na podstawie danych. Audytuję, diagnozuję i przygotowuję konkretne zalecenia możliwe do wdrożenia przez zespół klienta lub wspólnie ze mną.</p>
   <div class="offer-actions">
-    <a class="offer-button offer-button--primary" href="https://www.malt.com/" target="_blank" rel="noopener noreferrer">Przejdź do Malt</a>
+    <a class="offer-button offer-button--primary" href="https://www.malt.com/profile/marcinpytlik" target="_blank" rel="noopener noreferrer">Przejdź do Malt</a>
     <a class="offer-button offer-button--secondary" href="/contact/">Skontaktuj się bezpośrednio</a>
   </div>
 </section>
@@ -81,7 +81,7 @@ draft: false
   <h2>Opisz środowisko i cel — ustalimy sensowny zakres współpracy.</h2>
   <p>Może to być pojedyncza konsultacja, health check, analiza incydentu albo przegląd całego środowiska.</p>
   <div class="offer-actions">
-    <a class="offer-button offer-button--primary" href="https://www.malt.com/" target="_blank" rel="noopener noreferrer">Zobacz Malt</a>
+    <a class="offer-button offer-button--primary" href="https://www.malt.com/profile/marcinpytlik" target="_blank" rel="noopener noreferrer">Zobacz Malt</a>
     <a class="offer-button offer-button--secondary" href="/contact/">Kontakt</a>
   </div>
 </section>
