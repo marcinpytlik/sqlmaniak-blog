@@ -98,7 +98,7 @@ draft: false
 <section class="offer-section">
 <p class="offer-eyebrow">Anonimowe przykłady z praktyki</p>
 <h2>Problem → diagnoza → działanie → efekt</h2>
-<p class="offer-lead">Bez nazw firm i systemów. Tylko typ problemu, sposób analizy i rezultat techniczny.</p>
+<p class="offer-lead">Przykłady pokazujące mój sposób pracy: od diagnozy problemu, przez analizę, po konkretne działania i rezultat.</p>
 <div class="offer-grid">
 <article class="offer-card">
 <p class="offer-card__eyebrow">Case study · Performance</p>
