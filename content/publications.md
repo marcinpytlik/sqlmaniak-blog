@@ -35,7 +35,7 @@ Nie są to zbiory przypadkowych poleceń do bezrefleksyjnego uruchomienia na pro
   </div>
   <div class="publication-actions">
     <a class="publication-button publication-button--secondary" href="/materials/SQL_Server_Agent_bezplatny_fragment.pdf">Pobierz bezpłatny fragment</a>
-    <a class="publication-button publication-button--primary" href="https://cart.easy.tools/checkout/sqlmaniak/sql-server-agent-praktyczny-pakiet-dba" target="_blank" rel="noopener">Kup pełną wersję — 119 zł</a>
+    <a class="publication-button publication-button--primary" href="https://cart.easy.tools/checkout/sqlmaniak/sql-server-agent-praktyczny-pakiet-dba" target="_blank" rel="noopener">Kup pełną wersję — 59 zł</a>
   </div>
 </section>
 
@@ -59,7 +59,7 @@ Nie są to zbiory przypadkowych poleceń do bezrefleksyjnego uruchomienia na pro
   </div>
   <div class="publication-actions">
     <a class="publication-button publication-button--secondary" href="/materials/SQL_Server_Backup_Restore_bezplatny_fragment.pdf">Pobierz bezpłatny fragment</a>
-    <a class="publication-button publication-button--primary" href="https://cart.easy.tools/checkout/sqlmaniak/sql-server-backup-i-restore-praktyczny-przewodnik-dba" target="_blank" rel="noopener">Kup pełną wersję — 119 zł</a>
+    <a class="publication-button publication-button--primary" href="https://cart.easy.tools/checkout/sqlmaniak/sql-server-backup-i-restore-praktyczny-przewodnik-dba" target="_blank" rel="noopener">Kup pełną wersję —59 zł</a>
   </div>
 </section>
 
