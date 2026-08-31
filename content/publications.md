@@ -19,6 +19,9 @@ Nie są to zbiory przypadkowych poleceń do bezrefleksyjnego uruchomienia na pro
 <div class="publication-grid">
 
 <section class="publication-card">
+  <div class="publication-card__cover">
+    <img src="/images/sql-server-agent-pakiet-dba-cover.jpg" alt="Okładka publikacji SQL Server Agent — Praktyczny Pakiet DBA" loading="lazy">
+  </div>
   <div class="publication-card__content">
     <p class="publication-card__eyebrow">Automatyzacja i kontrola</p>
     <h2>SQL Server Agent — Praktyczny Pakiet DBA</h2>
