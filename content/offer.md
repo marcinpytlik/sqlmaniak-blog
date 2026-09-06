@@ -71,6 +71,21 @@ draft: false
 <p class="offer-result"><strong>Rezultat:</strong> uczestnik potrafi samodzielnie budować i analizować praktyczne zapytania T-SQL oraz łączyć poznane mechanizmy w jedno rozwiązanie biznesowe.</p>
 <p><a href="/posts/podstawy-t-sql-sql-server-2022-szkolenie-praktyczne/"><strong>Zobacz pełny opis szkolenia →</strong></a></p>
 </article>
+<article class="offer-card">
+<p class="offer-card__eyebrow">05 · Training</p>
+<h3>Zaawansowany T-SQL i rozwój baz danych w SQL Server 2022</h3>
+<p>Pięciodniowe szkolenie dla osób, które znają już podstawy T-SQL i chcą świadomie projektować struktury, indeksy, kod po stronie bazy oraz analizować zachowanie silnika pod obciążeniem.</p>
+<ul>
+<li>5 dni, 09:00–16:00,</li>
+<li>SQL Server 2022 + AdventureWorks2022 + schemat <code>TrainingAdvanced</code>,</li>
+<li>około 40% omówienie/demo i 60% ćwiczenia,</li>
+<li>20 laboratoriów Starter/Solution, challenge'e, Bug Hunt i resety per dzień,</li>
+<li>indeksy, Query Store, PSP, columnstore, temporal, UDF, procedury, In-Memory OLTP, XML, Spatial, Full-Text, JSON i współbieżność,</li>
+<li>końcowy Lab 20 — Customer 360 Capstone.</li>
+</ul>
+<p class="offer-result"><strong>Rezultat:</strong> uczestnik potrafi łączyć projektowanie obiektów, programowalność, wydajność i współbieżność w rozwiązania, których zachowanie można świadomie mierzyć i analizować.</p>
+<p><a href="/posts/zaawansowany-t-sql-sql-server-2022-szkolenie-praktyczne/"><strong>Zobacz pełny opis szkolenia →</strong></a></p>
+</article>
 </div>
 </section>
 <section class="offer-section">
@@ -82,6 +97,11 @@ draft: false
 <p class="offer-card__eyebrow">Training</p>
 <h3><a href="/posts/podstawy-t-sql-sql-server-2022-szkolenie-praktyczne/">Podstawy T-SQL w SQL Server 2022 — 5-dniowe szkolenie praktyczne</a></h3>
 <p>Jak wygląda pięć dni pracy od pierwszego SELECT-a do Capstone, z 20 laboratoriami, AdventureWorks2022 i jednym spójnym scenariuszem biznesowym.</p>
+</article>
+<article class="offer-card">
+<p class="offer-card__eyebrow">Training</p>
+<h3><a href="/posts/zaawansowany-t-sql-sql-server-2022-szkolenie-praktyczne/">Zaawansowany T-SQL i rozwój baz danych w SQL Server 2022</a></h3>
+<p>Pięć dni pracy z projektowaniem struktur, indeksami, Query Store, PSP, programowalnością, In-Memory OLTP, JSON, Spatial, Full-Text, współbieżnością i końcowym Customer 360 Capstone.</p>
 </article>
 <article class="offer-card">
 <p class="offer-card__eyebrow">Performance</p>
