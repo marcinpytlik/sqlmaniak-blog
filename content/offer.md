@@ -1,14 +1,14 @@
 ---
 title: "Oferta"
 slug: "oferta"
-description: "Konsultacje i wsparcie SQL Server: wydajność, wysoka dostępność, backup i disaster recovery."
+description: "Konsultacje, wsparcie i szkolenia SQL Server: wydajność, wysoka dostępność, backup, disaster recovery i praktyczny T-SQL."
 draft: false
 ---
 
 <section class="offer-hero">
-<p class="offer-eyebrow">SQL Server · konsultacje i wsparcie</p>
-<h1>Pomagam uporządkować, przyspieszyć i zabezpieczyć środowiska SQL Server</h1>
-<p class="offer-lead">Pracuję z istniejącymi środowiskami produkcyjnymi, gdzie liczy się dostępność, przewidywalność i możliwość podejmowania decyzji na podstawie danych. Audytuję, diagnozuję i przygotowuję konkretne zalecenia możliwe do wdrożenia przez zespół klienta lub wspólnie ze mną.</p>
+<p class="offer-eyebrow">SQL Server · konsultacje, wsparcie i szkolenia</p>
+<h1>Pomagam uporządkować, przyspieszyć i zabezpieczyć środowiska SQL Server — oraz lepiej pracować z T-SQL</h1>
+<p class="offer-lead">Pracuję z istniejącymi środowiskami produkcyjnymi, gdzie liczy się dostępność, przewidywalność i możliwość podejmowania decyzji na podstawie danych. Audytuję, diagnozuję i przygotowuję konkretne zalecenia możliwe do wdrożenia przez zespół klienta lub wspólnie ze mną. Prowadzę także praktyczne szkolenia z T-SQL dla zespołów pracujących z SQL Server.</p>
 <div class="offer-actions">
 <a class="offer-button offer-button--primary" href="https://www.malt.com/profile/marcinpytlik" target="_blank" rel="noopener noreferrer">Przejdź do Malt</a>
 <a class="offer-button offer-button--secondary" href="/contact/">Skontaktuj się bezpośrednio</a>
@@ -56,13 +56,33 @@ draft: false
 </ul>
 <p class="offer-result"><strong>Rezultat:</strong> zweryfikowany plan backup/recovery oraz lista braków i ryzyk.</p>
 </article>
+<article class="offer-card">
+<p class="offer-card__eyebrow">04 · Training</p>
+<h3>Podstawy T-SQL w SQL Server 2022 — szkolenie praktyczne</h3>
+<p>Pięciodniowe szkolenie dla zespołów, które chcą świadomie czytać i pisać T-SQL — od pierwszego <code>SELECT</code> do procedury z obsługą błędów i końcowego Capstone.</p>
+<ul>
+<li>5 dni, 09:00–16:00,</li>
+<li>SQL Server 2022 + AdventureWorks2022,</li>
+<li>około 40% omówienie/demo i 60% ćwiczenia,</li>
+<li>20 laboratoriów Starter/Solution, challenge'e i Bug Hunt,</li>
+<li>JOIN, agregacje, CTE, APPLY, funkcje okienkowe, DML, procedury, JSON i transakcje,</li>
+<li>pretest, posttest i końcowy Lab 20 — Capstone.</li>
+</ul>
+<p class="offer-result"><strong>Rezultat:</strong> uczestnik potrafi samodzielnie budować i analizować praktyczne zapytania T-SQL oraz łączyć poznane mechanizmy w jedno rozwiązanie biznesowe.</p>
+<p><a href="/posts/podstawy-t-sql-sql-server-2022-szkolenie-praktyczne/"><strong>Zobacz pełny opis szkolenia →</strong></a></p>
+</article>
 </div>
 </section>
 <section class="offer-section">
 <p class="offer-eyebrow">Z praktyki, nie z prezentacji</p>
 <h2>Zobacz, jak pracuję z tymi tematami</h2>
-<p class="offer-lead">Na blogu pokazuję konkretne problemy administracyjne, diagnostykę i sposób dochodzenia do rozwiązania. Te materiały dobrze pokazują, czego możesz się spodziewać po współpracy.</p>
+<p class="offer-lead">Na blogu pokazuję konkretne problemy administracyjne, diagnostykę i sposób dochodzenia do rozwiązania. Te materiały dobrze pokazują, czego możesz się spodziewać po współpracy i po prowadzonych przeze mnie szkoleniach.</p>
 <div class="offer-grid">
+<article class="offer-card">
+<p class="offer-card__eyebrow">Training</p>
+<h3><a href="/posts/podstawy-t-sql-sql-server-2022-szkolenie-praktyczne/">Podstawy T-SQL w SQL Server 2022 — 5-dniowe szkolenie praktyczne</a></h3>
+<p>Jak wygląda pięć dni pracy od pierwszego SELECT-a do Capstone, z 20 laboratoriami, AdventureWorks2022 i jednym spójnym scenariuszem biznesowym.</p>
+</article>
 <article class="offer-card">
 <p class="offer-card__eyebrow">Performance</p>
 <h3><a href="/posts/query-store-i-psp-w-praktyce/">Query Store i Parameter Sensitive Plan (PSP): ćwiczenia z życia</a></h3>
@@ -140,9 +160,9 @@ draft: false
 </div>
 </section>
 <section class="offer-cta">
-<p class="offer-eyebrow">Masz konkretny problem z SQL Server?</p>
+<p class="offer-eyebrow">Masz konkretny problem z SQL Server albo chcesz przeszkolić zespół?</p>
 <h2>Opisz środowisko i cel — ustalimy sensowny zakres współpracy.</h2>
-<p>Może to być pojedyncza konsultacja, health check, analiza incydentu albo przegląd całego środowiska.</p>
+<p>Może to być pojedyncza konsultacja, health check, analiza incydentu, przegląd środowiska albo zamknięte szkolenie z T-SQL.</p>
 <div class="offer-actions">
 <a class="offer-button offer-button--primary" href="https://www.malt.com/profile/marcinpytlik" target="_blank" rel="noopener noreferrer">Zobacz Malt</a>
 <a class="offer-button offer-button--secondary" href="/contact/">Kontakt</a>
