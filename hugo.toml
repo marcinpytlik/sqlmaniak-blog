@@ -1,6 +1,7 @@
 baseURL = "https://sqlmaniak.blog/"
 title = "SQL Maniak"
 languageCode = "pl-pl"
+timeZone = "Europe/Warsaw"
 theme = "sqlmaniak"
 enableRobotsTXT = true
 
