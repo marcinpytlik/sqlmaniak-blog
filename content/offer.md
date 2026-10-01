@@ -8,7 +8,7 @@ draft: false
 <section class="offer-hero">
 <p class="offer-eyebrow">SQL Server · konsultacje, wsparcie i szkolenia</p>
 <h1>Pomagam uporządkować, przyspieszyć i zabezpieczyć środowiska SQL Server — oraz lepiej pracować z T-SQL</h1>
-<p class="offer-lead">Pracuję z istniejącymi środowiskami produkcyjnymi, gdzie liczy się dostępność, przewidywalność i możliwość podejmowania decyzji na podstawie danych. Audytuję, diagnozuję i przygotowuję konkretne zalecenia możliwe do wdrożenia przez zespół klienta lub wspólnie ze mną. Prowadzę także praktyczne szkolenia z T-SQL dla zespołów pracujących z SQL Server.</p>
+<p class="offer-lead">Pracuję z istniejącymi środowiskami produkcyjnymi, gdzie liczy się dostępność, przewidywalność i możliwość podejmowania decyzji na podstawie danych. Audytuję, diagnozuję i przygotowuję konkretne zalecenia możliwe do wdrożenia przez zespół klienta lub wspólnie ze mną. Prowadzę także praktyczne szkolenia z T-SQL, administracji SQL Server, HA/DR oraz technologii współpracujących z SQL Server.</p>
 <div class="offer-actions">
 <a class="offer-button offer-button--primary" href="https://www.malt.com/profile/marcinpytlik" target="_blank" rel="noopener noreferrer">Przejdź do Malt</a>
 <a class="offer-button offer-button--secondary" href="/contact/">Skontaktuj się bezpośrednio</a>
@@ -131,6 +131,21 @@ draft: false
 <p class="offer-result"><strong>Rezultat:</strong> uczestnik potrafi samodzielnie zbudować, zabezpieczyć, monitorować, diagnozować i odtworzyć środowisko IIS działające na Windows Server 2022 Core — bez potrzeby lokalnej pracy na graficznym pulpicie serwera.</p>
 <p><a href="/posts/administracja-iis-windows-server-2022-core-szkolenie-praktyczne/"><strong>Zobacz pełny opis szkolenia →</strong></a></p>
 </article>
+<article class="offer-card">
+<p class="offer-card__eyebrow">09 · Training</p>
+<h3>Administracja SQL Server — szkolenie praktyczne</h3>
+<p>Pięciodniowe szkolenie dla administratorów i zespołów utrzymujących SQL Server — od instalacji i konfiguracji, przez backup/recovery, security i SQL Server Agent, aż do monitoringu, troubleshooting i podstaw performance.</p>
+<ul>
+<li>5 dni praktycznej administracji SQL Server,</li>
+<li>instalacja, konfiguracja instancji, tempdb, pamięć i podstawowe ustawienia,</li>
+<li>pliki danych, log transakcyjny, recovery models, backup FULL/DIFF/LOG i point-in-time restore,</li>
+<li>logins, users, role, least privilege, SQL Server Agent, Database Mail i maintenance,</li>
+<li>CHECKDB, indeksy, statystyki, blocking, deadlocki, wait statistics i Extended Events,</li>
+<li>Query Store, podstawy performance troubleshooting i końcowy DBA Day.</li>
+</ul>
+<p class="offer-result"><strong>Rezultat:</strong> uczestnik potrafi samodzielnie utrzymywać instancję SQL Server, diagnozować typowe problemy operacyjne oraz bezpiecznie wykonywać backup, restore, maintenance i podstawową analizę wydajności.</p>
+<p><a href="/posts/administracja-sql-server-szkolenie-praktyczne/"><strong>Zobacz pełny opis szkolenia →</strong></a></p>
+</article>
 </div>
 </section>
 <section class="offer-section">
@@ -157,6 +172,11 @@ draft: false
 <p class="offer-card__eyebrow">Training</p>
 <h3><a href="/posts/ef-core-through-the-eyes-of-a-dba-szkolenie-praktyczne/">EF Core Through the Eyes of a DBA — 3-dniowe szkolenie praktyczne</a></h3>
 <p>Trzy dni pracy na styku C#, EF Core i SQL Server: generated SQL, projection, plany wykonania, indeksy, blocking, deadlocki, Query Store oraz diagnoza BAD vs N+1 vs GOOD.</p>
+</article>
+<article class="offer-card">
+<p class="offer-card__eyebrow">Training</p>
+<h3><a href="/posts/administracja-sql-server-szkolenie-praktyczne/">Administracja SQL Server — 5-dniowe szkolenie praktyczne</a></h3>
+<p>Pięć dni pracy z konfiguracją instancji, backup/restore, security, SQL Server Agent, maintenance, monitoringiem, troubleshooting i końcowym DBA Day.</p>
 </article>
 <article class="offer-card">
 <p class="offer-card__eyebrow">Performance</p>
@@ -237,7 +257,7 @@ draft: false
 <section class="offer-cta">
 <p class="offer-eyebrow">Masz konkretny problem z SQL Server albo chcesz przeszkolić zespół?</p>
 <h2>Opisz środowisko i cel — ustalimy sensowny zakres współpracy.</h2>
-<p>Może to być pojedyncza konsultacja, health check, analiza incydentu, przegląd środowiska albo zamknięte szkolenie z T-SQL.</p>
+<p>Może to być pojedyncza konsultacja, health check, analiza incydentu, przegląd środowiska albo zamknięte szkolenie z T-SQL, administracji SQL Server lub HA/DR.</p>
 <div class="offer-actions">
 <a class="offer-button offer-button--primary" href="https://www.malt.com/profile/marcinpytlik" target="_blank" rel="noopener noreferrer">Zobacz Malt</a>
 <a class="offer-button offer-button--secondary" href="/contact/">Kontakt</a>
