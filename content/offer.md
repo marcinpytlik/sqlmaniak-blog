@@ -6,9 +6,9 @@ draft: false
 ---
 
 <section class="offer-hero">
-<p class="offer-eyebrow">SQL Server · .NET · Azure · konsultacje, wsparcie i szkolenia</p>
-<h1>Pomagam budować, rozwijać i utrzymywać rozwiązania oparte na SQL Server, .NET i Azure</h1>
-<p class="offer-lead">Pracuję z istniejącymi środowiskami produkcyjnymi, gdzie liczy się dostępność, przewidywalność i możliwość podejmowania decyzji na podstawie danych. Audytuję, diagnozuję i przygotowuję konkretne zalecenia możliwe do wdrożenia przez zespół klienta lub wspólnie ze mną. Prowadzę także praktyczne szkolenia z T-SQL, administracji SQL Server, HA/DR, C#/.NET, ASP.NET Core Web API, IIS oraz tworzenia aplikacji w Azure.</p>
+<p class="offer-eyebrow">SQL Server · .NET · Azure · PowerShell · Monitoring · szkolenia i konsultacje</p>
+<h1>Pomagam budować, automatyzować, monitorować i utrzymywać środowiska SQL Server, .NET, Azure i Windows</h1>
+<p class="offer-lead">Pracuję z istniejącymi środowiskami produkcyjnymi, gdzie liczy się dostępność, przewidywalność i możliwość podejmowania decyzji na podstawie danych. Audytuję, diagnozuję i przygotowuję konkretne zalecenia możliwe do wdrożenia przez zespół klienta lub wspólnie ze mną. Prowadzę także praktyczne szkolenia z T-SQL, administracji SQL Server, HA/DR, C#/.NET, ASP.NET Core Web API, IIS, Azure, PowerShell oraz monitoringu w Zabbix i Grafana.</p>
 <div class="offer-actions">
 <a class="offer-button offer-button--primary" href="https://www.malt.com/profile/marcinpytlik" target="_blank" rel="noopener noreferrer">Przejdź do Malt</a>
 <a class="offer-button offer-button--secondary" href="/contact/">Skontaktuj się bezpośrednio</a>
@@ -191,6 +191,51 @@ draft: false
 <p class="offer-result"><strong>Rezultat:</strong> uczestnik potrafi zaprojektować, wdrożyć, zabezpieczyć i monitorować aplikację .NET w Azure oraz świadomie dobrać usługi do konkretnego problemu.</p>
 <p><a href="/posts/azure-cloud-developer-szkolenie-praktyczne/"><strong>Zobacz pełny opis szkolenia →</strong></a></p>
 </article>
+<article class="offer-card">
+<p class="offer-card__eyebrow">13 · Training</p>
+<h3>PowerShell — automatyzacja administracji i infrastruktury</h3>
+<p>Pięciodniowe szkolenie praktyczne pokazujące PowerShell jako język automatyzacji administracji — od pipeline i obiektów, przez funkcje, remoting i REST API, aż do modułów, Pester i końcowego Automation Capstone.</p>
+<ul>
+<li>5 dni praktycznej pracy z PowerShell 5.1 i PowerShell 7,</li>
+<li>pipeline, obiekty, collections, filtering i formatting,</li>
+<li>skrypty, funkcje, advanced functions, validation, error handling i logging,</li>
+<li>administracja Windows, CIM/WMI, Event Log, registry, scheduled tasks i remoting,</li>
+<li>REST API, JSON/CSV/XML, SecretManagement, SQL Server i automatyzacja wielu hostów,</li>
+<li>moduły, Pester, Git, idempotency i Infrastructure Health Collector Capstone.</li>
+</ul>
+<p class="offer-result"><strong>Rezultat:</strong> uczestnik potrafi budować powtarzalne, testowalne i bezpieczne narzędzia administracyjne w PowerShell oraz automatyzować pracę w środowisku wieloserwerowym.</p>
+<p><a href="/posts/powershell-automatyzacja-administracji-szkolenie-praktyczne/"><strong>Zobacz pełny opis szkolenia →</strong></a></p>
+</article>
+<article class="offer-card">
+<p class="offer-card__eyebrow">14 · Training</p>
+<h3>Zabbix — monitoring infrastruktury i aplikacji</h3>
+<p>Czterodniowe szkolenie praktyczne z budowy monitoringu infrastruktury i aplikacji — od instalacji Zabbix Server i Agent2, przez items, triggers i templates, aż do alertingu, API i końcowego Monitoring Day.</p>
+<ul>
+<li>4 dni praktycznej pracy z Zabbix,</li>
+<li>Server, frontend, Agent2, proxy, active/passive checks i hosts,</li>
+<li>items, preprocessing, triggers, macros, templates i low-level discovery,</li>
+<li>Windows, Linux, SQL Server, SNMP, HTTP checks, log monitoring i UserParameters,</li>
+<li>actions, notifications, dashboards, permissions, queue i housekeeping,</li>
+<li>Zabbix API, troubleshooting i końcowy Monitoring Day.</li>
+</ul>
+<p class="offer-result"><strong>Rezultat:</strong> uczestnik potrafi zaprojektować monitoring Zabbix, tworzyć własne elementy monitoringu i alerty oraz wykorzystywać dane z Zabbix do diagnozy problemów.</p>
+<p><a href="/posts/zabbix-monitoring-szkolenie-praktyczne/"><strong>Zobacz pełny opis szkolenia →</strong></a></p>
+</article>
+<article class="offer-card">
+<p class="offer-card__eyebrow">15 · Training</p>
+<h3>Grafana — monitoring i observability</h3>
+<p>Czterodniowe szkolenie praktyczne z budowy warstwy observability — dashboardy, metryki, logi, alerting i korelacja danych z wykorzystaniem Grafana, InfluxDB/Prometheus, Telegraf i Loki.</p>
+<ul>
+<li>4 dni praktycznej pracy z Grafana,</li>
+<li>data sources, dashboards, panels, variables, transformations i annotations,</li>
+<li>Prometheus lub InfluxDB, Telegraf oraz monitoring Windows, Linux i SQL Server,</li>
+<li>Loki, labels, LogQL i korelacja metrics ↔ logs,</li>
+<li>alert rules, contact points, notification policies, provisioning i permissions,</li>
+<li>dashboard-as-code i końcowy Observability Day.</li>
+</ul>
+<p class="offer-result"><strong>Rezultat:</strong> uczestnik potrafi zbudować użyteczny system dashboardów i alertingu oraz wykorzystywać metryki i logi do rzeczywistego troubleshooting.</p>
+<p><a href="/posts/grafana-observability-monitoring-szkolenie-praktyczne/"><strong>Zobacz pełny opis szkolenia →</strong></a></p>
+</article>
 </div>
 </section>
 <section class="offer-section">
@@ -237,6 +282,21 @@ draft: false
 <p class="offer-card__eyebrow">Training</p>
 <h3><a href="/posts/azure-cloud-developer-szkolenie-praktyczne/">Azure Cloud Developer — 5-dniowe szkolenie praktyczne</a></h3>
 <p>Praktyczna ścieżka od App Service i Storage, przez Functions, Cosmos DB, containers, identity i messaging, aż do observability, Bicep i Cloud Capstone.</p>
+</article>
+<article class="offer-card">
+<p class="offer-card__eyebrow">Training</p>
+<h3><a href="/posts/powershell-automatyzacja-administracji-szkolenie-praktyczne/">PowerShell — automatyzacja administracji i infrastruktury</a></h3>
+<p>Pięć dni od pipeline i obiektów, przez funkcje, remoting i REST API, aż do modułów, Pester i końcowego Automation Capstone.</p>
+</article>
+<article class="offer-card">
+<p class="offer-card__eyebrow">Training</p>
+<h3><a href="/posts/zabbix-monitoring-szkolenie-praktyczne/">Zabbix — monitoring infrastruktury i aplikacji</a></h3>
+<p>Cztery dni budowy monitoringu Windows, Linux, SQL Server, usług, logów i endpointów z własnymi triggers, templates, alertingiem i Monitoring Day.</p>
+</article>
+<article class="offer-card">
+<p class="offer-card__eyebrow">Training</p>
+<h3><a href="/posts/grafana-observability-monitoring-szkolenie-praktyczne/">Grafana — monitoring i observability</a></h3>
+<p>Cztery dni pracy z dashboardami, metrykami, Loki, LogQL, alertingiem i korelacją danych w stacku Grafana + InfluxDB/Prometheus + Telegraf.</p>
 </article>
 <article class="offer-card">
 <p class="offer-card__eyebrow">Performance</p>
@@ -317,7 +377,7 @@ draft: false
 <section class="offer-cta">
 <p class="offer-eyebrow">Masz konkretny problem z SQL Server albo chcesz przeszkolić zespół?</p>
 <h2>Opisz środowisko i cel — ustalimy sensowny zakres współpracy.</h2>
-<p>Może to być pojedyncza konsultacja, health check, analiza incydentu, przegląd środowiska albo zamknięte szkolenie z SQL Server, C#/.NET, ASP.NET Core Web API, IIS lub Azure.</p>
+<p>Może to być pojedyncza konsultacja, health check, analiza incydentu, przegląd środowiska albo zamknięte szkolenie z SQL Server, .NET, Azure, PowerShell, IIS lub monitoringu.</p>
 <div class="offer-actions">
 <a class="offer-button offer-button--primary" href="https://www.malt.com/profile/marcinpytlik" target="_blank" rel="noopener noreferrer">Zobacz Malt</a>
 <a class="offer-button offer-button--secondary" href="/contact/">Kontakt</a>
