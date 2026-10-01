@@ -6,9 +6,9 @@ draft: false
 ---
 
 <section class="offer-hero">
-<p class="offer-eyebrow">SQL Server · konsultacje, wsparcie i szkolenia</p>
-<h1>Pomagam uporządkować, przyspieszyć i zabezpieczyć środowiska SQL Server — oraz lepiej pracować z T-SQL</h1>
-<p class="offer-lead">Pracuję z istniejącymi środowiskami produkcyjnymi, gdzie liczy się dostępność, przewidywalność i możliwość podejmowania decyzji na podstawie danych. Audytuję, diagnozuję i przygotowuję konkretne zalecenia możliwe do wdrożenia przez zespół klienta lub wspólnie ze mną. Prowadzę także praktyczne szkolenia z T-SQL, administracji SQL Server, HA/DR oraz technologii współpracujących z SQL Server.</p>
+<p class="offer-eyebrow">SQL Server · .NET · Azure · konsultacje, wsparcie i szkolenia</p>
+<h1>Pomagam budować, rozwijać i utrzymywać rozwiązania oparte na SQL Server, .NET i Azure</h1>
+<p class="offer-lead">Pracuję z istniejącymi środowiskami produkcyjnymi, gdzie liczy się dostępność, przewidywalność i możliwość podejmowania decyzji na podstawie danych. Audytuję, diagnozuję i przygotowuję konkretne zalecenia możliwe do wdrożenia przez zespół klienta lub wspólnie ze mną. Prowadzę także praktyczne szkolenia z T-SQL, administracji SQL Server, HA/DR, C#/.NET, ASP.NET Core Web API, IIS oraz tworzenia aplikacji w Azure.</p>
 <div class="offer-actions">
 <a class="offer-button offer-button--primary" href="https://www.malt.com/profile/marcinpytlik" target="_blank" rel="noopener noreferrer">Przejdź do Malt</a>
 <a class="offer-button offer-button--secondary" href="/contact/">Skontaktuj się bezpośrednio</a>
@@ -146,6 +146,51 @@ draft: false
 <p class="offer-result"><strong>Rezultat:</strong> uczestnik potrafi samodzielnie utrzymywać instancję SQL Server, diagnozować typowe problemy operacyjne oraz bezpiecznie wykonywać backup, restore, maintenance i podstawową analizę wydajności.</p>
 <p><a href="/posts/administracja-sql-server-szkolenie-praktyczne/"><strong>Zobacz pełny opis szkolenia →</strong></a></p>
 </article>
+<article class="offer-card">
+<p class="offer-card__eyebrow">10 · Training</p>
+<h3>C# i .NET 10 — szkolenie praktyczne</h3>
+<p>Pięciodniowe szkolenie prowadzące od fundamentów języka C# i modelu obiektowego, przez LINQ, JSON i HTTP, aż do async/await, dependency injection, testów i końcowego Capstone.</p>
+<ul>
+<li>5 dni praktycznej pracy z C# i .NET 10,</li>
+<li>typy, klasy, interfejsy, record, pattern matching i nullable reference types,</li>
+<li>kolekcje, generics, delegates, lambdy i LINQ,</li>
+<li>exceptions, pliki, streams, JSON i HttpClient,</li>
+<li>async/await, CancellationToken, Task.WhenAll, DI, logging i options pattern,</li>
+<li>xUnit, testy kodu async, podstawy EF Core i końcowy OrderManager Capstone.</li>
+</ul>
+<p class="offer-result"><strong>Rezultat:</strong> uczestnik potrafi pisać czytelny, testowalny i asynchroniczny kod C# oraz świadomie korzystać z podstawowych mechanizmów .NET.</p>
+<p><a href="/posts/csharp-dotnet-10-szkolenie-praktyczne/"><strong>Zobacz pełny opis szkolenia →</strong></a></p>
+</article>
+<article class="offer-card">
+<p class="offer-card__eyebrow">11 · Training</p>
+<h3>ASP.NET Core Web API w .NET 10 — szkolenie praktyczne</h3>
+<p>Pięciodniowe szkolenie z projektowania i budowy produkcyjnych API — od routingu i DTO, przez EF Core i security, aż do resilience, observability, testów i deploymentu.</p>
+<ul>
+<li>5 dni praktycznej pracy z ASP.NET Core Web API,</li>
+<li>Minimal APIs, Controllers, routing, model binding, DTO i validation,</li>
+<li>EF Core, SQL Server, projection, pagination, filtering i generated SQL,</li>
+<li>ProblemDetails, authentication, JWT, authorization, policies i CORS,</li>
+<li>logging, caching, rate limiting, HttpClientFactory, retry i health checks,</li>
+<li>WebApplicationFactory, testy integracyjne, Docker i Production Orders API Capstone.</li>
+</ul>
+<p class="offer-result"><strong>Rezultat:</strong> uczestnik potrafi zbudować Web API z przewidywalnym kontraktem, bezpieczeństwem, obsługą błędów, testami i mechanizmami wymaganymi w środowisku produkcyjnym.</p>
+<p><a href="/posts/aspnet-core-web-api-dotnet-10-szkolenie-praktyczne/"><strong>Zobacz pełny opis szkolenia →</strong></a></p>
+</article>
+<article class="offer-card">
+<p class="offer-card__eyebrow">12 · Training</p>
+<h3>Azure Cloud Developer — szkolenie praktyczne</h3>
+<p>Pięciodniowy warsztat dla developerów .NET budujących rozwiązania w Azure — współczesna ścieżka obejmująca compute, storage, serverless, containers, identity, messaging, monitoring i Infrastructure as Code.</p>
+<ul>
+<li>5 dni praktycznej pracy z aplikacją .NET w Azure,</li>
+<li>App Service, deployment slots, Azure Storage i Blob Storage,</li>
+<li>Azure Functions, Cosmos DB i serverless patterns,</li>
+<li>ACR, Container Apps, Managed Identity, Key Vault i DefaultAzureCredential,</li>
+<li>Service Bus, Event Grid, API Management i event-driven architecture,</li>
+<li>Application Insights, Azure Monitor, OpenTelemetry, Bicep, CI/CD i Cloud Capstone.</li>
+</ul>
+<p class="offer-result"><strong>Rezultat:</strong> uczestnik potrafi zaprojektować, wdrożyć, zabezpieczyć i monitorować aplikację .NET w Azure oraz świadomie dobrać usługi do konkretnego problemu.</p>
+<p><a href="/posts/azure-cloud-developer-szkolenie-praktyczne/"><strong>Zobacz pełny opis szkolenia →</strong></a></p>
+</article>
 </div>
 </section>
 <section class="offer-section">
@@ -177,6 +222,21 @@ draft: false
 <p class="offer-card__eyebrow">Training</p>
 <h3><a href="/posts/administracja-sql-server-szkolenie-praktyczne/">Administracja SQL Server — 5-dniowe szkolenie praktyczne</a></h3>
 <p>Pięć dni pracy z konfiguracją instancji, backup/restore, security, SQL Server Agent, maintenance, monitoringiem, troubleshooting i końcowym DBA Day.</p>
+</article>
+<article class="offer-card">
+<p class="offer-card__eyebrow">Training</p>
+<h3><a href="/posts/csharp-dotnet-10-szkolenie-praktyczne/">C# i .NET 10 — 5-dniowe szkolenie praktyczne</a></h3>
+<p>Pięć dni od fundamentów języka i OOP, przez LINQ, JSON, HTTP i async/await, aż do DI, testów i końcowego OrderManager Capstone.</p>
+</article>
+<article class="offer-card">
+<p class="offer-card__eyebrow">Training</p>
+<h3><a href="/posts/aspnet-core-web-api-dotnet-10-szkolenie-praktyczne/">ASP.NET Core Web API w .NET 10 — 5-dniowe szkolenie praktyczne</a></h3>
+<p>Pięć dni pracy z routingiem, DTO, EF Core, security, ProblemDetails, resilience, testami integracyjnymi, Dockerem i produkcyjnym API.</p>
+</article>
+<article class="offer-card">
+<p class="offer-card__eyebrow">Training</p>
+<h3><a href="/posts/azure-cloud-developer-szkolenie-praktyczne/">Azure Cloud Developer — 5-dniowe szkolenie praktyczne</a></h3>
+<p>Praktyczna ścieżka od App Service i Storage, przez Functions, Cosmos DB, containers, identity i messaging, aż do observability, Bicep i Cloud Capstone.</p>
 </article>
 <article class="offer-card">
 <p class="offer-card__eyebrow">Performance</p>
@@ -257,7 +317,7 @@ draft: false
 <section class="offer-cta">
 <p class="offer-eyebrow">Masz konkretny problem z SQL Server albo chcesz przeszkolić zespół?</p>
 <h2>Opisz środowisko i cel — ustalimy sensowny zakres współpracy.</h2>
-<p>Może to być pojedyncza konsultacja, health check, analiza incydentu, przegląd środowiska albo zamknięte szkolenie z T-SQL, administracji SQL Server lub HA/DR.</p>
+<p>Może to być pojedyncza konsultacja, health check, analiza incydentu, przegląd środowiska albo zamknięte szkolenie z SQL Server, C#/.NET, ASP.NET Core Web API, IIS lub Azure.</p>
 <div class="offer-actions">
 <a class="offer-button offer-button--primary" href="https://www.malt.com/profile/marcinpytlik" target="_blank" rel="noopener noreferrer">Zobacz Malt</a>
 <a class="offer-button offer-button--secondary" href="/contact/">Kontakt</a>
