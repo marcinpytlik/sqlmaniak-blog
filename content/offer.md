@@ -116,6 +116,21 @@ draft: false
 <p class="offer-result"><strong>Rezultat:</strong> uczestnik potrafi połączyć decyzje w kodzie aplikacji z ich rzeczywistym wpływem na SQL Server i diagnozować problemy na podstawie evidence zamiast intuicji.</p>
 <p><a href="/posts/ef-core-through-the-eyes-of-a-dba-szkolenie-praktyczne/"><strong>Zobacz pełny opis szkolenia →</strong></a></p>
 </article>
+<article class="offer-card">
+<p class="offer-card__eyebrow">08 · Training</p>
+<h3>Administracja IIS na Windows Server 2022 Core — szkolenie praktyczne</h3>
+<p>Czterodniowe szkolenie dla administratorów, którzy chcą świadomie wdrażać, zabezpieczać, monitorować i diagnozować środowiska IIS — z naciskiem na zdalne zarządzanie Windows Server 2022 Core oraz automatyzację PowerShell.</p>
+<ul>
+<li>4 dni, 09:00–16:00,</li>
+<li>Windows Server 2022 Core + IIS zarządzany zdalnie z dedykowanej stacji administracyjnej,</li>
+<li>16 laboratoriów, challenge na zakończenie każdego dnia i kontrolowane scenariusze awarii,</li>
+<li>Application Pools, bindings, Windows Authentication, NTFS, HTTPS, certyfikaty i SNI,</li>
+<li>ASP.NET Core, IIS Logs, HTTPERR, Failed Request Tracing i monitoring worker processes,</li>
+<li>PowerShell, backup/restore konfiguracji, hardening i końcowy scenariusz produkcyjny.</li>
+</ul>
+<p class="offer-result"><strong>Rezultat:</strong> uczestnik potrafi samodzielnie zbudować, zabezpieczyć, monitorować, diagnozować i odtworzyć środowisko IIS działające na Windows Server 2022 Core — bez potrzeby lokalnej pracy na graficznym pulpicie serwera.</p>
+<p><a href="/posts/administracja-iis-windows-server-2022-core-szkolenie-praktyczne/"><strong>Zobacz pełny opis szkolenia →</strong></a></p>
+</article>
 </div>
 </section>
 <section class="offer-section">
