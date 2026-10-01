@@ -101,6 +101,21 @@ draft: false
 <p class="offer-result"><strong>Rezultat:</strong> uczestnik potrafi nie tylko skonfigurować mechanizmy HA/DR, ale również diagnozować ich stan, analizować awarie i przeprowadzać bezpieczne recovery.</p>
 <p><a href="/posts/sql-server-high-availability-disaster-recovery-szkolenie-praktyczne/"><strong>Zobacz pełny opis szkolenia →</strong></a></p>
 </article>
+<article class="offer-card">
+<p class="offer-card__eyebrow">07 · Training</p>
+<h3>EF Core Through the Eyes of a DBA — What Really Reaches SQL Server?</h3>
+<p>Trzydniowe szkolenie praktyczne dla zespołów .NET + SQL Server, pokazujące jak decyzje w C# i LINQ zamieniają się w generated SQL, plany wykonania, logical reads, blocking, deadlocki i workload widoczny w Query Store.</p>
+<ul>
+<li>3 dni praktycznej pracy na jednym środowisku ASP.NET Core + EF Core + SQL Server,</li>
+<li>12 laboratoriów od generated SQL do pełnej analizy incydentu,</li>
+<li>Include, projection, deferred execution, over-fetching i N+1,</li>
+<li>Scan, Seek, Key Lookup, indeksy i SARGability,</li>
+<li>transactions, blocking, isolation levels i deadlocki,</li>
+<li>Query Store oraz model Symptom → Evidence → Root cause → Fix → Validation.</li>
+</ul>
+<p class="offer-result"><strong>Rezultat:</strong> uczestnik potrafi połączyć decyzje w kodzie aplikacji z ich rzeczywistym wpływem na SQL Server i diagnozować problemy na podstawie evidence zamiast intuicji.</p>
+<p><a href="/posts/ef-core-through-the-eyes-of-a-dba-szkolenie-praktyczne/"><strong>Zobacz pełny opis szkolenia →</strong></a></p>
+</article>
 </div>
 </section>
 <section class="offer-section">
@@ -122,6 +137,11 @@ draft: false
 <p class="offer-card__eyebrow">Training</p>
 <h3><a href="/posts/sql-server-high-availability-disaster-recovery-szkolenie-praktyczne/">SQL Server High Availability i Disaster Recovery — 5-dniowe szkolenie praktyczne</a></h3>
 <p>Pięć dni pracy z WSFC, FCI, Log Shipping, Availability Groups, Distributed AG, monitoringiem, replikacją i końcowym Disaster Day.</p>
+</article>
+<article class="offer-card">
+<p class="offer-card__eyebrow">Training</p>
+<h3><a href="/posts/ef-core-through-the-eyes-of-a-dba-szkolenie-praktyczne/">EF Core Through the Eyes of a DBA — 3-dniowe szkolenie praktyczne</a></h3>
+<p>Trzy dni pracy na styku C#, EF Core i SQL Server: generated SQL, projection, plany wykonania, indeksy, blocking, deadlocki, Query Store oraz diagnoza BAD vs N+1 vs GOOD.</p>
 </article>
 <article class="offer-card">
 <p class="offer-card__eyebrow">Performance</p>
