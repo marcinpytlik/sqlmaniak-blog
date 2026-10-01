@@ -86,6 +86,21 @@ draft: false
 <p class="offer-result"><strong>Rezultat:</strong> uczestnik potrafi łączyć projektowanie obiektów, programowalność, wydajność i współbieżność w rozwiązania, których zachowanie można świadomie mierzyć i analizować.</p>
 <p><a href="/posts/zaawansowany-t-sql-sql-server-2022-szkolenie-praktyczne/"><strong>Zobacz pełny opis szkolenia →</strong></a></p>
 </article>
+<article class="offer-card">
+<p class="offer-card__eyebrow">06 · Training</p>
+<h3>SQL Server High Availability i Disaster Recovery</h3>
+<p>Pięciodniowe szkolenie praktyczne z projektowania, budowy i diagnostyki środowisk HA/DR w SQL Server — od storage i WSFC, przez FCI i Availability Groups, aż do Distributed AG, monitoringu i Disaster Day.</p>
+<ul>
+<li>5 dni / 40 godzin dydaktycznych, 09:00–15:00,</li>
+<li>WSFC, quorum, shared storage, iSCSI i FCI,</li>
+<li>Log Shipping, Database Mirroring i Availability Groups,</li>
+<li>read-only routing, backup preference i role-aware joby,</li>
+<li>Distributed Availability Groups, monitoring, RPO/RTO i Zabbix,</li>
+<li>Transactional Replication oraz kontrolowane scenariusze awarii.</li>
+</ul>
+<p class="offer-result"><strong>Rezultat:</strong> uczestnik potrafi nie tylko skonfigurować mechanizmy HA/DR, ale również diagnozować ich stan, analizować awarie i przeprowadzać bezpieczne recovery.</p>
+<p><a href="/posts/sql-server-high-availability-disaster-recovery-szkolenie-praktyczne/"><strong>Zobacz pełny opis szkolenia →</strong></a></p>
+</article>
 </div>
 </section>
 <section class="offer-section">
@@ -102,6 +117,11 @@ draft: false
 <p class="offer-card__eyebrow">Training</p>
 <h3><a href="/posts/zaawansowany-t-sql-sql-server-2022-szkolenie-praktyczne/">Zaawansowany T-SQL i rozwój baz danych w SQL Server 2022</a></h3>
 <p>Pięć dni pracy z projektowaniem struktur, indeksami, Query Store, PSP, programowalnością, In-Memory OLTP, JSON, Spatial, Full-Text, współbieżnością i końcowym Customer 360 Capstone.</p>
+</article>
+<article class="offer-card">
+<p class="offer-card__eyebrow">Training</p>
+<h3><a href="/posts/sql-server-high-availability-disaster-recovery-szkolenie-praktyczne/">SQL Server High Availability i Disaster Recovery — 5-dniowe szkolenie praktyczne</a></h3>
+<p>Pięć dni pracy z WSFC, FCI, Log Shipping, Availability Groups, Distributed AG, monitoringiem, replikacją i końcowym Disaster Day.</p>
 </article>
 <article class="offer-card">
 <p class="offer-card__eyebrow">Performance</p>
