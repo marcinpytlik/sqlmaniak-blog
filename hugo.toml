@@ -36,6 +36,9 @@ enableRobotsTXT = true
 #    name = "Repo GitHub: o SQL "
 #    url  = "https://github.com/marcinpytlik/SQLManiak"
 
+[params.analytics]
+  measurementID = "G-LBVBW10S49"
+
 [params.authorProfile]
   name = "Marcin Pytlik"
   linkedin = "https://www.linkedin.com/in/sqlmaniak"
