@@ -1,0 +1,16 @@
+{{ with .Site.Params.analytics.measurementID }}
+<div id="sqlmaniak-analytics-config" data-measurement-id="{{ . }}" hidden></div>
+<aside id="analytics-consent-banner" class="analytics-consent" role="region" aria-label="Zgoda na analitykę" hidden>
+  <strong>Statystyki SQLManiaka</strong>
+  <p>Za Twoją zgodą używamy Google Analytics do mierzenia odwiedzin i zainteresowania artykułami oraz ofertą. Odrzucenie nie ogranicza dostępu do bloga.</p>
+  <button type="button" data-analytics-consent="accepted">Akceptuję analitykę</button>
+  <button type="button" data-analytics-consent="rejected">Odrzucam</button>
+</aside>
+<aside id="analytics-consent-settings" class="analytics-consent" role="region" aria-label="Ustawienia analityki" hidden>
+  <strong>Ustawienia analityki</strong>
+  <p>Możesz zmienić swoją decyzję w każdej chwili. Po wycofaniu zgody strona zostanie odświeżona, aby zatrzymać dalszy pomiar.</p>
+  <button type="button" data-analytics-consent="accepted">Akceptuję analitykę</button>
+  <button type="button" data-analytics-consent="rejected">Odrzucam / Wycofuję zgodę</button>
+</aside>
+<script src="/js/analytics-consent.js" defer></script>
+{{ end }}
