@@ -4,7 +4,7 @@
   if (!config) return;
   const measurementId = config.dataset.measurementId;
   if (!/^G-[A-Z0-9]+$/.test(measurementId || "")) return;
-  const storageKey = "sqlmaniak.site-preferences.v1";
+  const storageKey = "sqlmaniak.analytics-consent.v1";
   const banner = document.getElementById("site-pref-banner");
   const settings = document.getElementById("site-pref-settings");
   const openButton = document.getElementById("site-pref-open");
@@ -50,7 +50,7 @@
   document.addEventListener("click", function (event) {
     const action = event.target.closest("[data-site-preferences]");
     if (action) {
-      choose(action.dataset.sitePrefChoice);
+      choose(action.dataset.sitePreferences);
       return;
     }
     const link = event.target.closest("a[href]");
