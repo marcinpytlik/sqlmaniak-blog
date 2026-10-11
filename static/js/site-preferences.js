@@ -1,13 +1,13 @@
 (function () {
   "use strict";
-  const config = document.getElementById("sqlmaniak-analytics-config");
+  const config = document.getElementById("site-pref-config");
   if (!config) return;
   const measurementId = config.dataset.measurementId;
   if (!/^G-[A-Z0-9]+$/.test(measurementId || "")) return;
-  const storageKey = "sqlmaniak.analytics-consent.v1";
-  const banner = document.getElementById("analytics-consent-banner");
-  const settings = document.getElementById("analytics-consent-settings");
-  const openButton = document.getElementById("analytics-consent-open");
+  const storageKey = "sqlmaniak.site-preferences.v1";
+  const banner = document.getElementById("site-pref-banner");
+  const settings = document.getElementById("site-pref-settings");
+  const openButton = document.getElementById("site-pref-open");
   let started = false;
 
   function getChoice() {
@@ -48,7 +48,7 @@
     window.gtag("event", name, params || {});
   }
   document.addEventListener("click", function (event) {
-    const action = event.target.closest("[data-analytics-consent]");
+    const action = event.target.closest("[data-site-preferences]");
     if (action) {
       choose(action.dataset.analyticsConsent);
       return;
@@ -68,7 +68,7 @@
       track("offer_click", {source_path: path});
     }
   });
-  document.querySelectorAll("[data-analytics-open-settings]").forEach(function (button) {
+  document.querySelectorAll("[data-site-pref-open-settings]").forEach(function (button) {
     button.addEventListener("click", function () {
       if (settings) settings.hidden = false;
       if (banner) banner.hidden = true;
