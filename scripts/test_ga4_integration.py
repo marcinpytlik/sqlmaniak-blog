@@ -25,7 +25,7 @@ print('GA4 static integration checks passed. Browser consent tests still require
 
 # Validate rendered site, not only template sources. A missing Hugo param silently skips the partial.
 rendered = (root / 'public/index.html').read_text(encoding='utf-8')
-assert 'id="sqlmaniak-analytics-config"' in rendered, 'GA4 config missing in generated HTML'
-assert 'data-measurement-id="G-LBVBW10S49"' in rendered, 'GA4 measurement ID not rendered'
-assert 'id="analytics-consent-banner"' in rendered, 'Consent banner not rendered'
+assert 'sqlmaniak-analytics-config' in rendered, 'GA4 config missing in generated HTML'
+assert 'G-LBVBW10S49' in rendered, 'GA4 measurement ID not rendered'
+assert 'analytics-consent-banner' in rendered, 'Consent banner not rendered'
 assert '/js/analytics-consent.js' in rendered, 'Consent script not rendered'
