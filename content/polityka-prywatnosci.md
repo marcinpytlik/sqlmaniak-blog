@@ -53,7 +53,7 @@ Korzystanie z Google Analytics i innych usług zewnętrznych może wiązać się
 
 - Wybór dotyczący analityki pozostaje w lokalnej pamięci przeglądarki do czasu jego zmiany lub wyczyszczenia pamięci.
 - Okres retencji danych analitycznych określa konfiguracja usługi GA4; **przed publikacją trzeba sprawdzić i uzupełnić rzeczywiście wybrany okres**.
-- Wiadomości z formularza są przechowywane przez okres potrzebny do prowadzenia korespondencji oraz ewentualnego dochodzenia lub obrony roszczeń. **Przed publikacją należy potwierdzić szczegółowe zasady retencji.**
+- Wiadomości przesłane przez formularz kontaktowy są przechowywane w skrzynce odbiorczej przez **30 dni**, po czym trafiają do folderu **Kosz**. Przeniesienie do Kosza nie jest równoznaczne z trwałym usunięciem. Czas dalszego przechowywania i ostatecznego usuwania należy potwierdzić w ustawieniach dostawcy poczty, a ewentualne kopie w Formspree i kopie zapasowe podlegają odrębnym zasadom retencji. Wiadomości związane z zawartymi umowami lub obowiązkami prawnymi mogą wymagać innej retencji.
 - Retencja logów technicznych zależy od dostawcy hostingu i jego zasad.
 
 ## 8. Prawa użytkowników
