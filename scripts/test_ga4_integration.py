@@ -6,11 +6,11 @@ config = (root / 'hugo.toml').read_text(encoding='utf-8')
 template = (root / 'themes/sqlmaniak/layouts/_default/baseof.html').read_text(encoding='utf-8')
 partial = (root / 'themes/sqlmaniak/layouts/partials/analytics-consent.html').read_text(encoding='utf-8')
 script = (root / 'static/js/site-preferences.js').read_text(encoding='utf-8')
-css = (root / 'static/css/analytics-consent.css').read_text(encoding='utf-8')
+css = (root / 'static/css/site-preferences.css').read_text(encoding='utf-8')
 
 assert re.search(r'measurementID\s*=\s*"G-[A-Z0-9]+"', config), 'GA4 measurement ID missing'
 assert '{{ partial "analytics-consent.html" . }}' in template, 'Consent partial not included'
-assert '/css/analytics-consent.css' in template, 'Consent stylesheet missing'
+assert '/css/site-preferences.css' in template, 'Consent stylesheet missing'
 assert 'analytics-consent-open' in template, 'Consent settings button missing'
 assert 'data-analytics-consent="accepted"' in partial
 assert 'data-analytics-consent="rejected"' in partial
