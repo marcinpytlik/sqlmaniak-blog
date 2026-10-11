@@ -18,3 +18,11 @@ jobs:
         run: hugo --minify
       - name: Check GA4 consent integration
         run: python3 scripts/test_ga4_integration.py
+      - name: Install browser test dependencies
+        run: |
+          python3 -m pip install playwright
+          python3 -m playwright install --with-deps chromium
+      - name: Test consent in Chromium
+        run: |
+          python3 -m http.server 8765 --directory public >/tmp/hugo-test-server.log 2>&1 &
+          python3 tests/test_ga4_browser.py
