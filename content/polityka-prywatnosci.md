@@ -52,7 +52,7 @@ Korzystanie z Google Analytics i innych usług zewnętrznych może wiązać się
 ## 7. Jak długo przechowujemy dane
 
 - Wybór dotyczący analityki pozostaje w lokalnej pamięci przeglądarki do czasu jego zmiany lub wyczyszczenia pamięci.
-- Okres retencji danych analitycznych określa konfiguracja usługi GA4; **przed publikacją trzeba sprawdzić i uzupełnić rzeczywiście wybrany okres**.
+- W usłudze Google Analytics 4 okres przechowywania danych na poziomie użytkownika i zdarzeń, objętych ustawieniem retencji GA4, wynosi **2 miesiące**. Nie oznacza to automatycznego usunięcia wszystkich danych zbiorczych z raportów po upływie tego okresu.
 - Wiadomości przesłane przez formularz kontaktowy są przechowywane w skrzynce odbiorczej przez **30 dni**, po czym trafiają do folderu **Kosz**. Przeniesienie do Kosza nie jest równoznaczne z trwałym usunięciem. Czas dalszego przechowywania i ostatecznego usuwania należy potwierdzić w ustawieniach dostawcy poczty, a ewentualne kopie w Formspree i kopie zapasowe podlegają odrębnym zasadom retencji. Wiadomości związane z zawartymi umowami lub obowiązkami prawnymi mogą wymagać innej retencji.
 - Retencja logów technicznych zależy od dostawcy hostingu i jego zasad.
 
