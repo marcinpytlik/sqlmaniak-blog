@@ -11,7 +11,9 @@ _Ostatnia aktualizacja: 11 października 2026 r._
 
 Serwis **SQLManiak** pod adresem [sqlmaniak.blog](https://sqlmaniak.blog/) prowadzi Marcin Pytlik. W sprawach związanych z prywatnością można skontaktować się przez e-mail: [marcin.pytlik@pracowniait.com](mailto:marcin.pytlik@pracowniait.com).
 
-**Informacja do weryfikacji przed publikacją:** należy potwierdzić, czy administratorem danych jest Marcin Pytlik jako osoba fizyczna, czy podmiot gospodarczy prowadzący serwis. Jeżeli administratorem jest firma, w tym miejscu należy podać jej pełną nazwę i odpowiednie dane identyfikacyjne oraz kontaktowe.
+Wiadomości wysłane przez formularz trafiają bezpośrednio do Marcina Pytlika, który samodzielnie decyduje o dalszym wykorzystaniu korespondencji związanej z blogiem. Na podstawie tych informacji Marcin Pytlik jest wstępnie wskazany jako administrator danych przetwarzanych w związku z prowadzeniem bloga i obsługą jego korespondencji. **Przed publikacją należy zweryfikować ten status prawnie i organizacyjnie**, w szczególności w odniesieniu do GA4 i dostawców usług.
+
+Odpłatne szkolenia i konsultacje oferowane za pośrednictwem serwisu mogą być realizowane i fakturowane przez **Pracownię IT Joanny i Marcina Pytlik Sp. z o.o.** W zakresie danych przetwarzanych na potrzeby zawarcia, realizacji i rozliczenia tych umów spółka może działać jako odrębny administrator. Odpowiednią informację o administratorze i jego danych należy przekazać klientowi przy nawiązywaniu współpracy. Samo wystawianie faktury nie rozstrzyga automatycznie wszystkich ról administratorów.
 
 ## 2. Jakie dane mogą być przetwarzane
 
@@ -39,7 +41,7 @@ Po wyrażeniu zgody mogą działać mechanizmy Google związane z pomiarem i ide
 
 Formularz na stronie **Kontakt** korzysta z usługi **Formspree**. Przekazanie wiadomości wymaga przesłania danych do tego dostawcy w celu obsługi formularza. Przed podaniem danych warto zapoznać się z [polityką prywatności Formspree](https://formspree.io/legal/privacy-policy/).
 
-Wiadomości są wykorzystywane do udzielenia odpowiedzi i prowadzenia korespondencji. Nie są wykorzystywane do newslettera bez odrębnej podstawy prawnej.
+Wiadomości trafiają na skrzynkę pocztową Marcina Pytlika i są przez niego indywidualnie rozpatrywane. W przypadku zapytania o odpłatną usługę i przekazania sprawy do Pracowni IT dane niezbędne do obsługi zapytania lub umowy mogą być udostępnione tej spółce; szczegóły takiego przekazania i rola spółki wymagają potwierdzenia w rzeczywistym procesie obsługi. Wiadomości nie są wykorzystywane do newslettera bez odrębnej podstawy prawnej.
 
 ## 6. Hosting i inne podmioty
 
