@@ -34,6 +34,7 @@
 
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/code.css">
+  <link rel="stylesheet" href="/css/analytics-consent.css">
 
   <script>
     (function() {
@@ -73,6 +74,7 @@
 
 </head>
 <body>
+  {{ partial "analytics-consent.html" . }}
   <header class="site-header">
     <div class="container header-row">
       <a class="brand" href="/">
@@ -102,6 +104,7 @@
     <div class="container">
       <p>© {{ now.Format "2006" }} {{ .Site.Title }} · Wykonano w Hugo · Hostowane na GitHub Pages</p>
     </div>
+    <p><button type="button" id="analytics-consent-open">Ustawienia analityki</button></p>
   </footer>
   <script>
     const btn = document.getElementById('themeToggle');
