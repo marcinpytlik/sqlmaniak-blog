@@ -50,7 +50,7 @@
   document.addEventListener("click", function (event) {
     const action = event.target.closest("[data-site-preferences]");
     if (action) {
-      choose(action.dataset.analyticsConsent);
+      choose(action.dataset.sitePrefChoice);
       return;
     }
     const link = event.target.closest("a[href]");
