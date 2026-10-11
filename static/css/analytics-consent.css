@@ -1,0 +1,7 @@
+#analytics-consent-banner[hidden], #analytics-consent-settings[hidden] { display: none !important; }
+.analytics-consent { position: fixed; z-index: 10000; bottom: 1rem; left: 1rem; right: 1rem; max-width: 620px; padding: 1rem 1.25rem; border-radius: .75rem; background: #17202d; color: white; border: 1px solid #8796ac; box-shadow: 0 8px 30px #0007; font-size: 1rem; line-height: 1.5; }
+.analytics-consent p { margin: .5rem 0 1rem; color: #f2f5fa; }
+.analytics-consent button { border-radius: .35rem; border: 1px solid #cbd5e1; padding: .5rem .9rem; margin: .25rem .45rem .25rem 0; color: #fff; background: #27415b; cursor: pointer; }
+.analytics-consent button[data-analytics-consent="accepted"] { background: #0b755b; }
+.analytics-consent button:focus-visible, #analytics-consent-open:focus-visible { outline: 3px solid #fbd38d; outline-offset: 2px; }
+#analytics-consent-open { background: none; border: 0; color: inherit; text-decoration: underline; cursor: pointer; font: inherit; }
