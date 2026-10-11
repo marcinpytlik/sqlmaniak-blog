@@ -25,7 +25,7 @@ async def main():
         await page.route("**/gtag/js?*", lambda route: route.fulfill(status=200, content_type="application/javascript", body=""))
         await page.get_by_role("button", name="Akceptuję analitykę").click()
         await page.wait_for_function("window.gtag !== undefined")
-        assert await page.evaluate("localStorage.getItem('sqlmaniak.site-preferences.v1')") == "accepted"
+        assert await page.evaluate("localStorage.getItem('sqlmaniak.analytics-consent.v1')") == "accepted"
         assert await page.locator("#site-pref-settings").is_hidden()
         assert any("googletagmanager.com/gtag/js" in url for url in requests), "Tag not requested after consent"
         await page.reload(wait_until="networkidle")
@@ -34,7 +34,7 @@ async def main():
         await page.get_by_role("button", name="Odrzucam / Wycofuję zgodę").click()
         await page.wait_for_load_state("domcontentloaded")
         await page.reload(wait_until="networkidle")
-        assert await page.evaluate("localStorage.getItem('sqlmaniak.site-preferences.v1')") == "rejected"
+        assert await page.evaluate("localStorage.getItem('sqlmaniak.analytics-consent.v1')") == "rejected"
         assert not await page.locator("#site-pref-banner").is_visible()
         print("PASS: opt-in, reject, persistence, and withdrawal")
         await browser.close()
