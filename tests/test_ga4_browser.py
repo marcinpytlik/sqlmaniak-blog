@@ -12,30 +12,30 @@ async def main():
         requests = []
         page.on("request", lambda r: requests.append(r.url))
         await page.goto(BASE, wait_until="networkidle")
-        assert await page.locator("#analytics-consent-banner").is_visible(), "Consent banner not shown"
+        assert await page.locator("#site-pref-banner").is_visible(), "Consent banner not shown"
         assert not any(h in url for url in requests for h in GOOGLE), "Google requested before consent"
         await page.get_by_role("button", name="Odrzucam", exact=True).click()
-        assert not await page.locator("#analytics-consent-banner").is_visible()
+        assert not await page.locator("#site-pref-banner").is_visible()
         await page.reload(wait_until="networkidle")
-        assert not await page.locator("#analytics-consent-banner").is_visible()
+        assert not await page.locator("#site-pref-banner").is_visible()
         assert not any(h in url for url in requests for h in GOOGLE), "Google requested after rejection"
-        await page.locator("#analytics-consent-open").click()
-        assert await page.locator("#analytics-consent-settings").is_visible()
+        await page.locator("#site-pref-open").click()
+        assert await page.locator("#site-pref-settings").is_visible()
         # Prevent external analytics requests reaching Google in test environment.
         await page.route("**/gtag/js?*", lambda route: route.fulfill(status=200, content_type="application/javascript", body=""))
         await page.get_by_role("button", name="Akceptuję analitykę").click()
         await page.wait_for_function("window.gtag !== undefined")
-        assert await page.evaluate("localStorage.getItem('sqlmaniak.analytics-consent.v1')") == "accepted"
-        assert await page.locator("#analytics-consent-settings").is_hidden()
+        assert await page.evaluate("localStorage.getItem('sqlmaniak.site-preferences.v1')") == "accepted"
+        assert await page.locator("#site-pref-settings").is_hidden()
         assert any("googletagmanager.com/gtag/js" in url for url in requests), "Tag not requested after consent"
         await page.reload(wait_until="networkidle")
-        assert not await page.locator("#analytics-consent-banner").is_visible()
-        await page.locator("#analytics-consent-open").click()
+        assert not await page.locator("#site-pref-banner").is_visible()
+        await page.locator("#site-pref-open").click()
         await page.get_by_role("button", name="Odrzucam / Wycofuję zgodę").click()
         await page.wait_for_load_state("domcontentloaded")
         await page.reload(wait_until="networkidle")
-        assert await page.evaluate("localStorage.getItem('sqlmaniak.analytics-consent.v1')") == "rejected"
-        assert not await page.locator("#analytics-consent-banner").is_visible()
+        assert await page.evaluate("localStorage.getItem('sqlmaniak.site-preferences.v1')") == "rejected"
+        assert not await page.locator("#site-pref-banner").is_visible()
         print("PASS: opt-in, reject, persistence, and withdrawal")
         await browser.close()
 
