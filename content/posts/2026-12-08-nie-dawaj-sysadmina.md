@@ -1,6 +1,6 @@
 ---
 title: "Nie dawaj sysadmina — praktyczne podejście do uprawnień SQL Server"
-date: 2026-12-08T20:00:00+01:00
+date: 2026-12-08T08:00:00+01:00
 slug: nie-dawaj-sysadmina
 description: "Jak ograniczać uprawnienia w SQL Server zgodnie z zasadą najmniejszych uprawnień i dlaczego sysadmin nie powinien być domyślnym rozwiązaniem."
 tags: [SQLServer, Security, Permissions, Sysadmin, DBA]
