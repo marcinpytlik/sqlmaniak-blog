@@ -1,6 +1,6 @@
 ---
 title: "AG czy FCI — co właściwie rozwiązują i czego nie rozwiązują"
-date: 2026-12-22T20:00:00+01:00
+date: 2026-12-22T08:00:00+01:00
 slug: ag-vs-fci-sql-server
 description: "Porównanie Availability Groups i Failover Cluster Instance w SQL Server: zakres ochrony, storage, failover i typowe nieporozumienia."
 tags: [SQLServer, AlwaysOn, AvailabilityGroups, FCI, HighAvailability]
