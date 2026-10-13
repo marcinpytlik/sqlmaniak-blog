@@ -1,6 +1,6 @@
 ---
 title: "Zmiana typu danych bez blokady: nowa kolumna zamiast ALTER COLUMN"
-date: 2026-11-11T00:01:00+01:00
+date: 2026-11-11T08:00:00+01:00
 slug: "zmiana-typu-danych-bezpieczna-migracja"
 description: "Jak zmieniać typ danych w dużej tabeli etapami, zamiast wykonywać ryzykowne ALTER COLUMN na żywym systemie."
 category: "Relacyjny Renesans"
