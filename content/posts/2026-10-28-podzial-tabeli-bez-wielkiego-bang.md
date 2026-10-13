@@ -1,6 +1,6 @@
 ---
 title: "Podział tabeli bez Big Bang: jak rozdzielić jeden model na dwa"
-date: 2026-10-28T00:01:00+01:00
+date: 2026-10-28T08:00:00+01:00
 slug: "podzial-tabeli-bez-big-bang"
 description: "Jak bezpiecznie podzielić szeroką tabelę na dwie struktury bez jednorazowego przepisywania aplikacji i danych."
 category: "Relacyjny Renesans"
