@@ -1,6 +1,6 @@
 ---
 title: "Parameter Sniffing — kiedy ten sam plan jest dobry dla jednego parametru, a zły dla drugiego"
-date: 2026-11-10T20:00:00+01:00
+date: 2026-11-10T08:00:00+01:00
 slug: parameter-sniffing-sql-server
 description: "Praktyczne wyjaśnienie Parameter Sniffing w SQL Server: jak rozpoznać problem, jak go mierzyć i kiedy rozważyć PSP, RECOMPILE lub inne rozwiązanie."
 tags: [SQLServer, ParameterSniffing, Performance, QueryTuning, DBA]
