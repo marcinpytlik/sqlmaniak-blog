@@ -1,6 +1,6 @@
 ---
 title: "Scalanie tabel bez przestoju: kiedy dwa modele mają stać się jednym"
-date: 2026-11-04T00:01:00+01:00
+date: 2026-11-04T08:00:00+01:00
 slug: "scalanie-tabel-bez-przestoju"
 description: "Jak bezpiecznie scalić dane z kilku tabel w jeden nowy model bez jednorazowego przełączenia całej aplikacji."
 category: "Relacyjny Renesans"
