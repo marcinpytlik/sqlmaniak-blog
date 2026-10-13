@@ -1,6 +1,6 @@
 ---
 title: "TempDB — co warto sprawdzić, zanim zacznie być problemem"
-date: 2026-12-01T20:00:00+01:00
+date: 2026-12-01T08:00:00+01:00
 slug: tempdb-sql-server
 description: "Praktyczna checklista TempDB w SQL Server: pliki, autogrowth, wolne miejsce, wykorzystanie, version store i symptomy problemów."
 tags: [SQLServer, TempDB, Performance, DBA, Configuration]
