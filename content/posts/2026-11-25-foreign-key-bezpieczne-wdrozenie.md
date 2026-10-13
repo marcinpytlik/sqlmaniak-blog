@@ -1,6 +1,6 @@
 ---
 title: "Foreign Key bez niespodzianki: jak bezpiecznie wdrożyć relację na istniejących danych"
-date: 2026-11-25T00:01:00+01:00
+date: 2026-11-25T08:00:00+01:00
 slug: "foreign-key-bezpieczne-wdrozenie"
 description: "Jak dodać klucz obcy do istniejącego modelu danych, najpierw wykrywając sieroty i dopiero potem wymuszając integralność."
 category: "Relacyjny Renesans"
