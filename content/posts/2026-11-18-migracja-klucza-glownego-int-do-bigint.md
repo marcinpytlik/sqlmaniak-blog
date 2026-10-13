@@ -1,6 +1,6 @@
 ---
 title: "INT do BIGINT: jak migrować klucz główny bez jednego wielkiego ALTER"
-date: 2026-11-18T00:01:00+01:00
+date: 2026-11-18T08:00:00+01:00
 slug: "migracja-klucza-glownego-int-do-bigint"
 description: "Jak przygotować migrację klucza głównego z int do bigint w dużym systemie, uwzględniając klucze obce, indeksy i aplikację."
 category: "Relacyjny Renesans"
