@@ -1,6 +1,6 @@
 ---
 title: "Wait Statistics — od czego naprawdę zacząć diagnozę wydajności SQL Server"
-date: 2026-11-17T20:00:00+01:00
+date: 2026-11-17T08:00:00+01:00
 slug: wait-statistics-sql-server
 description: "Jak czytać Wait Statistics w SQL Server, czego nie interpretować wprost i dlaczego delta waitów jest lepsza niż pojedynczy licznik od startu instancji."
 tags: [SQLServer, WaitStats, Performance, Troubleshooting, DBA]
