@@ -1,6 +1,6 @@
 ---
 title: "Query Store po migracji — jak wykrywać regresje planów wykonania"
-date: 2026-11-03T20:00:00+01:00
+date: 2026-11-03T08:00:00+01:00
 slug: query-store-po-migracji
 description: "Jak wykorzystać Query Store po migracji SQL Server do porównania planów, wykrywania regresji i bezpiecznego reagowania na problemy wydajnościowe."
 tags: [SQLServer, QueryStore, Performance, Migration, DBA]
