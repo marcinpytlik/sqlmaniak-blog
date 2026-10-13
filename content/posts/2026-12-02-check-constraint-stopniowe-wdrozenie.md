@@ -1,6 +1,6 @@
 ---
 title: "CHECK Constraint jako etap migracji, nie jednorazowa blokada"
-date: 2026-12-02T00:01:00+01:00
+date: 2026-12-02T08:00:00+01:00
 slug: "check-constraint-stopniowe-wdrozenie"
 description: "Jak stopniowo wprowadzać nowe reguły walidacji danych za pomocą CHECK Constraint bez zaskoczenia starej aplikacji."
 category: "Relacyjny Renesans"
