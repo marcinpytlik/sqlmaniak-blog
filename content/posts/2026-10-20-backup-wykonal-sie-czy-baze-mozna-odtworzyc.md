@@ -1,6 +1,6 @@
 ---
 title: "Backup się wykonał. Czy to oznacza, że bazę można odtworzyć?"
-date: 2026-10-20T20:00:00+02:00
+date: 2026-10-20T08:00:00+02:00
 slug: backup-wykonal-sie-czy-baze-mozna-odtworzyc
 description: "Dlaczego poprawny status backupu nie gwarantuje skutecznego restore. Testy odtwarzania, CHECKSUM, VERIFYONLY, TDE, RPO i RTO."
 tags: [SQLServer, Backup, Restore, DisasterRecovery, DBA]
