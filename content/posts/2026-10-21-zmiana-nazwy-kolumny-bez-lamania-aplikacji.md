@@ -1,6 +1,6 @@
 ---
 title: "Zmiana nazwy kolumny bez łamania aplikacji"
-date: 2026-10-21T00:01:00+02:00
+date: 2026-10-21T08:00:00+02:00
 slug: "zmiana-nazwy-kolumny-bez-lamania-aplikacji"
 description: "Jak zmienić nazwę kolumny w SQL Server bez natychmiastowego zerwania kompatybilności ze starszą wersją aplikacji."
 category: "Relacyjny Renesans"
