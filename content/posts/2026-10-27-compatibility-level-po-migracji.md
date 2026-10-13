@@ -1,6 +1,6 @@
 ---
 title: "Compatibility Level po migracji — dlaczego nie warto zmieniać go od razu"
-date: 2026-10-27T20:00:00+01:00
+date: 2026-10-27T08:00:00+01:00
 slug: compatibility-level-po-migracji
 description: "Jak bezpiecznie podejść do zmiany Compatibility Level po migracji SQL Server: Query Store, baseline, regresje planów i plan wycofania."
 tags: [SQLServer, Migration, CompatibilityLevel, QueryStore, DBA]
