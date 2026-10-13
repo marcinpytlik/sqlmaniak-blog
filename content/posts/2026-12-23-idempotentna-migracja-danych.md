@@ -1,6 +1,6 @@
 ---
 title: "Idempotentna migracja danych: skrypt, który można uruchomić drugi raz"
-date: 2026-12-23T00:01:00+01:00
+date: 2026-12-23T08:00:00+01:00
 slug: "idempotentna-migracja-danych"
 description: "Jak projektować migracje danych tak, aby można było je bezpiecznie wznawiać po błędzie, restarcie lub przerwaniu procesu."
 category: "Relacyjny Renesans"
