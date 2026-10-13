@@ -1,6 +1,6 @@
 ---
 title: "Rollback po migracji danych: kiedy cofnięcie kodu już nie wystarcza"
-date: 2026-12-16T00:01:00+01:00
+date: 2026-12-16T08:00:00+01:00
 slug: "rollback-migracji-danych"
 description: "Jak projektować rollback przy zmianach schematu, gdy nowy model danych nie jest już w pełni reprezentowalny w starym."
 category: "Relacyjny Renesans"
