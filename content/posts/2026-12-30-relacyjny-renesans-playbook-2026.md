@@ -1,6 +1,6 @@
 ---
 title: "Relacyjny Renesans 2026: playbook bezpiecznej ewolucji schematu"
-date: 2026-12-30T00:01:00+01:00
+date: 2026-12-30T08:00:00+01:00
 slug: "relacyjny-renesans-playbook-2026"
 description: "Podsumowanie wzorców Relacyjnego Renesansu: Expand–Migrate–Contract, dual-write, shadow read, backfill, kompatybilność i kontrolowane przełączanie."
 category: "Relacyjny Renesans"
