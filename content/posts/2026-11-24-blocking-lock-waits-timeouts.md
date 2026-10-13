@@ -1,6 +1,6 @@
 ---
 title: "Blokowanie, lock waits i timeouty — jak czytać je razem"
-date: 2026-11-24T20:00:00+01:00
+date: 2026-11-24T08:00:00+01:00
 slug: blocking-lock-waits-timeouts
 description: "Jak korelować blocking, lock waits i lock timeouty w SQL Server, żeby odróżnić normalne blokowanie od problemu wymagającego interwencji."
 tags: [SQLServer, Blocking, Locks, Performance, DBA]
