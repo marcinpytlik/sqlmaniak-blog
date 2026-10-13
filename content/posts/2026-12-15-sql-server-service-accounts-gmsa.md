@@ -1,6 +1,6 @@
 ---
 title: "Konta usług SQL Server — domenowe, gMSA i minimalne uprawnienia"
-date: 2026-12-15T20:00:00+01:00
+date: 2026-12-15T08:00:00+01:00
 slug: sql-server-service-accounts-gmsa
 description: "Jak podejść do kont usług SQL Server, rozdzielenia Engine i Agent, gMSA, SPN oraz zasady najmniejszych uprawnień."
 tags: [SQLServer, Security, gMSA, ServiceAccounts, DBA]
