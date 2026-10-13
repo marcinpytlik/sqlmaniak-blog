@@ -1,6 +1,6 @@
 ---
 title: "Jak udowodnić, że starego schematu nikt już nie używa"
-date: 2026-12-09T00:01:00+01:00
+date: 2026-12-09T08:00:00+01:00
 slug: "deprecacja-starego-schematu"
 description: "Praktyczne podejście do deprecacji starej tabeli, kolumny lub widoku przed etapem Contract."
 category: "Relacyjny Renesans"
