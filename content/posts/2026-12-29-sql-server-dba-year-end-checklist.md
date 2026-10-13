@@ -1,6 +1,6 @@
 ---
 title: "12 rzeczy, które DBA powinien sprawdzić przed wejściem w 2027 rok"
-date: 2026-12-29T20:00:00+01:00
+date: 2026-12-29T08:00:00+01:00
 slug: sql-server-dba-year-end-checklist
 description: "Końcoworoczna checklista SQL Server DBA: backup, restore, CHECKDB, joby, pojemność, Query Store, security, HA i dokumentacja."
 tags: [SQLServer, DBA, Checklist, Monitoring, Maintenance]
