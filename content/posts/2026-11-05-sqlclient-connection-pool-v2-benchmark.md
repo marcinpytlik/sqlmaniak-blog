@@ -163,9 +163,9 @@ Odpowiedź brzmi: **tak — ale nie w każdym scenariuszu**. I właśnie dlatego
 
 Aplikację benchmarkową w C# (.NET 10) i skrypty PowerShell do testów losowych, diagnostyki oraz profilowania CPU udostępniam w repozytorium SQLManiak:
 
-**[Kod benchmarku — Pull Request #77 (oczekuje na scalenie)](https://github.com/marcinpytlik/SQLManiak/pull/77)**
+**[Kod źródłowy benchmarku — SQLManiak / scripts / SqlClientPoolBenchmark](https://github.com/marcinpytlik/SQLManiak/tree/master/scripts/SqlClientPoolBenchmark)**
 
-Po scaleniu będzie dostępny w katalogu [`scripts/SqlClientPoolBenchmark`](https://github.com/marcinpytlik/SQLManiak/tree/master/scripts/SqlClientPoolBenchmark). Instrukcja uruchomienia i opis ograniczeń znajdują się w `README.md`. Kod jest udostępniony do samodzielnego powtórzenia pomiarów w odizolowanym laboratorium; nie należy uruchamiać 500 równoczesnych połączeń bez oceny wpływu na serwer.
+Kod znajduje się w katalogu `scripts/SqlClientPoolBenchmark`. Instrukcja uruchomienia i opis ograniczeń znajdują się w `README.md`. Kod jest udostępniony do samodzielnego powtórzenia pomiarów w odizolowanym laboratorium; nie należy uruchamiać 500 równoczesnych połączeń bez oceny wpływu na serwer.
 
 Przykładowy test:
 
