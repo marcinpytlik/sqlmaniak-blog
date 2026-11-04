@@ -26,7 +26,7 @@ To nie jest test czasu wykonywania zapytań SQL. To test kosztu *budowania zimne
 
 W starszej implementacji (dalej **Pool V1**) tworzenie nowych połączeń wewnątrz jednej puli ma istotny element serializacji. **Pool V2** zmienia organizację współbieżności i korzysta m.in. z `System.Threading.Channels`, aby usprawnić równoległe tworzenie fizycznych połączeń.
 
-W przypadku dużej liczby jednoczesnych otwarć zmiana powinna szczególnie pomagać operacjom asynchronicznym. Ale większa równoległość może też zwiększyć koszty po stronie klienta: uwierzytelniania, kodu runtime, zarządzania wątkami i funkcji systemowych. Dlatego oprócz czasu ściennego mierzyłem także CPU.
+W przypadku dużej liczby jednoczesnych otwarć zmiana powinna szczególnie pomagać operacjom asynchronicznym. Ale większa równoległość może też zwiększyć koszty po stronie klienta: uwierzytelniania, kodu runtime, zarządzania wątkami i funkcji systemowych. Dlatego oprócz czasu ściennego (Wall-clock time,To czas, jaki upłynął od rozpoczęcia do zakończenia operacji, niezależnie od tego, czy procesor pracował, czy aplikacja na coś czekała.W .NET mierzymy go za pomocą Stopwatch) mierzyłem także CPU.
 
 ## Środowisko i metodologia
 
@@ -140,9 +140,9 @@ W śladach V2 zauważyłem również `ChannelDbConnectionPool.GetInternalConnect
 
 ## Czy trzeba wyłączyć Pool V2?
 
-Nie wyciągałbym takiego wniosku. W naszych testach **asynchroniczny Pool V2 wygrywał konsekwentnie**, a synchroniczny V2 był szybszy przy mniejszej współbieżności. Scenariusz 500 jednocześnie tworzonych fizycznych połączeń jest testem granicznym, nie typowym stanem prawidłowo działającej aplikacji.
+Nie wyciągałbym takiego wniosku. W moich testach **asynchroniczny Pool V2 wygrywał konsekwentnie**, a synchroniczny V2 był szybszy przy mniejszej współbieżności. Scenariusz 500 jednocześnie tworzonych fizycznych połączeń jest testem granicznym, nie typowym stanem prawidłowo działającej aplikacji.
 
-W praktyce najważniejsza jest **ponowna używalność połączeń z rozgrzanej puli**. Nasz eksperyment nie badał przepustowości zapytań ani opóźnień aplikacji pracującej na ciepłej puli. Nie porównywał też zdalnego SQL Server, Azure SQL ani Linuksa.
+W praktyce najważniejsza jest **ponowna używalność połączeń z rozgrzanej puli**. Mój eksperyment nie badał przepustowości zapytań ani opóźnień aplikacji pracującej na ciepłej puli. Nie porównywał też zdalnego SQL Server, Azure SQL ani Linuksa.
 
 Dla programisty .NET wniosek jest prosty: warto mierzyć rzeczywiste wzorce obciążenia aplikacji oraz odróżniać `Open()` od `OpenAsync()`. Dla administratora SQL Server to przypomnienie, że **nie każde opóźnienie widoczne w aplikacji pochodzi z silnika bazy danych**. Problemy mogą powstawać, zanim jakiekolwiek zapytanie dotrze do optymalizatora — w SqlClient, uwierzytelnianiu, runtime lub systemie operacyjnym.
 
