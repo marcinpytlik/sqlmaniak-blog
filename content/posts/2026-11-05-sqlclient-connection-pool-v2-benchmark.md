@@ -159,6 +159,23 @@ Odpowiedź brzmi: **tak — ale nie w każdym scenariuszu**. I właśnie dlatego
 
 ---
 
+## Kod źródłowy i odtwarzalność eksperymentu
+
+Aplikację benchmarkową w C# (.NET 10) i skrypty PowerShell do testów losowych, diagnostyki oraz profilowania CPU udostępniam w repozytorium SQLManiak:
+
+**[Kod benchmarku — Pull Request #77 (oczekuje na scalenie)](https://github.com/marcinpytlik/SQLManiak/pull/77)**
+
+Po scaleniu będzie dostępny w katalogu [`scripts/SqlClientPoolBenchmark`](https://github.com/marcinpytlik/SQLManiak/tree/master/scripts/SqlClientPoolBenchmark). Instrukcja uruchomienia i opis ograniczeń znajdują się w `README.md`. Kod jest udostępniony do samodzielnego powtórzenia pomiarów w odizolowanym laboratorium; nie należy uruchamiać 500 równoczesnych połączeń bez oceny wpływu na serwer.
+
+Przykładowy test:
+
+```powershell
+$env:SQLCLIENT_BENCH_CS = 'Server=localhost;Database=master;Integrated Security=True;Encrypt=True;TrustServerCertificate=True'
+./Run-Random500.ps1 -Trials 500 -Seed 20261104 -Levels 10,25,50,100,200,500 -MaxPool 550
+```
+
+Nie publikuję surowych śladów ETW ani danych środowiskowych. Wyniki uzyskane przez innych użytkowników mogą się różnić.
+
 ### Źródła i materiały
 
 - [Microsoft — Try SqlClient's new connection pool for faster parallel connections](https://devblogs.microsoft.com/azure-sql/try-sqlclients-new-connection-pool-for-faster-parallel-connections/)
