@@ -44,7 +44,7 @@ Sprawdziłem to na niewielkim Web API w .NET 10. Wykonałem **60 uruchomień** �
 | Aplikacja | Minimal ASP.NET Core Web API, bez bazy danych |
 | Liczba pomiarów | 30 Debug + 30 Release |
 
-Brak bazy danych jest celowy: chcemy obserwować przede wszystkim start procesu, runtime i serwera HTTP, a nie koszt połączenia z SQL Server.
+Brak bazy danych jest celowy: chcę obserwować przede wszystkim start procesu, runtime i serwera HTTP, a nie koszt połączenia z SQL Server.
 
 ## 1. `dotnet new`: generowanie projektu
 
