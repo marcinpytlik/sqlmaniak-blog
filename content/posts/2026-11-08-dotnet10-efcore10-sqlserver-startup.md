@@ -37,7 +37,26 @@ Postanowiłem to zmierzyć. Przygotowałem **siedem wariantów publikacji** apli
 | Liczba wariantów | 7 |
 | Liczba poprawnych pomiarów | 420 |
 
-Nie mam w komplecie danych pomiarowych pełnej specyfikacji CPU/RAM hosta ani identyfikatora obrazu SQL Server. To ogranicza możliwość dokładnego odtworzenia wyników na innym komputerze.
+### Konfiguracja sprzętowa i kontenerowa
+
+| Parametr | Konfiguracja |
+|---|---|
+| System hosta | Microsoft Windows 11 Pro, wersja 10.0.26300 (build 26300), x64 |
+| Procesor | Intel Core i5-1035G1 @ 1,00 GHz |
+| Rdzenie fizyczne / procesory logiczne | 4 / 8 |
+| Pamięć RAM hosta | 7,81 GiB |
+| .NET SDK | 10.0.403 |
+| PowerShell | 7.6.9 |
+| Docker Client / Engine | 29.9.2 / 29.9.2 |
+| Środowisko kontenerów | Linux, 8 CPU i 4 003 069 952 bajty pamięci raportowane przez `docker info` (około 3,73 GiB) |
+| Kontener SQL Server | `sql2022-startuplab` |
+| Obraz kontenera (tag) | `mcr.microsoft.com/mssql/server:2022-latest` |
+| SQL Server | **2022 RTM-CU27 (KB5104824), 16.0.4295.3 (X64)** |
+| Mapowanie portów | `127.0.0.1:14333 → 1433/tcp` |
+| Limit pamięci kontenera | 4 GiB (`MemoryLimit=4294967296`) |
+| Limit CPU kontenera | Brak jawnego limitu (`NanoCPUs=0`, `CpuQuota=0`) |
+
+Wyniki dotyczą konkretnego środowiska: hosta z około 8 GiB RAM i SQL Server działającego w kontenerze Linux. Środowisko Docker raportowało około 3,73 GiB pamięci, mniej niż limit 4 GiB zapisany w konfiguracji samego kontenera. Wydajność na innym sprzęcie, przy innych limitach zasobów lub przy innej wersji obrazu może się różnić. Tag `2022-latest` jest zmienny; dokładną wersję silnika odczytano z logu startowego SQL Server.
 
 Każdy proces wykonuje tę samą sekwencję: tworzy `DbContextOptions` i `LabDbContext`, otwiera połączenie, wykonuje `SELECT 1` przez `ExecuteSqlRawAsync`, zapisuje wynik JSON i kończy działanie.
 
