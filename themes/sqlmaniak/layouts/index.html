@@ -9,12 +9,12 @@
 {{ $featured := where .Site.RegularPages "Params.featured" true }}
 {{ if gt (len $featured) 0 }}
 <section>
-  <h2>Wyróżnione</h2>
+  <h2>{{ i18n "heroFeatured" }}</h2>
   {{ range first 3 (sort $featured "Date" "desc") }}
     <article class="post featured">
       <span class="badge">FEATURED</span>
       <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-      <p class="meta">{{ .Date.Format "2006-01-02" }} · {{ .ReadingTime }} min</p>
+      <p class="meta">{{ .Date.Format "2006-01-02" }} · {{ .ReadingTime }} {{ i18n "readMinutes" }}</p>
       {{ if .Params.description }}<p>{{ .Params.description }}</p>{{ else }}<p>{{ .Summary }}</p>{{ end }}
     </article>
   {{ end }}
@@ -23,7 +23,7 @@
 
 {{ with .Site.Params.featuredScripts.items }}
 <section>
-  <h2>Polecane skrypty</h2>
+  <h2>{{ i18n "heroScripts" }}</h2>
   <div class="featured-scripts">
     {{ range . }}
       <a class="chip" href="{{ .url }}">{{ .name }}</a>
@@ -33,7 +33,7 @@
 {{ end }}
 
 <section>
-  <h2>Najnowsze wpisy</h2>
+  <h2>{{ i18n "heroLatest" }}</h2>
   {{/* 1) Zbierz wpisy z sekcji posts */}}
   {{ $posts := where .Site.RegularPages "Section" "posts" }}
 
@@ -45,7 +45,7 @@
   {{ range first 10 (sort $posts "Date" "desc") }}
     <article class="post">
       <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-      <p class="meta">{{ .Date.Format "2006-01-02" }} · {{ .ReadingTime }} min</p>
+      <p class="meta">{{ .Date.Format "2006-01-02" }} · {{ .ReadingTime }} {{ i18n "readMinutes" }}</p>
       {{ if .Params.description }}
         <p>{{ .Params.description }}</p>
       {{ else }}
@@ -53,7 +53,7 @@
       {{ end }}
       <p class="tags">
         {{ range .Params.tags }}
-          <a class="chip" href="/tags/{{ . | urlize }}">#{{ . }}</a>
+          <a class="chip" href="{{ printf "tags/%s/" (. | urlize) | relLangURL }}">#{{ . }}</a>
         {{ end }}
       </p>
     </article>
