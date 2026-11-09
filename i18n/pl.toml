@@ -1,0 +1,58 @@
+[navHome]
+other = "Home"
+[navPosts]
+other = "Posty"
+[navPublications]
+other = "Publikacje"
+[navOffer]
+other = "Oferta"
+[navTags]
+other = "Tagi"
+[navCategories]
+other = "Kategorie"
+[navAbout]
+other = "O mnie"
+[navContact]
+other = "Kontakt"
+[navScripts]
+other = "Skrypty"
+[themeTitle]
+other = "Tryb jasny/ciemny"
+[heroLatest]
+other = "Najnowsze wpisy"
+[heroFeatured]
+other = "Wyróżnione"
+[heroScripts]
+other = "Polecane skrypty"
+[readMinutes]
+other = "min"
+[toc]
+other = "Spis treści"
+[tagsLabel]
+other = "Tagi"
+[attachments]
+other = "Pliki do pobrania"
+[privacy]
+other = "Polityka prywatności"
+[analyticsSettings]
+other = "Ustawienia analityki"
+[footerPowered]
+other = "Wykonano w Hugo · Hostowane na GitHub Pages"
+[copy]
+other = "Kopiuj"
+[copied]
+other = "Skopiowano!"
+[consentAria]
+other = "Zgoda na analitykę"
+[consentTitle]
+other = "Statystyki SQLManiaka"
+[consentText]
+other = "Za Twoją zgodą używamy Google Analytics do mierzenia odwiedzin i zainteresowania artykułami oraz ofertą. Odrzucenie nie ogranicza dostępu do bloga."
+[consentAccept]
+other = "Akceptuję analitykę"
+[consentReject]
+other = "Odrzucam"
+[settingsText]
+other = "Możesz zmienić swoją decyzję w każdej chwili. Po wycofaniu zgody strona zostanie odświeżona, aby zatrzymać dalszy pomiar."
+[settingsReject]
+other = "Odrzucam / Wycofuję zgodę"

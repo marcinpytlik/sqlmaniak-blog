@@ -1,9 +1,22 @@
 baseURL = "https://sqlmaniak.blog/"
 title = "SQL Maniak"
-languageCode = "pl-pl"
+defaultContentLanguage = "pl"
+defaultContentLanguageInSubdir = false
 timeZone = "Europe/Warsaw"
 theme = "sqlmaniak"
 enableRobotsTXT = true
+
+[languages]
+  [languages.pl]
+    label = "Polski"
+    locale = "pl-PL"
+    weight = 1
+  [languages.en]
+    label = "English"
+    locale = "en-US"
+    weight = 2
+    [languages.en.params]
+      description = "Practical SQL Server performance tuning, database administration, and engineering experiments."
 
 [pagination]
   pagerSize = 10

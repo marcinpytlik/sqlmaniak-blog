@@ -1,0 +1,41 @@
+name: Validate Hugo multilingual build
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: 'latest'
+          extended: true
+      - name: Build site
+        run: hugo --minify --printI18nWarnings
+      - name: Verify Polish URLs and English translation
+        shell: bash
+        run: |
+          set -euo pipefail
+          for page in \
+            public/index.html \
+            public/posts/podzial-tabeli-bez-big-bang/index.html \
+            public/en/index.html \
+            public/en/posts/split-table-without-big-bang/index.html; do
+            echo "Checking $page"
+            test -f "$page" || { echo "::error::Missing $page"; exit 1; }
+          done
+          # Hugo minification may remove quotation marks around HTML attributes.
+          PL=public/posts/podzial-tabeli-bez-big-bang/index.html
+          EN=public/en/posts/split-table-without-big-bang/index.html
+          grep -Eq 'hreflang=("en"|en)' "$PL" || { echo "::error::Missing English hreflang on PL"; exit 1; }
+          grep -Eq 'hreflang=("pl"|pl)' "$EN" || { echo "::error::Missing Polish hreflang on EN"; exit 1; }
+          grep -Eq 'lang=("en"|en)' "$EN" || { echo "::error::Missing English lang attribute"; exit 1; }
+          grep -Eq 'rel=("canonical"|canonical)' "$EN" || { echo "::error::Missing English canonical"; exit 1; }

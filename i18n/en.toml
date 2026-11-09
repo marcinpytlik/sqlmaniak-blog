@@ -1,0 +1,58 @@
+[navHome]
+other = "Home"
+[navPosts]
+other = "Posts"
+[navPublications]
+other = "Publications"
+[navOffer]
+other = "Services"
+[navTags]
+other = "Tags"
+[navCategories]
+other = "Categories"
+[navAbout]
+other = "About"
+[navContact]
+other = "Contact"
+[navScripts]
+other = "Scripts"
+[themeTitle]
+other = "Toggle light/dark mode"
+[heroLatest]
+other = "Latest posts"
+[heroFeatured]
+other = "Featured"
+[heroScripts]
+other = "Recommended scripts"
+[readMinutes]
+other = "min"
+[toc]
+other = "Table of contents"
+[tagsLabel]
+other = "Tags"
+[attachments]
+other = "Downloads"
+[privacy]
+other = "Privacy policy (Polish)"
+[analyticsSettings]
+other = "Analytics settings"
+[footerPowered]
+other = "Built with Hugo · Hosted on GitHub Pages"
+[copy]
+other = "Copy"
+[copied]
+other = "Copied!"
+[consentAria]
+other = "Analytics consent"
+[consentTitle]
+other = "SQLManiak analytics"
+[consentText]
+other = "With your consent, we use Google Analytics to measure visits and interest in our articles and services. Declining does not restrict access to the blog."
+[consentAccept]
+other = "Allow analytics"
+[consentReject]
+other = "Decline"
+[settingsText]
+other = "You can change your decision at any time. If you withdraw consent, the page will reload to stop further tracking."
+[settingsReject]
+other = "Decline / Withdraw consent"
