@@ -6,7 +6,7 @@
     {{ range .Paginator.Pages }}
       <article class="post">
         <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-        <p class="meta">{{ .Date.Format "2006-01-02" }} · {{ .ReadingTime }} min</p>
+        <p class="meta">{{ .Date.Format "2006-01-02" }} · {{ .ReadingTime }} {{ i18n "readMinutes" }}</p>
         {{ if .Params.description }}<p>{{ .Params.description }}</p>{{ else }}<p>{{ .Summary }}</p>{{ end }}
       </article>
     {{ end }}
@@ -15,7 +15,7 @@
     {{ range .Pages }}
       <article class="post">
         <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-        <p class="meta">{{ .Date.Format "2006-01-02" }} · {{ .ReadingTime }} min</p>
+        <p class="meta">{{ .Date.Format "2006-01-02" }} · {{ .ReadingTime }} {{ i18n "readMinutes" }}</p>
         <p>{{ .Summary }}</p>
       </article>
     {{ end }}
