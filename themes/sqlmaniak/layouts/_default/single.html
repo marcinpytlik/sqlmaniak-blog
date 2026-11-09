@@ -3,10 +3,10 @@
 {{ define "main" }}
   <article class="post post-single">
     <h1>{{ .Title }}</h1>
-    <p class="meta">{{ .Date.Format "2006-01-02" }} · {{ .ReadingTime }} min</p>
+    <p class="meta">{{ .Date.Format "2006-01-02" }} · {{ .ReadingTime }} {{ i18n "readMinutes" }}</p>
     {{ if .TableOfContents }}
     <aside class="toc">
-      <h3>Spis treści</h3>
+      <h3>{{ i18n "toc" }}</h3>
       {{ .TableOfContents }}
     </aside>
     {{ end }}
@@ -15,9 +15,9 @@
     </div>
     {{ partial "attachments.html" . }}
     <hr>
-    <p class="meta">Tagi:
+    <p class="meta">{{ i18n "tagsLabel" }}:
       {{ range $i, $t := .Params.tags }}
-        {{ if $i }}, {{ end }}<a href="/tags/{{ $t | urlize }}">{{ $t }}</a>
+        {{ if $i }}, {{ end }}<a href="{{ printf "tags/%s/" ($t | urlize) | relLangURL }}">{{ $t }}</a>
       {{ end }}
     </p>
   {{ partial "authorbox.html" . }}
