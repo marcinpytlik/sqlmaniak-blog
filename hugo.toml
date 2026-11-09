@@ -17,6 +17,12 @@ enableRobotsTXT = true
     weight = 2
     [languages.en.params]
       description = "Practical SQL Server performance tuning, database administration, and engineering experiments."
+  [languages.de]
+    label = "Deutsch"
+    locale = "de-DE"
+    weight = 3
+    [languages.de.params]
+      description = "Praxiswissen zu SQL Server, Performance-Optimierung, Datenbankadministration und technischen Experimenten."
 
 [pagination]
   pagerSize = 10
