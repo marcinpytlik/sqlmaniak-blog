@@ -1,0 +1,12 @@
+.language-switcher {
+  display: inline-flex;
+  gap: .35rem;
+  align-items: center;
+  margin-inline: .35rem;
+  white-space: nowrap;
+}
+.language-switcher a[aria-current="page"] {
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
