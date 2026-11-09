@@ -101,14 +101,17 @@
         <a href="{{ "posts/" | relLangURL }}">{{ i18n "navPosts" }}</a>
         {{ if eq .Site.Language.Lang "pl" }}
         <a href="/publikacje/">{{ i18n "navPublications" }}</a>
-        <a href="/oferta/">{{ i18n "navOffer" }}</a>
         {{ end }}
+        {{ $offerURL := "/oferta/" }}
+        {{ if eq .Site.Language.Lang "en" }}{{ $offerURL = "/en/services/" }}{{ end }}
+        {{ if eq .Site.Language.Lang "de" }}{{ $offerURL = "/de/leistungen/" }}{{ end }}
+        <a href="{{ $offerURL }}">{{ i18n "navOffer" }}</a>
         <a href="{{ "tags/" | relLangURL }}">{{ i18n "navTags" }}</a>
         <a href="{{ "categories/" | relLangURL }}">{{ i18n "navCategories" }}</a>
         {{ with .Site.Home.OutputFormats.Get "RSS" }}<a href="{{ .RelPermalink }}">RSS</a>{{ end }}
+        <a href="{{ "about/" | relLangURL }}">{{ i18n "navAbout" }}</a>
+        <a href="{{ "contact/" | relLangURL }}">{{ i18n "navContact" }}</a>
         {{ if eq .Site.Language.Lang "pl" }}
-        <a href="/about/">{{ i18n "navAbout" }}</a>
-        <a href="/contact/">{{ i18n "navContact" }}</a>
         <a href="/scripts/">{{ i18n "navScripts" }}</a>
         {{ end }}
         <a href="https://www.youtube.com/channel/UCGTWakuMHswSFwkOyTUE-XA">YouTube</a>
