@@ -24,11 +24,18 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          test -f public/index.html
-          test -f public/posts/podzial-tabeli-bez-big-bang/index.html
-          test -f public/en/index.html
-          test -f public/en/posts/split-table-without-big-bang/index.html
-          grep -q 'hreflang="en"' public/posts/podzial-tabeli-bez-big-bang/index.html
-          grep -q 'hreflang="pl"' public/en/posts/split-table-without-big-bang/index.html
-          grep -q 'lang="en"' public/en/posts/split-table-without-big-bang/index.html
-          grep -q 'rel="canonical"' public/en/posts/split-table-without-big-bang/index.html
+          for page in \
+            public/index.html \
+            public/posts/podzial-tabeli-bez-big-bang/index.html \
+            public/en/index.html \
+            public/en/posts/split-table-without-big-bang/index.html; do
+            echo "Checking $page"
+            test -f "$page" || { echo "::error::Missing $page"; exit 1; }
+          done
+          # Hugo minification may remove quotation marks around HTML attributes.
+          PL=public/posts/podzial-tabeli-bez-big-bang/index.html
+          EN=public/en/posts/split-table-without-big-bang/index.html
+          grep -Eq 'hreflang=("en"|en)' "$PL" || { echo "::error::Missing English hreflang on PL"; exit 1; }
+          grep -Eq 'hreflang=("pl"|pl)' "$EN" || { echo "::error::Missing Polish hreflang on EN"; exit 1; }
+          grep -Eq 'lang=("en"|en)' "$EN" || { echo "::error::Missing English lang attribute"; exit 1; }
+          grep -Eq 'rel=("canonical"|canonical)' "$EN" || { echo "::error::Missing English canonical"; exit 1; }
