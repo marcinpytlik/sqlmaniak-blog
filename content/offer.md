@@ -7,7 +7,7 @@ draft: false
 
 <section class="offer-hero">
 <p class="offer-eyebrow">SQL Server · .NET · Azure · PowerShell · Monitoring · szkolenia i konsultacje</p>
-<h1>Pomagam budować, automatyzować, monitorować i utrzymywać środowiska SQL Server, .NET, Azure i Windows</h1>
+<h2>Pomagam budować, automatyzować, monitorować i utrzymywać środowiska SQL Server, .NET, Azure i Windows</h2>
 <p class="offer-lead">Pracuję z istniejącymi środowiskami produkcyjnymi, gdzie liczy się dostępność, przewidywalność i możliwość podejmowania decyzji na podstawie danych. Audytuję, diagnozuję i przygotowuję konkretne zalecenia możliwe do wdrożenia przez zespół klienta lub wspólnie ze mną. Prowadzę także praktyczne szkolenia z T-SQL, administracji SQL Server, HA/DR, C#/.NET, ASP.NET Core Web API, IIS, Azure, PowerShell oraz monitoringu w Zabbix i Grafana.</p>
 <div class="offer-actions">
 <a class="offer-button offer-button--primary" href="https://www.malt.com/profile/marcinpytlik" target="_blank" rel="noopener noreferrer">Przejdź do Malt</a>

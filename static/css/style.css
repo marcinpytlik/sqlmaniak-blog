@@ -183,7 +183,7 @@ html:not(.theme-dark) .offer-hero {
   border-color: var(--border-light);
   background: linear-gradient(135deg, rgba(5,150,105,.08), rgba(14,116,144,.04));
 }
-.offer-hero h1 {
+.offer-hero h2 {
   max-width: 820px;
   margin: .35rem 0 .9rem;
   font-size: clamp(2rem, 4vw, 3.2rem);
