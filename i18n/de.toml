@@ -1,0 +1,58 @@
+[navHome]
+other = "Startseite"
+[navPosts]
+other = "Beiträge"
+[navPublications]
+other = "Publikationen"
+[navOffer]
+other = "Angebot"
+[navTags]
+other = "Tags"
+[navCategories]
+other = "Kategorien"
+[navAbout]
+other = "Über mich"
+[navContact]
+other = "Kontakt"
+[navScripts]
+other = "Skripte"
+[themeTitle]
+other = "Hell-/Dunkelmodus umschalten"
+[heroLatest]
+other = "Neueste Beiträge"
+[heroFeatured]
+other = "Empfohlen"
+[heroScripts]
+other = "Empfohlene Skripte"
+[readMinutes]
+other = "Min."
+[toc]
+other = "Inhaltsverzeichnis"
+[tagsLabel]
+other = "Tags"
+[attachments]
+other = "Downloads"
+[privacy]
+other = "Datenschutzerklärung (auf Polnisch)"
+[analyticsSettings]
+other = "Analyse-Einstellungen"
+[footerPowered]
+other = "Erstellt mit Hugo · Gehostet auf GitHub Pages"
+[copy]
+other = "Kopieren"
+[copied]
+other = "Kopiert!"
+[consentAria]
+other = "Einwilligung zur Webanalyse"
+[consentTitle]
+other = "SQLManiak-Webanalyse"
+[consentText]
+other = "Mit Ihrer Einwilligung verwenden wir Google Analytics, um Besuche sowie das Interesse an Artikeln und Angeboten zu messen. Auch ohne Einwilligung können Sie den Blog uneingeschränkt nutzen."
+[consentAccept]
+other = "Analyse zulassen"
+[consentReject]
+other = "Ablehnen"
+[settingsText]
+other = "Sie können Ihre Entscheidung jederzeit ändern. Wenn Sie Ihre Einwilligung widerrufen, wird die Seite neu geladen, um die weitere Messung zu beenden."
+[settingsReject]
+other = "Ablehnen / Einwilligung widerrufen"

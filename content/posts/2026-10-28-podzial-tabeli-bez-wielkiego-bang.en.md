@@ -13,7 +13,6 @@ tags:
 draft: false
 ---
 
-# Splitting a Table Without a Big Bang: From One Data Model to Two
 
 Imagine that, over the years, a `Customer` table has grown to contain dozens of columns.
 

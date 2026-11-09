@@ -112,17 +112,21 @@
         <a href="/scripts/">{{ i18n "navScripts" }}</a>
         {{ end }}
         <a href="https://www.youtube.com/channel/UCGTWakuMHswSFwkOyTUE-XA">YouTube</a>
-        {{/* Default to each language's homepage for untranslated pages. */}}
+        {{/* Show genuine article counterparts; fall back to language-specific homepages. */}}
         {{ $plURL := "/" | relURL }}
         {{ $enURL := "/en/" | relURL }}
+        {{ $deURL := "/de/" | relURL }}
         {{ range .AllTranslations }}
           {{ if eq .Language.Lang "pl" }}{{ $plURL = .RelPermalink }}{{ end }}
           {{ if eq .Language.Lang "en" }}{{ $enURL = .RelPermalink }}{{ end }}
+          {{ if eq .Language.Lang "de" }}{{ $deURL = .RelPermalink }}{{ end }}
         {{ end }}
-        <span class="language-switcher" aria-label="Language">
+        <span class="language-switcher" aria-label="Language / Sprache / Język">
           <a href="{{ $plURL }}" hreflang="pl" lang="pl" {{ if eq .Site.Language.Lang "pl" }}aria-current="page"{{ end }}>PL</a>
           <span aria-hidden="true">/</span>
           <a href="{{ $enURL }}" hreflang="en" lang="en" {{ if eq .Site.Language.Lang "en" }}aria-current="page"{{ end }}>EN</a>
+          <span aria-hidden="true">/</span>
+          <a href="{{ $deURL }}" hreflang="de" lang="de" {{ if eq .Site.Language.Lang "de" }}aria-current="page"{{ end }}>DE</a>
         </span>
         <button id="themeToggle" title="{{ i18n "themeTitle" }}">🌓</button>
       </nav>

@@ -13,7 +13,6 @@ tags:
 draft: false
 ---
 
-# Podział tabeli bez Big Bang: jak rozdzielić jeden model na dwa
 
 Załóżmy, że przez lata tabela `Customer` urosła do kilkudziesięciu kolumn.
 
