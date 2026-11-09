@@ -20,7 +20,7 @@ jobs:
           extended: true
       - name: Build site
         run: hugo --minify --printI18nWarnings
-      - name: Verify Polish URLs and English translation
+      - name: Verify PL EN DE URLs, translations and headings
         shell: bash
         run: |
           set -euo pipefail
@@ -28,7 +28,9 @@ jobs:
             public/index.html \
             public/posts/podzial-tabeli-bez-big-bang/index.html \
             public/en/index.html \
-            public/en/posts/split-table-without-big-bang/index.html; do
+            public/en/posts/split-table-without-big-bang/index.html \
+            public/de/index.html \
+            public/de/posts/tabelle-aufteilen-ohne-big-bang/index.html; do
             echo "Checking $page"
             test -f "$page" || { echo "::error::Missing $page"; exit 1; }
           done
@@ -39,3 +41,15 @@ jobs:
           grep -Eq 'hreflang=("pl"|pl)' "$EN" || { echo "::error::Missing Polish hreflang on EN"; exit 1; }
           grep -Eq 'lang=("en"|en)' "$EN" || { echo "::error::Missing English lang attribute"; exit 1; }
           grep -Eq 'rel=("canonical"|canonical)' "$EN" || { echo "::error::Missing English canonical"; exit 1; }
+          DE=public/de/posts/tabelle-aufteilen-ohne-big-bang/index.html
+          for lang in pl en de; do
+            grep -Eq "hreflang=(\"$lang\"|$lang)" "$PL" || { echo "::error::Missing $lang hreflang on PL"; exit 1; }
+            grep -Eq "hreflang=(\"$lang\"|$lang)" "$EN" || { echo "::error::Missing $lang hreflang on EN"; exit 1; }
+            grep -Eq "hreflang=(\"$lang\"|$lang)" "$DE" || { echo "::error::Missing $lang hreflang on DE"; exit 1; }
+          done
+          grep -Eq 'lang=("de"|de)' "$DE" || { echo "::error::Missing German lang attribute"; exit 1; }
+          grep -Eq 'rel=("canonical"|canonical)' "$DE" || { echo "::error::Missing German canonical"; exit 1; }
+          for page in "$PL" "$EN" "$DE"; do
+            count=$(grep -o '<h1[ >]' "$page" | wc -l)
+            test "$count" -eq 1 || { echo "::error::Expected one H1 in $page, found $count"; exit 1; }
+          done
