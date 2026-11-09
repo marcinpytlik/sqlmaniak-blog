@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl" class="theme-dark">
+<html lang="{{ .Site.Language.Lang }}" class="theme-dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,6 +8,18 @@
 
   <!-- Canonical -->
   <link rel="canonical" href="{{ .Permalink }}" />
+
+  {{/* Only link genuine translations. Each URL is independently canonical. */}}
+  {{ if gt (len .AllTranslations) 1 }}
+    {{ range .AllTranslations }}
+  <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}">
+    {{ end }}
+    {{ range .AllTranslations }}
+      {{ if eq .Language.Lang "pl" }}
+  <link rel="alternate" hreflang="x-default" href="{{ .Permalink }}">
+      {{ end }}
+    {{ end }}
+  {{ end }}
 
   <!-- Meta description -->
   <meta name="description" content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
@@ -30,7 +42,9 @@
   <meta name="keywords" content="SQL Server, Monitoring, PowerShell, Grafana, InfluxDB, DBA, performance tuning">
 
   <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
-  <link rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" href="/index.xml">
+  {{ with .Site.Home.OutputFormats.Get "RSS" }}
+  <link rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" href="{{ .RelPermalink }}">
+  {{ end }}
 
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/code.css">
@@ -77,23 +91,39 @@
   {{ partial "analytics-consent.html" . }}
   <header class="site-header">
     <div class="container header-row">
-      <a class="brand" href="/">
+      <a class="brand" href="{{ .Site.Home.RelPermalink }}">
         <img src="/images/logo.svg" alt="SQL Maniak" width="28" height="28">
         <span>{{ .Site.Title }}</span>
       </a>
-      <nav>
-        <a href="/">Home</a>
-        <a href="/posts/">Posty</a>
-        <a href="/publikacje/">Publikacje</a>
-        <a href="/oferta/">Oferta</a>
-        <a href="/tags/">Tagi</a>
-        <a href="/categories/">Kategorie</a>
-        <a href="/index.xml">RSS</a>
-        <a href="/about/">O mnie</a>
-        <a href="/contact/">Kontakt</a>
-        <a href="/scripts/">Skrypty</a>
+      <nav aria-label="Main navigation">
+        <a href="{{ .Site.Home.RelPermalink }}">{{ i18n "navHome" }}</a>
+        <a href="{{ "posts/" | relLangURL }}">{{ i18n "navPosts" }}</a>
+        {{ if eq .Site.Language.Lang "pl" }}
+        <a href="/publikacje/">{{ i18n "navPublications" }}</a>
+        <a href="/oferta/">{{ i18n "navOffer" }}</a>
+        {{ end }}
+        <a href="{{ "tags/" | relLangURL }}">{{ i18n "navTags" }}</a>
+        <a href="{{ "categories/" | relLangURL }}">{{ i18n "navCategories" }}</a>
+        {{ with .Site.Home.OutputFormats.Get "RSS" }}<a href="{{ .RelPermalink }}">RSS</a>{{ end }}
+        {{ if eq .Site.Language.Lang "pl" }}
+        <a href="/about/">{{ i18n "navAbout" }}</a>
+        <a href="/contact/">{{ i18n "navContact" }}</a>
+        <a href="/scripts/">{{ i18n "navScripts" }}</a>
+        {{ end }}
         <a href="https://www.youtube.com/channel/UCGTWakuMHswSFwkOyTUE-XA">YouTube</a>
-        <button id="themeToggle" title="Tryb jasny/ciemny">🌓</button>
+        {{/* Default to each language's homepage for untranslated pages. */}}
+        {{ $plURL := "/" | relURL }}
+        {{ $enURL := "/en/" | relURL }}
+        {{ range .AllTranslations }}
+          {{ if eq .Language.Lang "pl" }}{{ $plURL = .RelPermalink }}{{ end }}
+          {{ if eq .Language.Lang "en" }}{{ $enURL = .RelPermalink }}{{ end }}
+        {{ end }}
+        <span class="language-switcher" aria-label="Language">
+          <a href="{{ $plURL }}" hreflang="pl" lang="pl" {{ if eq .Site.Language.Lang "pl" }}aria-current="page"{{ end }}>PL</a>
+          <span aria-hidden="true">/</span>
+          <a href="{{ $enURL }}" hreflang="en" lang="en" {{ if eq .Site.Language.Lang "en" }}aria-current="page"{{ end }}>EN</a>
+        </span>
+        <button id="themeToggle" title="{{ i18n "themeTitle" }}">🌓</button>
       </nav>
     </div>
   </header>
@@ -102,8 +132,8 @@
   </main>
   <footer class="site-footer">
     <div class="container">
-      <p>© {{ now.Format "2006" }} {{ .Site.Title }} · Wykonano w Hugo · Hostowane na GitHub Pages · <a href="/polityka-prywatnosci/">Polityka prywatności</a></p>
-      <p><button type="button" id="site-pref-open">Ustawienia analityki</button></p>
+      <p>© {{ now.Format "2006" }} {{ .Site.Title }} · {{ i18n "footerPowered" }} · <a href="/polityka-prywatnosci/">{{ i18n "privacy" }}</a></p>
+      <p><button type="button" id="site-pref-open">{{ i18n "analyticsSettings" }}</button></p>
     </div>
   </footer>
   <script>
@@ -119,13 +149,13 @@
   <script>
   document.querySelectorAll('pre').forEach((pre) => {
     const btn = document.createElement('button');
-    btn.innerText = 'Kopiuj';
+    btn.innerText = {{ i18n "copy" | jsonify }};
     btn.className = 'copy-btn';
     btn.addEventListener('click', () => {
       const code = pre.innerText;
       navigator.clipboard.writeText(code).then(() => {
-        btn.innerText = 'Skopiowano!';
-        setTimeout(()=>btn.innerText='Kopiuj',1500);
+        btn.innerText = {{ i18n "copied" | jsonify }};
+        setTimeout(()=>btn.innerText={{ i18n "copy" | jsonify }},1500);
       });
     });
     pre.appendChild(btn);
