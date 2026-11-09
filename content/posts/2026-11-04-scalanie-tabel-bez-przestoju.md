@@ -13,7 +13,6 @@ tags:
 draft: false
 ---
 
-# Scalanie tabel bez przestoju: kiedy dwa modele mają stać się jednym
 
 Podział tabeli to jeden kierunek. Czasem po latach chcemy zrobić odwrotnie: kilka struktur połączyć w jeden model.
 
@@ -98,3 +97,5 @@ Najpierw udowodnij, że nikt już nie korzysta ze starego kontraktu.
 Scalanie tabel to migracja danych, kluczy i semantyki jednocześnie.
 
 Bez mapowania i telemetrii łatwo uzyskać nowy model, którego nie da się bezpiecznie zweryfikować.
+
+**Powiązany artykuł:** [Podział tabeli bez Big Bang](/posts/podzial-tabeli-bez-big-bang/) opisuje migrację w przeciwnym kierunku.
