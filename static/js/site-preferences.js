@@ -59,13 +59,20 @@
     try { target = new URL(link.href, location.href); } catch (_) { return; }
     if (!["http:", "https:", "mailto:", "tel:"].includes(target.protocol)) return;
     const path = location.pathname;
-    if (target.protocol === "mailto:" || target.protocol === "tel:" ||
-        (target.origin === location.origin && target.pathname.startsWith("/contact"))) {
-      track("contact_click", {link_type: target.protocol.replace(":", "") || "internal", source_path: path});
+    const language = /^\/(en|de)(?:\/|$)/.exec(path)?.[1] || "pl";
+    const internal = target.origin === location.origin;
+    const isContact = internal && /^\/(?:(?:en|de)\/)?contact(?:\/|$)/.test(target.pathname);
+    const isOffer = internal && /^\/(?:oferta|en\/services|de\/leistungen)(?:\/|$)/.test(target.pathname);
+    if (target.protocol === "mailto:" || target.protocol === "tel:" || isContact) {
+      track("contact_click", {
+        link_type: target.protocol === "mailto:" ? "mailto" : target.protocol === "tel:" ? "tel" : "internal",
+        site_language: language,
+        source_path: path
+      });
     } else if (/(^|\.)easy\.tools$/i.test(target.hostname) || /(^|\.)easytools\./i.test(target.hostname)) {
-      track("easytools_click", {source_path: path});
-    } else if (target.origin === location.origin && target.pathname.startsWith("/oferta")) {
-      track("offer_click", {source_path: path});
+      track("easytools_click", {site_language: language, source_path: path});
+    } else if (isOffer) {
+      track("offer_click", {site_language: language, source_path: path});
     }
   });
   document.querySelectorAll("[data-site-pref-open-settings]").forEach(function (button) {
