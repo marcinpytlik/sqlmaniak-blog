@@ -14,7 +14,6 @@ tags:
 draft: false
 ---
 
-# Connection Pool V2 w Microsoft.Data.SqlClient — szybciej nie zawsze znaczy szybciej
 
 **Czy nowy mechanizm connection poolingu rzeczywiście przyspiesza aplikacje .NET?** Microsoft opisał nową implementację puli połączeń w `Microsoft.Data.SqlClient`, zoptymalizowaną pod kątem równoległego otwierania nowych fizycznych połączeń. Postanowiłem sprawdzić ją we własnym laboratorium z SQL Server 2022.
 
