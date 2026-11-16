@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build-time SEO regression checks for the two PL/EN/DE article families."""
+"""Build-time SEO regression checks for multilingual PL/EN/DE articles."""
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlparse
@@ -12,6 +12,21 @@ FAMILIES = {
         "pl": "/posts/podzial-tabeli-bez-big-bang/",
         "en": "/en/posts/split-table-without-big-bang/",
         "de": "/de/posts/tabelle-aufteilen-ohne-big-bang/",
+    },
+    "parameter-sniffing": {
+        "pl": "/posts/parameter-sniffing-sql-server/",
+        "en": "/en/posts/parameter-sniffing-sql-server/",
+        "de": "/de/posts/parameter-sniffing-sql-server/",
+    },
+    "query-store": {
+        "pl": "/posts/query-store-po-migracji/",
+        "en": "/en/posts/query-store-po-migracji/",
+        "de": "/de/posts/query-store-po-migracji/",
+    },
+    "sqlclient-pool": {
+        "pl": "/posts/sqlclient-connection-pool-v2-benchmark/",
+        "en": "/en/posts/sqlclient-connection-pool-v2-benchmark/",
+        "de": "/de/posts/sqlclient-connection-pool-v2-benchmark/",
     },
     "merge": {
         "pl": "/posts/scalanie-tabel-bez-przestoju/",
