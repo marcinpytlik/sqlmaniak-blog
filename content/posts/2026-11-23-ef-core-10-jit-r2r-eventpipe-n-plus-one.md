@@ -59,7 +59,7 @@ W osobnym eksperymencie publikacji przygotowałem cztery warianty. Wszystkie wyk
 
 Wariant `no-tiering` nie jest kolejną technologią kompilacji. Zmieniam w nim sposób działania runtime: wyłączam kompilację warstwową, co może zmienić kompromis między kosztem kompilacji a jakością wykonywanego kodu.
 
-Podstawą odróżnienia tych efektów była wcześniejsza faza **03B**: cztery zrównoważone rundy zmieniające kolejność wariantów, po 10 powtórzeń każdej strategii. Dały one **640 próbek aplikacyjnych**. Następna faza **03C** odczytywała wskaźniki całego procesu (CPU, alokacje, kolekcje GC). W tym artykule pokazuję przede wszystkim fazę **03D** — osobny eksperyment z narzędziami EventPipe.
+Podstawą odróżnienia tych efektów była wcześniejsza faza **03B**: cztery zrównoważone rundy zmieniające kolejność wariantów, po 10 powtórzeń każdej strategii. Łącznie było to **4 rundy × 4 tryby × 4 strategie × 10 powtórzeń = 640 próbek aplikacyjnych**. Następna faza **03C** odczytywała wskaźniki całego procesu (CPU, alokacje, kolekcje GC). W tym artykule pokazuję przede wszystkim fazę **03D** — osobny eksperyment z narzędziami EventPipe.
 
 To ważne rozróżnienie: **640 próbek z etapu 03B i 640 próbek z etapu 03D to różne zbiory**, uzyskane w innych warunkach.
 
@@ -98,7 +98,7 @@ W fazie 03D wykonałem dla każdego trybu po **20 powtórzeń czterech strategii
 
 **4 tryby × 4 strategie × 20 powtórzeń × 2 rodzaje zbierania = 640 pomiarów operacji EF Core.**
 
-Przed właściwą serią test potwierdzał zwracane dane oraz liczby SQL commands: **101 / 1 / 1 / 2**.
+Przed właściwą serią test potwierdzał zwracane dane oraz liczbę poleceń SQL: **101 / 1 / 1 / 2**.
 
 ## Czasy podczas profilowania: N+1 nadal wyraźnie odstaje
 
@@ -122,9 +122,9 @@ Poniżej wyniki **median czasu samej operacji EF Core**, a nie pełnego HTTP ani
 | Projection | **6,05** | 6,66 | 6,89 | 7,48 |
 | SplitQuery | 6,67 | **6,17** | 6,52 | 7,66 |
 
-Najbardziej widoczna obserwacja nie dotyczy R2R. **We wszystkich zmierzonych trybach N+1 pozostaje o rząd wielkości wolniejszy niż pozostałe strategie.** W jednej sesji JIT z licznikami stosunek median N+1 do Projection wyniósł około **23,5:1**.
+Najbardziej widoczna obserwacja nie dotyczy R2R. **We wszystkich zmierzonych trybach N+1 pozostaje o rząd wielkości wolniejszy niż pozostałe strategie.** W sesji JIT z `dotnet-counters` stosunek median N+1 do Projection wyniósł około **23,5:1**.
 
-Nie oznacza to, że JIT jest „z definicji lepszy” od ReadyToRun. To **lokalne mediany sesji z profilerem**, wykonanych w określonej kolejności. Koszt diagnostyki wpływa na badany proces, a ta faza nie była kontrbalansowana.
+Nie oznacza to, że JIT jest „z definicji lepszy” od ReadyToRun. To **lokalne mediany z sesji profilowania wykonanych w określonej kolejności**. Koszt diagnostyki wpływa na badany proces, a ta faza nie była kontrbalansowana.
 
 Jeśli chcę mówić o powtarzalności wpływu trybu kompilacji, muszę wrócić do osobnych, zrównoważonych rund **03B**, a nie wybierać najmniejszą liczbę z tabeli 03D.
 
@@ -242,7 +242,7 @@ Aby uruchomić wszystkie tryby:
 
 Wyniki trafiają do `experiments/03_Compilation/results/`: CSV liczników, CSV poszczególnych żądań, pliki `.nettrace`, logi i manifesty.
 
-Parametr `CaptureSeconds` jest teraz **doradczy**: po jego przekroczeniu skrypt zgłosi ostrzeżenie, ale nie przerwie kolekcji przed ukończeniem workloadu.
+Parametr `CaptureSeconds` jest teraz **doradczy**: po jego przekroczeniu skrypt zgłosi ostrzeżenie, ale nie przerwie zbierania danych przed zakończeniem serii żądań.
 
 **Nie stosuj tej konfiguracji na produkcyjnym SQL Server.** W demonstracji korzystamy z lokalnych kontenerów, syntetycznych danych, uproszczonego konta `sa` i wspólnej przestrzeni diagnostycznej.
 
