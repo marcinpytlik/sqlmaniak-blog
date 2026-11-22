@@ -12,7 +12,7 @@ tags:
   - N+1
   - Performance-Tuning
   - ORM
-draft: true
+draft: false
 ---
 
 # EF Core aus DBA-Sicht: 101 Abfragen gegen eine. Was zeigt der Query Store wirklich?
