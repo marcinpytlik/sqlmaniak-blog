@@ -111,7 +111,7 @@ W tej konkretnej serii:
 - Projection — około **23,5 razy krótszą**;
 - SplitQuery — około **22,9 razy krótszą**.
 
-Czy zatem Projection jest zawsze najlepszym wyborem? **Nie.** Przy tak małych różnicach między trzema szybszymi wariantami potrzebne byłyby większe próbki, różne rozmiary danych i analiza planów. Na razie wiemy, co wydarzyło się w tym laboratorium.
+Czy zatem Projection jest zawsze najlepszym wyborem? **Nie.** Przy tak małych różnicach między trzema szybszymi wariantami potrzebne byłyby większe próbki, różne rozmiary danych i analiza planów. Na razie wiem, co wydarzyło się w tym laboratorium.
 
 Co ważne, `Stopwatch` mierzył czas od rozpoczęcia operacji EF Core do przygotowania obiektów wynikowych. Nie obejmował całej transmisji HTTP ani serializacji JSON.
 
@@ -128,7 +128,7 @@ Tutaj pojawia się najciekawszy fragment eksperymentu.
 | Projection | **2,73 ms** | 2,73 ms | **14** |
 | SplitQuery | **1,70 ms** | 1,70 ms | **17** |
 
-Przy N+1 otrzymaliśmy **1103 logical reads**, a przy Include i Projection — po **14**. To redukcja odczytów logicznych o około **98,7%** w tym konkretnym scenariuszu.
+Przy N+1 otrzymałem **1103 logical reads**, a przy Include i Projection — po **14**. To redukcja odczytów logicznych o około **98,7%** w tym konkretnym scenariuszu.
 
 Wcześniejsza, niezależna seria N+1 również pokazała dokładny przyrost: **1000 wykonań SELECT na OrderItems i 10 wykonań SELECT na Orders**. Odpowiadały one łącznie **11 030 logical reads** dla dziesięciu żądań, czyli także 1103 na żądanie.
 
@@ -144,7 +144,7 @@ Dla DBA to ważna zmiana perspektywy. Zapytanie o bardzo niskim średnim duratio
 
 ## Paradoks: najkrótszy czas EF, ale nie najmniejszy CPU SQL
 
-Przyjrzyjmy się trzem szybszym wariantom:
+Przyjrzałem się również trzem szybszym wariantom:
 
 | Metryka | Include | Projection | SplitQuery |
 |---|---:|---:|---:|
@@ -155,14 +155,14 @@ Przyjrzyjmy się trzem szybszym wariantom:
 
 **Projection miała najkrótszą medianę czasu w aplikacji, ale największy średni CPU SQL spośród tej trójki.** Z kolei SplitQuery miał najniższy średni CPU SQL, lecz wykonał dwa polecenia i więcej logical reads.
 
-To nie jest sprzeczność. Mierzymy różne składowe operacji:
+To nie jest sprzeczność. W eksperymencie mierzyłem różne składowe operacji:
 
 - SQL Server wykonuje plan i zwraca wiersze;
 - EF Core materializuje wynik albo tworzy DTO;
 - aplikacja przygotowuje strukturę odpowiedzi;
 - liczba round-tripów wpływa na czas, ale nie jest tożsama z CPU silnika.
 
-Do tego porównujemy **medianę czasu aplikacji** ze **średnim CPU SQL na żądanie**. Nie wolno po prostu odjąć 2,73 ms CPU od 5,11 ms czasu i nazwać różnicy „narzutem EF Core”.
+Do tego porównuję **medianę czasu aplikacji** ze **średnim CPU SQL na żądanie**. Nie wolno po prostu odjąć 2,73 ms CPU od 5,11 ms czasu i nazwać różnicy „narzutem EF Core”.
 
 Przy tym konkretnym modelu SplitQuery okazał się konkurencyjny. Nie dowodzi to, że należy domyślnie włączać `AsSplitQuery()`. W modelach z wieloma kolekcjami może on ograniczać mnożenie wierszy przez JOIN-y, ale płaci za to dodatkowymi poleceniami i innymi kompromisami.
 
@@ -221,11 +221,11 @@ Potrzebny będzie oddzielny eksperyment z tym samym modelem danych i tymi samymi
 2. ReadyToRun;
 3. Composite ReadyToRun;
 4. wariant z wyłączoną kompilacją warstwową;
-5. Native AOT — jeżeli zapewnimy zgodność aplikacji z ograniczeniami tego trybu.
+5. Native AOT — jeżeli uda mi się zapewnić zgodność aplikacji z ograniczeniami tego trybu.
 
 Native AOT nie jest jedynie przełącznikiem, który bezwarunkowo zadziała dla każdej konfiguracji EF Core. Nie wolno też utożsamiać poprawy czasu startu aplikacji z poprawą kosztu wykonania zapytania SQL.
 
-**Na dziś nie mamy jeszcze wyników benchmarku JIT vs AOT dla tej demonstracji.** Mamy za to bardzo solidny punkt odniesienia, na którym możemy taki eksperyment oprzeć.
+**Na dziś nie mam jeszcze wyników benchmarku JIT vs AOT dla tej demonstracji.** Mam za to bardzo solidny punkt odniesienia, na którym mogę oprzeć kolejny eksperyment.
 
 I już teraz jedna rzecz wydaje się pewna: zmiana sposobu kompilacji aplikacji sama w sobie nie sprawi, że 101 wywołań SQL magicznie zamieni się w jedno.
 
@@ -238,7 +238,7 @@ Z tego laboratorium zabieram cztery praktyczne obserwacje:
 3. **Prawidłowy pomiar jest równie ważny jak optymalizacja.** Snapshoty BEFORE/AFTER i kontrola liczby wykonań pozwalają uniknąć porównywania przypadkowych fragmentów historii Query Store.
 4. **Nie szukaj jednej uniwersalnej recepty.** Projection, Include i SplitQuery mają odmienne kompromisy. Decyzję podejmuj na podstawie modelu, ilości danych i realnych pomiarów.
 
-Na pytanie „który wariant wygrał?” odpowiedź brzmi: w naszym scenariuszu Projection miała najkrótszą medianę EF Core, SplitQuery najniższe średnie CPU SQL, a N+1 — zdecydowanie najwyższy koszt.
+Na pytanie „który wariant wygrał?” odpowiedź brzmi: w moim scenariuszu Projection miała najkrótszą medianę EF Core, SplitQuery najniższe średnie CPU SQL, a N+1 — zdecydowanie najwyższy koszt.
 
 Ale pytanie, które najbardziej mnie interesuje, pozostaje otwarte:
 
