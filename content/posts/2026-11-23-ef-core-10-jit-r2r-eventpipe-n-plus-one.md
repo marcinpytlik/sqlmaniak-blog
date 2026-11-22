@@ -14,7 +14,7 @@ tags:
   - EventPipe
   - performance tuning
   - ORM
-draft: true
+draft: false
 ---
 
 # EF Core oczami DBA: czy JIT uratuje N+1? .NET 10, ReadyToRun i EventPipe
