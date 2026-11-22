@@ -255,7 +255,7 @@ Das Skript führt vier isolierte Testreihen aus und erstellt eine gemeinsame Tab
 
 ## Und was ist mit JIT, ReadyToRun und Native AOT?
 
-Genau das ist die nächste Forschungsfrage, die sich aus den Ergebnissen ergibt.
+Ein weiterer Aspekt – und eine Frage, die mir bei der Analyse der Ergebnisse in den Sinn kam – ist die Art der Kompilierung der Anwendung.
 
 Wenn SQL Server für eine N+1-Anfrage im Durchschnitt etwa 21,40 ms CPU benötigte, die EF-Core-Operation aber einen Median von 119,83 ms erreichte, **was passiert außerhalb des Datenbankmoduls?** Welchen Anteil haben die Ausführung des Anwendungscodes, die Materialisierung, die Kommunikation mit SQL Server, Speicherallokationen und Garbage Collection?
 
