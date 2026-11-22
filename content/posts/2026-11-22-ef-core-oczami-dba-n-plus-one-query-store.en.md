@@ -255,7 +255,7 @@ The script runs four isolated series and prints a combined comparison of applica
 
 ## What About JIT, ReadyToRun, and Native AOT?
 
-That is the next research question raised by these results.
+Another issue—and a question that came to mind as I analyzed the results—is whether the way I compile the application makes a difference.
 
 If SQL Server consumed approximately 21.40 ms of CPU on average for an N+1 request, while the median EF Core operation took 119.83 ms, **what happens outside the database engine?** How much time is spent in application code, materialization, SQL communication, allocations, and garbage collection?
 
