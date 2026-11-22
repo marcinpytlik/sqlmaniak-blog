@@ -71,7 +71,7 @@ docker version
 docker info
 ```
 
-Die Unterscheidung ist wichtig: **Die folgenden Zahlen beschreiben einen konkreten Durchlauf von Demonstration 67 und nicht jede Installation von SQL Server 2022 oder EF Core 10**. Die identische Hardware erleichtert die Einordnung beider Untersuchungen, ersetzt aber keine Prüfung der Containereinstellungen zum jeweiligen Messzeitpunkt.
+Die identische Hardware erleichtert die Einordnung beider Experimente; die Konfiguration des SQL-Containers muss dennoch separat dokumentiert werden.
 
 ## Gleiche Daten, vier Strategien
 
@@ -136,7 +136,7 @@ Für den abschließenden automatisierten Durchlauf verwendete ich:
 
 Der letzte Punkt ist entscheidend. Frühere Query-Store-Daten enthielten beispielsweise 4.271 Ausführungen einer Anweisung zum Abrufen der Bestellpositionen. Diese stammten jedoch nicht aus einem einzigen kontrollierten Messintervall. Solche historischen Summen **dürfen nicht** direkt mit zehn Aufrufen eines anderen API-Endpunkts verglichen werden.
 
-Bei einer früheren Iteration stellte ich außerdem fest, dass der von Query Store gespeicherte Abfragetext die Kommentare aus `TagWith()` nicht wie erwartet enthielt. Meine ersten Snapshots lieferten deshalb null oder einen Datensatz. Ich löste das Problem, indem ich die tatsächliche Form des generierten SQL identifizierte und die einzelnen Strategien getrennt maß.
+Bei der Entwicklung der Snapshots stellte ich fest, dass ich die Anweisungen in dieser Umgebung anhand der von Query Store bereitgestellten Abfragetexte nicht zuverlässig über `TagWith()`-Kommentare filtern konnte. Die Suche nach `EFPLAB:` ergab vor dem Test keinen Treffer und danach genau einen: die Diagnoseabfrage selbst, in der der Marker als Zeichenfolgenliteral vorkam. Warum die Kommentare nicht in der erwarteten Form verfügbar waren, habe ich nicht abschließend geklärt. Stattdessen identifizierte ich charakteristische Bestandteile des generierten SQL und maß jede Strategie separat.
 
 Für DBAs ist das eine wichtige Erinnerung: **Bevor ich Diagnosezähler vergleiche, muss ich sicherstellen, dass sie dieselbe Last und denselben Messzeitraum abdecken**.
 
@@ -157,7 +157,7 @@ In dieser konkreten Messreihe war der Median:
 - bei Projection etwa **23,5-mal kürzer**;
 - bei SplitQuery etwa **22,9-mal kürzer**.
 
-Ist Projection damit immer die beste Lösung? **Nein.** Für eine allgemeine Aussage über die drei schnelleren Varianten sind ihre Unterschiede zu gering. Dafür benötige ich mehr Messungen, unterschiedliche Datenmengen und eine Analyse der Ausführungspläne. Zunächst kann ich nur bewerten, was in diesem Labor passiert ist.
+Ist Projection damit immer die beste Lösung? **Nein.** Die Unterschiede zwischen den drei schnelleren Varianten sind klein. Für eine belastbare Bewertung benötige ich mehr Wiederholungen, unterschiedliche Datenvolumina und eine Analyse der Ausführungspläne.
 
 Die `Stopwatch` erfasste die EF-Core-Operation bis zur Erstellung der Ergebnisobjekte. Die vollständige HTTP-Übertragung und die JSON-Serialisierung waren **nicht** Bestandteil der Messung.
 
@@ -174,7 +174,7 @@ Die folgenden Zahlen sind die **durchschnittlichen Kosten des SQL-Server-Datenba
 | Projection | **2,73 ms** | 2,73 ms | **14** |
 | SplitQuery | **1,70 ms** | 1,70 ms | **17** |
 
-Bei N+1 habe ich **1.103 logische Lesevorgänge (logical reads)** gemessen, bei Include und Projection dagegen jeweils nur **14**. In diesem konkreten Szenario entspricht das einer Reduzierung um etwa **98,7 %**.
+Bei N+1 habe ich **1.103 logische Lesevorgänge (logical reads)** gemessen, bei Include und Projection dagegen jeweils nur **14**. Das entspricht einer Reduzierung um etwa **98,7 %**.
 
 Eine frühere, unabhängig isolierte N+1-Messreihe bestätigte denselben Effekt: **1.000 Ausführungen** des SELECT auf OrderItems und **10 Ausführungen** des SELECT auf Orders. Zusammen ergaben sie **11.030 logische Lesevorgänge** für zehn Anfragen, also erneut 1.103 pro Anfrage.
 
@@ -210,7 +210,7 @@ Das ist kein Widerspruch. In meinem Experiment habe ich verschiedene Bestandteil
 
 Außerdem vergleiche ich **einen Median der Anwendungszeit** mit **einer durchschnittlichen Summe der SQL-CPU-Zeit pro Anfrage**. Einfach 2,73 ms SQL-CPU von 5,11 ms Anwendungszeit abzuziehen und das Ergebnis als „EF-Core-Overhead“ zu bezeichnen, wäre methodisch falsch.
 
-Für dieses Datenmodell erwies sich SplitQuery als konkurrenzfähig. Daraus folgt **nicht**, dass `AsSplitQuery()` überall aktiviert werden sollte. Bei mehreren Collections kann es die Vervielfachung von Zeilen durch JOINs reduzieren; dafür entstehen zusätzliche SQL-Anweisungen und andere Zielkonflikte.
+SplitQuery erwies sich als konkurrenzfähig. Das ist aber kein Grund, `AsSplitQuery()` grundsätzlich zu aktivieren: Bei mehreren Collections kann es die Vervielfachung von Zeilen durch JOINs reduzieren, erfordert dafür jedoch zusätzliche SQL-Anweisungen.
 
 ## So lässt sich das Experiment reproduzieren
 
@@ -294,4 +294,4 @@ Das wird das Thema der nächsten Laborreihe.
 
 ---
 
-*Alle Performancedaten beziehen sich auf den kontrollierten Durchlauf `fb6e09ce` von Demonstration 67 am 22. November 2026. Beide Experimente wurden auf demselben physischen Rechner durchgeführt; die genaue SQL-Server-CU-Version und die Speicherbegrenzung des Containers von Demonstration 67 wurden nicht gesondert dokumentiert. Die Ergebnisse sind kein allgemeingültiger Benchmark für EF Core oder SQL Server. Quellcode und Methodik: [WWSI_CSharp](https://github.com/marcinpytlik/WWSI_CSharp/tree/main/demonstracje/67_EfCorePerformanceLab).*
+*Alle Performanceergebnisse beziehen sich auf den kontrollierten Durchlauf `fb6e09ce` von Demonstration 67 am 22. November 2026. Beide Experimente wurden auf demselben physischen Rechner durchgeführt; die genaue SQL-Server-CU-Version und die Speicherbegrenzung des Containers von Demonstration 67 wurden nicht gesondert dokumentiert. Die Ergebnisse sind kein allgemeingültiger Benchmark für EF Core oder SQL Server. Quellcode und Methodik: [WWSI_CSharp](https://github.com/marcinpytlik/WWSI_CSharp/tree/main/demonstracje/67_EfCorePerformanceLab).*
