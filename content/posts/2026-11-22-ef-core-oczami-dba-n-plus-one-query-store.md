@@ -199,7 +199,7 @@ Przyjrzałem się również trzem szybszym wariantom:
 | Logical reads | **14** | **14** | 17 |
 | Polecenia SQL | **1** | **1** | 2 |
 
-**Projection miała najkrótszą medianę czasu w aplikacji, ale największy średni CPU SQL spośród tej trójki.** Z kolei SplitQuery miał najniższy średni CPU SQL, lecz wykonał dwa polecenia i więcej logical reads.
+**Projection miał najkrótszą medianę czasu w aplikacji, ale największy średni CPU SQL spośród tej trójki.** Z kolei SplitQuery miał najniższy średni CPU SQL, lecz wykonał dwa polecenia i więcej logical reads.
 
 To nie jest sprzeczność. W eksperymencie mierzyłem różne składowe operacji:
 
@@ -255,7 +255,7 @@ Skrypt wykonuje cztery niezależne serie i wyświetla zbiorczą tabelę z czasem
 
 ## A co z JIT, ReadyToRun i Native AOT?
 
-To właśnie następne pytanie badawcze, które pojawiło się po analizie wyników.
+Kolejna sprawa — i pytanie, jakie przyszło mi na myśl po analizie wyników — dotyczy sposobu kompilacji aplikacji.
 
 Jeżeli SQL Server zużywał średnio około 21,40 ms CPU dla N+1, a mediana operacji EF Core wyniosła 119,83 ms, to **co dzieje się poza silnikiem bazy?** Ile znaczą wykonanie kodu, materializacja obiektów, komunikacja z SQL, alokacje i GC?
 
@@ -284,7 +284,7 @@ Z tego laboratorium zabieram cztery praktyczne obserwacje:
 3. **Prawidłowy pomiar jest równie ważny jak optymalizacja.** Snapshoty BEFORE/AFTER i kontrola liczby wykonań pozwalają uniknąć porównywania przypadkowych fragmentów historii Query Store.
 4. **Nie szukaj jednej uniwersalnej recepty.** Projection, Include i SplitQuery mają odmienne kompromisy. Decyzję podejmuj na podstawie modelu, wolumenu danych i realnych pomiarów.
 
-Na pytanie „który wariant wygrał?” odpowiedź brzmi: w moim scenariuszu Projection miała najkrótszą medianę EF Core, SplitQuery najniższe średnie CPU SQL, a N+1 — zdecydowanie najwyższy koszt.
+Na pytanie „który wariant wygrał?” odpowiedź brzmi: w moim scenariuszu Projection miał najkrótszą medianę EF Core, SplitQuery najniższe średnie CPU SQL, a N+1 — zdecydowanie najwyższy koszt.
 
 Ale pytanie, które najbardziej mnie interesuje, pozostaje otwarte:
 
