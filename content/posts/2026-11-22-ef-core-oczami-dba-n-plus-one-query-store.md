@@ -71,7 +71,7 @@ docker version
 docker info
 ```
 
-To istotne ograniczenie metodyczne: **wyniki w dalszej części artykułu odnoszą się do konkretnej serii laboratorium 67, a nie do dowolnego SQL Server 2022 lub każdego komputera z EF Core 10**. To samo stanowisko sprzętowe ułatwia porównanie kontekstu obu badań, ale nie zastępuje pomiaru parametrów kontenera SQL z tego samego dnia.
+To samo stanowisko sprzętowe ułatwia zestawienie obu eksperymentów, choć konfigurację kontenera SQL należy dokumentować oddzielnie.
 
 ## Jedne dane, cztery strategie
 
@@ -136,7 +136,7 @@ W końcowej serii automatycznej zastosowałem:
 
 To ostatnie ma znaczenie. Wcześniejsze odczyty z Query Store pokazywały na przykład 4271 wykonań instrukcji pobierającej pozycje, ale nie odpowiadały jednemu kontrolowanemu przedziałowi benchmarku. Takiej historycznej sumy **nie wolno** mechanicznie porównywać z dziesięcioma wywołaniami innego endpointu.
 
-W kolejnej iteracji laboratorium wykryłem również, że tekst zapytań zapisany w Query Store nie zachowywał komentarzy `TagWith()` tak, jak oczekiwałem. Snapshoty początkowo zwracały zero albo jeden wiersz. Rozwiązaniem było rozpoznawanie rzeczywistego kształtu generowanego SQL oraz izolowanie pomiarów.
+Podczas przygotowywania snapshotów stwierdziłem, że w tym środowisku tekst zapytań udostępniany przez Query Store nie pozwalał mi wiarygodnie filtrować instrukcji po komentarzach `TagWith()`. Pierwotne filtrowanie po znaczniku `EFPLAB:` zwracało zero trafień przed testem i jedno po nim — przy czym dopasowywało samo zapytanie diagnostyczne zawierające ten znacznik jako literał. Nie ustaliłem, z jakiego powodu komentarze nie były dostępne w oczekiwanej postaci. Zamiast zakładać ich obecność, rozpoznawałem charakterystyczne fragmenty SQL i wykonywałem pomiary każdej strategii osobno.
 
 To dobre przypomnienie dla DBA: **zanim porównasz liczby z narzędzia diagnostycznego, upewnij się, że rzeczywiście mierzysz te same zakresy pracy**.
 
@@ -157,7 +157,7 @@ W tej konkretnej serii:
 - Projection — około **23,5 razy krótszą**;
 - SplitQuery — około **22,9 razy krótszą**.
 
-Czy zatem Projection jest zawsze najlepszym wyborem? **Nie.** Przy tak małych różnicach między trzema szybszymi wariantami potrzebne byłyby większe próbki, różne rozmiary danych i analiza planów. Na razie wiem, co wydarzyło się w tym laboratorium.
+Czy zatem Projection jest zawsze najlepszym wyborem? **Nie.** Różnice między trzema szybszymi wariantami są niewielkie; do ich wiarygodnej oceny potrzebowałbym większej próby, różnych wolumenów danych i analizy planów wykonania.
 
 Co ważne, `Stopwatch` mierzył czas od rozpoczęcia operacji EF Core do przygotowania obiektów wynikowych. Nie obejmował całej transmisji HTTP ani serializacji JSON.
 
@@ -174,11 +174,11 @@ Tutaj pojawia się najciekawszy fragment eksperymentu.
 | Projection | **2,73 ms** | 2,73 ms | **14** |
 | SplitQuery | **1,70 ms** | 1,70 ms | **17** |
 
-Przy N+1 otrzymałem **1103 logical reads**, a przy Include i Projection — po **14**. To redukcja odczytów logicznych o około **98,7%** w tym konkretnym scenariuszu.
+Przy N+1 otrzymałem **1103 logical reads**, a przy Include i Projection — po **14**. Oznacza to redukcję odczytów logicznych o około **98,7%**.
 
 Wcześniejsza, niezależna seria N+1 również pokazała dokładny przyrost: **1000 wykonań SELECT na OrderItems i 10 wykonań SELECT na Orders**. Odpowiadały one łącznie **11 030 logical reads** dla dziesięciu żądań, czyli także 1103 na żądanie.
 
-Nie są to odczyty fizyczne z dysku. Logical reads oznaczają dostęp do stron danych w mechanizmie silnika SQL Server — również wtedy, gdy strony znajdują się w buffer pool.
+Nie są to fizyczne odczyty z dysku. Logical reads oznaczają odczyty stron wewnątrz silnika SQL Server, również wtedy, gdy strony znajdują się już w buffer pool.
 
 ### 101 tanich zapytań może być droższe niż jedno większe
 
@@ -210,7 +210,7 @@ To nie jest sprzeczność. W eksperymencie mierzyłem różne składowe operacji
 
 Do tego porównuję **medianę czasu aplikacji** ze **średnim CPU SQL na żądanie**. Nie wolno po prostu odjąć 2,73 ms CPU od 5,11 ms czasu i nazwać różnicy „narzutem EF Core”.
 
-Przy tym konkretnym modelu SplitQuery okazał się konkurencyjny. Nie dowodzi to, że należy domyślnie włączać `AsSplitQuery()`. W modelach z wieloma kolekcjami może on ograniczać mnożenie wierszy przez JOIN-y, ale płaci za to dodatkowymi poleceniami i innymi kompromisami.
+SplitQuery okazał się konkurencyjny. Nie jest to jednak argument za domyślnym używaniem `AsSplitQuery()`: przy wielu kolekcjach może ograniczyć mnożenie wierszy przez JOIN-y, ale wymaga dodatkowych poleceń SQL.
 
 ## Jak odtworzyć cały eksperyment?
 
@@ -282,7 +282,7 @@ Z tego laboratorium zabieram cztery praktyczne obserwacje:
 1. **Optymalizuj całą operację biznesową, a nie tylko pojedynczy SELECT.** N+1 może generować tysiące odczytów i round-tripów przez pozornie tanie polecenia.
 2. **Nie wybieraj strategii wyłącznie po medianie czasu EF Core.** Sprawdź również CPU, liczbę wykonań i logical reads w SQL Server.
 3. **Prawidłowy pomiar jest równie ważny jak optymalizacja.** Snapshoty BEFORE/AFTER i kontrola liczby wykonań pozwalają uniknąć porównywania przypadkowych fragmentów historii Query Store.
-4. **Nie szukaj jednej uniwersalnej recepty.** Projection, Include i SplitQuery mają odmienne kompromisy. Decyzję podejmuj na podstawie modelu, ilości danych i realnych pomiarów.
+4. **Nie szukaj jednej uniwersalnej recepty.** Projection, Include i SplitQuery mają odmienne kompromisy. Decyzję podejmuj na podstawie modelu, wolumenu danych i realnych pomiarów.
 
 Na pytanie „który wariant wygrał?” odpowiedź brzmi: w moim scenariuszu Projection miała najkrótszą medianę EF Core, SplitQuery najniższe średnie CPU SQL, a N+1 — zdecydowanie najwyższy koszt.
 
@@ -294,4 +294,4 @@ To temat kolejnej odsłony laboratorium.
 
 ---
 
-*Wszystkie liczby wydajnościowe dotyczą kontrolowanej serii `fb6e09ce` z 22 listopada 2026 r. na demonstracji 67. Oba eksperymenty wykonałem na tym samym komputerze; dokładna wersja CU i limit pamięci kontenera SQL w serii 67 nie zostały osobno udokumentowane. Nie jest to uniwersalny benchmark EF Core ani SQL Server. Kod i metodologia: [WWSI_CSharp](https://github.com/marcinpytlik/WWSI_CSharp/tree/main/demonstracje/67_EfCorePerformanceLab).*
+*Wszystkie wyniki wydajnościowe dotyczą kontrolowanej serii `fb6e09ce` z 22 listopada 2026 r. w demonstracji 67. Oba eksperymenty wykonałem na tym samym komputerze; dokładna wersja CU i limit pamięci kontenera SQL w serii 67 nie zostały osobno udokumentowane. Nie jest to uniwersalny benchmark EF Core ani SQL Server. Kod i metodologia: [WWSI_CSharp](https://github.com/marcinpytlik/WWSI_CSharp/tree/main/demonstracje/67_EfCorePerformanceLab).*
