@@ -14,7 +14,7 @@ tags:
   - EventPipe
   - performance tuning
   - ORM
-draft: true
+draft: false
 ---
 
 # EF Core aus DBA-Sicht: Kann JIT das N+1-Problem retten? .NET 10, ReadyToRun und EventPipe
