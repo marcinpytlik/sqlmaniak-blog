@@ -71,7 +71,7 @@ docker version
 docker info
 ```
 
-This distinction matters: **the measurements below describe a specific Demo 67 run, not every SQL Server 2022 or EF Core 10 installation**. Using the same workstation helps put both studies into context but does not replace checking container settings at the time of each run.
+Using the same workstation helps place both experiments in context, while the SQL container configuration must still be documented separately.
 
 ## Same Data, Four Strategies
 
@@ -136,7 +136,7 @@ The final automated run used:
 
 That last check matters. Earlier Query Store data showed, for example, 4,271 executions of the statement retrieving order items, but they did not all belong to a single controlled benchmark interval. Such historical totals **must not** be compared directly with ten API calls to a different endpoint.
 
-During an earlier iteration, I also found that the query text stored by Query Store did not preserve the `TagWith()` comments in the way I expected. My initial snapshots returned either zero or one row. The fix was to identify the actual SQL shapes and isolate each strategy's test series.
+While developing the snapshots, I found that the query text exposed by Query Store in this environment did not let me reliably identify statements by their `TagWith()` comments. Filtering for `EFPLAB:` returned zero matches before the test and one afterward; that match was the diagnostic statement itself, which contained the marker as a literal. I did not establish why the comments were unavailable in the expected form. Instead, I identified characteristic fragments of the generated SQL and measured each strategy in isolation.
 
 It is a useful DBA reminder: **before comparing diagnostic counters, check that they refer to the same workload and measurement window**.
 
@@ -157,7 +157,7 @@ In this specific run:
 - Projection was about **23.5 times lower**;
 - SplitQuery was about **22.9 times lower**.
 
-Does that make Projection universally best? **No.** The differences among the three faster approaches are small enough that I would need a larger sample, different data volumes, and execution-plan analysis before drawing broader conclusions. For now, I know what happened in this lab.
+Does that make Projection universally best? **No.** The differences among the three faster approaches are small; assessing them reliably would require more repetitions, different data volumes, and execution-plan analysis.
 
 The `Stopwatch` measurement covered the EF Core operation and construction of result objects. It **did not** include the complete HTTP response transmission or JSON serialization.
 
@@ -174,7 +174,7 @@ The following are the **average engine costs per API request**, calculated from 
 | Projection | **2.73 ms** | 2.73 ms | **14** |
 | SplitQuery | **1.70 ms** | 1.70 ms | **17** |
 
-For N+1, I measured **1,103 logical reads**, compared with **14** for both Include and Projection. That is a reduction of approximately **98.7%** in this particular scenario.
+For N+1, I measured **1,103 logical reads**, compared with **14** for both Include and Projection—a reduction of approximately **98.7%**.
 
 A previous isolated N+1 run confirmed the same pattern: **1,000 executions** of the OrderItems SELECT and **10 executions** of the Orders SELECT. Together they accounted for **11,030 logical reads** across ten requests, again 1,103 per request.
 
@@ -210,7 +210,7 @@ There is no contradiction. My experiment measured several different parts of the
 
 I am also comparing **a median application elapsed time** with **an average sum of SQL CPU per request**. Subtracting 2.73 ms of SQL CPU from a 5.11 ms application median and calling the difference "EF Core overhead" would be incorrect.
 
-SplitQuery was competitive for this particular data model. That does **not** mean `AsSplitQuery()` should be enabled everywhere. With multiple collections, splitting queries can reduce row multiplication caused by JOINs, but it comes with extra SQL statements and other trade-offs.
+SplitQuery was competitive. That is not a reason to enable `AsSplitQuery()` everywhere: with multiple collections, it can reduce row multiplication caused by JOINs, at the cost of additional SQL statements.
 
 ## Reproducing the Experiment
 
@@ -294,4 +294,4 @@ That is the subject of the next lab.
 
 ---
 
-*All performance numbers refer to the controlled Demo 67 run `fb6e09ce` on November 22, 2026. I used the same physical workstation for both this and the earlier Startup Lab experiment; the exact SQL Server CU and memory limit of the Demo 67 container were not independently recorded. This is not a universal EF Core or SQL Server benchmark. Source code and methodology: [WWSI_CSharp](https://github.com/marcinpytlik/WWSI_CSharp/tree/main/demonstracje/67_EfCorePerformanceLab).*
+*All performance results refer to the controlled Demo 67 run `fb6e09ce` on November 22, 2026. I used the same physical workstation for both this and the earlier Startup Lab experiment; the exact SQL Server CU and memory limit of the Demo 67 container were not independently recorded. This is not a universal EF Core or SQL Server benchmark. Source code and methodology: [WWSI_CSharp](https://github.com/marcinpytlik/WWSI_CSharp/tree/main/demonstracje/67_EfCorePerformanceLab).*
