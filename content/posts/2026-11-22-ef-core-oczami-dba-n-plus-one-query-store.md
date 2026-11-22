@@ -43,7 +43,7 @@ Wyniki należy zawsze odczytywać w kontekście konkretnego stanowiska. W [poprz
 | Docker Client / Engine (w poprzednim teście) | 29.9.2 / 29.9.2 |
 | Środowisko kontenerów (w poprzednim teście) | Linux, 8 CPU; ok. 3,73 GiB pamięci raportowane przez `docker info` |
 
-**To konfiguracja udokumentowana dla wcześniejszego Startup Lab, a nie niezależnie odczytany raport diagnostyczny z chwili pomiarów demonstracji 67.** Przytoczyłem ją jako sprzętowy punkt odniesienia. Nie zakładam bez nowego odczytu, że wersje narzędzi i zasoby kontenerów nie zmieniły się między eksperymentami.
+**Oba eksperymenty przeprowadziłem na tym samym komputerze, z tym samym procesorem, pamięcią RAM i systemem operacyjnym.** Konfigurację sprzętową potwierdziłem dla obu laboratoriów. Wersje narzędzi i zasoby poszczególnych kontenerów są jednak parametrami osobnymi — nie zakładam bez nowego odczytu, że pozostały identyczne.
 
 Dla **EF Core Performance Lab 67** konfiguracja odtwarzalna z [repozytorium demonstracji](https://github.com/marcinpytlik/WWSI_CSharp/tree/main/demonstracje/67_EfCorePerformanceLab) jest następująca:
 
@@ -71,7 +71,7 @@ docker version
 docker info
 ```
 
-To istotne ograniczenie metodyczne: **wyniki w dalszej części artykułu odnoszą się do konkretnej serii laboratorium 67, a nie do dowolnego SQL Server 2022 lub każdego komputera z EF Core 10**. Specyfikacja wcześniejszego stanowiska pozwala osadzić eksperyment w kontekście, ale nie zastępuje pomiaru parametrów środowiska z tego samego dnia.
+To istotne ograniczenie metodyczne: **wyniki w dalszej części artykułu odnoszą się do konkretnej serii laboratorium 67, a nie do dowolnego SQL Server 2022 lub każdego komputera z EF Core 10**. To samo stanowisko sprzętowe ułatwia porównanie kontekstu obu badań, ale nie zastępuje pomiaru parametrów kontenera SQL z tego samego dnia.
 
 ## Jedne dane, cztery strategie
 
@@ -294,4 +294,4 @@ To temat kolejnej odsłony laboratorium.
 
 ---
 
-*Wszystkie liczby wydajnościowe dotyczą kontrolowanej serii `fb6e09ce` z 22 listopada 2026 r. na demonstracji 67. Konfiguracja sprzętowa została przytoczona z wcześniejszego artykułu o Startup Lab jako punkt odniesienia; dokładna wersja CU i limit pamięci kontenera SQL w serii 67 nie zostały osobno udokumentowane. Nie jest to uniwersalny benchmark EF Core ani SQL Server. Kod i metodologia: [WWSI_CSharp](https://github.com/marcinpytlik/WWSI_CSharp/tree/main/demonstracje/67_EfCorePerformanceLab).*
+*Wszystkie liczby wydajnościowe dotyczą kontrolowanej serii `fb6e09ce` z 22 listopada 2026 r. na demonstracji 67. Oba eksperymenty wykonałem na tym samym komputerze; dokładna wersja CU i limit pamięci kontenera SQL w serii 67 nie zostały osobno udokumentowane. Nie jest to uniwersalny benchmark EF Core ani SQL Server. Kod i metodologia: [WWSI_CSharp](https://github.com/marcinpytlik/WWSI_CSharp/tree/main/demonstracje/67_EfCorePerformanceLab).*
