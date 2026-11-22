@@ -12,7 +12,7 @@ tags:
   - N+1
   - performance tuning
   - ORM
-draft: true
+draft: false
 ---
 
 # EF Core Through a DBA's Eyes: 101 Queries vs One. What Does Query Store Really Reveal?
