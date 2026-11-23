@@ -16,7 +16,16 @@ Ein bewusster DBA lernt, die Absicht des Systems zu lesen — zu verstehen, **wa
 
 ### 🔍 DMV untersuchen
 
-undefined
+```sql
+-- zrozum swój serwer: podsumowanie obciążeń
+SELECT TOP 10 
+    wait_type, 
+    wait_time_ms, 
+    signal_wait_time_ms,
+    wait_time_ms - signal_wait_time_ms AS resource_wait_ms
+FROM sys.dm_os_wait_stats
+ORDER BY wait_time_ms DESC;
+```
 
 Dies ist eine der einfachsten und zugleich philosophischsten Abfragen in SQL Server. Sie erzählt nicht alles, was passiert ist, zeigt aber, worauf das System gewartet hat.
 
