@@ -16,7 +16,16 @@ Being a mindful DBA means learning to read the system's intent — understanding
 
 ### 🔍 Inspect the DMV
 
-undefined
+```sql
+-- zrozum swój serwer: podsumowanie obciążeń
+SELECT TOP 10 
+    wait_type, 
+    wait_time_ms, 
+    signal_wait_time_ms,
+    wait_time_ms - signal_wait_time_ms AS resource_wait_ms
+FROM sys.dm_os_wait_stats
+ORDER BY wait_time_ms DESC;
+```
 
 This is one of the simplest and most philosophical queries in SQL Server. It does not tell you everything that happened, but it does reveal what the system has been waiting for.
 
