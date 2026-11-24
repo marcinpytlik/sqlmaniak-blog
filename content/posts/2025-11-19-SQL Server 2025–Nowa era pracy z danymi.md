@@ -8,158 +8,93 @@ tags:
   - Monitoring
   - Security
   - Query Store
-  - JSONB
+  - JSON
 categories:
   - SQLManiak
 draft: false
 ---
 
-Premiera SQL Server 2025 przynosi zestaw zmian, które realnie wpływają na codzienną pracę administratorów, architektów oraz deweloperów baz danych. To nie jest edycja typu „poprawki i kosmetyka”. To największy krok naprzód od czasu SQL Server 2019 i 2022 – szczególnie w obszarze automatycznej optymalizacji, bezpieczeństwa oraz obserwowalności.
+SQL Server 2025 (17.x) wprowadza istotne zmiany dla administratorów, architektów i deweloperów. Najciekawsze dotyczą przetwarzania zapytań, nowych typów danych, integracji AI oraz zarządzania obciążeniem. Warto jednak oddzielać funkcje dostępne produkcyjnie od tych, które wymagają włączenia **PREVIEW_FEATURES**.
 
-Poniżej znajduje się przegląd najważniejszych nowości, które faktycznie robią różnicę w środowiskach produkcyjnych.
+Poniższy przegląd opiera się na oficjalnej dokumentacji Microsoftu, a nie na marketingowych nazwach, które nie występują w specyfikacji produktu.
 
----
+## Intelligent Query Processing i Query Store
 
-## Adaptive Workload Intelligence (AWI)
+SQL Server 2025 rozwija istniejącą rodzinę **Intelligent Query Processing (IQP)**. Wśród udokumentowanych zmian znajdują się:
 
-SQL Server 2025 wprowadza moduł **Adaptive Workload Intelligence**.  
-To rozbudowana warstwa predykcyjnej optymalizacji, która:
+- **Optional Parameter Plan Optimization (OPPO)** — wykorzystuje mechanizm Multiplan, aby przygotowywać warianty planu dla zapytań z opcjonalnymi predykatami.
+- **Cardinality Estimation Feedback for Expressions** — pozwala silnikowi uczyć się doboru modeli estymacji dla wyrażeń.
+- **Degree of Parallelism (DOP) Feedback** — jest domyślnie włączony.
+- **Query Store na czytelnych replikach wtórnych** — jest domyślnie włączony w obsługiwanych konfiguracjach.
+- **ABORT_QUERY_EXECUTION** — hint pozwalający blokować przyszłe wykonania wskazanych problematycznych zapytań.
 
-- wykrywa zbliżającą się presję na CPU, I/O lub log,
-- dynamicznie dostosowuje strategie optymalizacji zapytań,
-- moduluje memory granty w czasie rzeczywistym,
-- zmienia priorytety I/O w zależności od typu obciążenia.
+Nie jest to osobny produkt o nazwie „Query Store 3.0”. W diagnostyce nadal należy analizować plany, wait statistics, Query Store i rzeczywiste zachowanie aplikacji.
 
-To kolejny krok po Memory Grant Feedback i Parameter Sensitive Plan – tym razem silnik zaczyna przewidywać, zanim problem wystąpi.
+## Natywny typ JSON
 
----
+SQL Server 2025 udostępnia natywny typ **`json`**, przechowujący dane w zoptymalizowanym formacie binarnym. Rozszerza to możliwości pracy z dokumentami JSON w silniku relacyjnym.
 
-## Query Store 3.0 – pełna obserwowalność
+Nie należy nazywać go **`JSONB`** — to nazwa kojarzona przede wszystkim z PostgreSQL, a nie typ danych SQL Server.
 
-Nowa wersja Query Store rozwiązuje jeden z największych braków poprzednich edycji – analizę zachowania planów w kontekście presji systemowej.
+Dostępne są także m.in. funkcje agregujące **`JSON_OBJECTAGG`** i **`JSON_ARRAYAGG`**. Przed migracją warto sprawdzić ograniczenia, zgodność narzędzi oraz zachowanie indeksów i zapytań dla konkretnego scenariusza.
 
-Najważniejsze nowości:
+## Typ VECTOR i funkcje AI
 
-- **Capture on Pressure** – automatyczna rejestracja planów przy skokach obciążenia.
-- **Historyczne baseline’y** – możliwość porównania każdego zapytania do dowolnego momentu w przeszłości.
-- **Plan Graph Explorer** – wizualizacja ewolucji planów bez zewnętrznych narzędzi.
+Nowy typ **`vector`** umożliwia przechowywanie reprezentacji wektorowych używanych np. w wyszukiwaniu podobieństwa.
 
-To narzędzie wreszcie staje się pełnoprawnym rejestratorem życia aplikacji.
+SQL Server 2025 udostępnia funkcje takie jak **`VECTOR_DISTANCE`**, **`VECTOR_NORM`** i **`VECTOR_NORMALIZE`**, a także mechanizmy integracji z zewnętrznymi modelami AI.
 
----
+**Ważne:** przybliżone indeksowanie wektorowe i niektóre funkcje wyszukiwania wektorowego są oznaczone jako Preview i wymagają odpowiedniej konfiguracji **`PREVIEW_FEATURES`**. Funkcji Preview nie należy automatycznie traktować jako gotowych do produkcji.
 
-## Instant Recovery 2.0 (ADR ulepszony)
+## Wyrażenia regularne i funkcje T-SQL
 
-Ulepszenia mechanizmu Accelerated Database Recovery:
+Do języka T-SQL dodano obsługę wyrażeń regularnych, m.in.:
 
-- szybsze redukowanie aktywnych transakcji po awarii,
-- krótszy czas REDO/UNDO,
-- nowe DMV ujawniające, które transakcje i strony najbardziej spowalniają recovery.
+- **`REGEXP_LIKE`** — sprawdzenie dopasowania wzorca;
+- **`REGEXP_REPLACE`** — zamiana fragmentów tekstu;
+- **`REGEXP_SUBSTR`** — wyodrębnianie dopasowanego fragmentu;
+- **`REGEXP_COUNT`** — zliczanie dopasowań.
 
-W scenariuszach HA różnica jest zauważalna natychmiast.
+Nowe możliwości upraszczają część operacji walidacji i transformacji tekstu, ale ich wpływ na wydajność trzeba mierzyć w rzeczywistym obciążeniu.
 
----
+## Optimized Locking i TempDB
 
-## Log V2 – inteligentny dziennik transakcyjny
+**Optimized Locking** ogranicza zużycie pamięci na blokady oraz może redukować blokowanie i eskalację blokad. W praktyce należy sprawdzić wymagania funkcji, edycję produktu i konfigurację bazy.
 
-W SQL Server 2025 log transakcyjny dostał największą zmianę od lat:
+SQL Server 2025 wprowadza również **TempDB Space Resource Governance**, pomagające ograniczać skutki nadmiernego zużycia przestrzeni TempDB przez obciążenia, oraz **Accelerated Database Recovery w TempDB**.
 
-- dynamiczna alokacja VLF w zależności od obciążenia,
-- redukcja fragmentacji logu,
-- zoptymalizowany algorytm flushowania dostosowany do przepustowości dysków,
-- nowe DMV: `sys.dm_db_log_pressure_stats`.
+Nie oznacza to jednak całkowitego wyeliminowania `PAGELATCH` ani uniwersalnej poprawy wydajności o określony procent.
 
-Efekt: wyraźnie mniejsza presja na log w systemach o dużym wolumenie zapisów.
+## Columnstore, analityka i integracje
 
----
+Wśród zmian dotyczących columnstore znajdują się m.in. **uporządkowane nieklastrowane indeksy columnstore** i usprawnienia ich budowania.
 
-## Security Shield – nowa warstwa bezpieczeństwa
+SQL Server 2025 rozwija również integrację z ekosystemem Microsoft Fabric i narzędziami do pracy z danymi. Zakres dostępności funkcji zależy od edycji, konfiguracji i etapu wydania.
 
-SQL Server 2025 idzie mocno w stronę architektury „zero trust”.
+## Bezpieczeństwo i wdrażanie
 
-Najważniejsze nowości:
+Przy planowaniu migracji warto zweryfikować zmiany dotyczące bezpieczeństwa, protokołów komunikacyjnych, uprawnień i zależności aplikacji na podstawie dokumentacji konkretnego wydania.
 
-- **Secure Credential Vault** – zaszyfrowany magazyn poświadczeń dla obiektów zewnętrznych.
-- **Row Access Policies 2.0** – szybsze, elastyczniejsze reguły oparte na expression trees.
-- **Wymuszanie TDS Encryption** – automatyczna walidacja zgodności protokołu.
+Nie należy zakładać istnienia osobnych mechanizmów „Security Shield” lub „Secure Credential Vault” bez potwierdzenia w dokumentacji Microsoftu.
 
-To najbardziej rozbudowana warstwa bezpieczeństwa w historii SQL Server.
+Podobnie nie należy przyjmować, że SQL Server 2025 zapewnia oficjalne natywne obrazy kontenerowe ARM64 albo klastrowanie Availability Groups bez klastra, wyłącznie na podstawie ogólnych zapowiedzi.
 
----
+## Co sprawdzić przed wdrożeniem?
 
-## TempDB Evolution – koniec klasycznych konfliktów
-
-Modernizacja TempDB obejmuje:
-
-- globalny cache stron współdzielony pomiędzy plikami,
-- poprawione algorytmy alokacji HOBT,
-- wyraźne ograniczenie PAGELATCH contention (nawet 40–70%).
-
-Wreszcie poprawa, którą można odczuć bez dodatkowych trace flag.
-
----
-
-## Native JSONB
-
-SQL Server 2025 wprowadza **JSONB** – binarną wersję JSON:
-
-- kolumny typu JSONB,
-- indeksy podobne do GIN,
-- operatorowe zapytania na strukturach JSON,
-- pełne wsparcie dla transakcyjnego ładowania i zapisu.
-
-To funkcjonalność, o którą środowisko prosiło od wielu lat.
-
----
-
-## Columnstore Genie
-
-Rozszerzenia silnika analitycznego obejmują:
-
-- nowy tryb kompresji LZ4+,
-- dynamiczne scalanie małych rowgroups,
-- rekomendacje indeksów columnstore generowane automatycznie na podstawie Query Store.
-
-Analiza danych staje się zauważalnie szybsza i lżejsza.
-
----
-
-## Konteneryzacja i ARM64
-
-Nowości dla środowisk DevOps i CI/CD:
-
-- oficjalne kontenery SQL Server na ARM64,
-- wsparcie dla AG w środowiskach kontenerowych (cluster-less),
-- sidecar monitoring z natywną obsługą.
-
-To ułatwia budowanie lekkich środowisk developerskich.
-
----
-
-## Nowe DMV, XE i narzędzia diagnostyczne
-
-SQL Server 2025 dostarcza obszerny zestaw nowych narzędzi obserwowalności:
-
-- `sys.dm_os_page_life_cycle` – analiza życia stron,
-- `sys.dm_exec_batch_mode_feedback` – feedback dla trybu batchowego,
-- nowe zdarzenia XE dla flush logu, checkpoint pipeline, latch contention,
-- kategoria XE: **Pressure Explorer**.
-
-To fundament do budowania własnych monitorów SLO/SLA bez narzędzi komercyjnych.
-
----
+1. **Kompatybilność aplikacji i sterowników** — także zachowanie nowych typów danych.
+2. **Query Store i plan regression** — porównanie bazowych metryk przed i po migracji.
+3. **Funkcje Preview** — czy są włączone i czy wolno ich używać w danym środowisku.
+4. **Dostępność funkcji w edycji** — Enterprise, Standard i Express różnią się możliwościami.
+5. **Testy backup/restore, HA/DR i wydajności** — nowa wersja silnika nie zastępuje testów operacyjnych.
 
 ## Podsumowanie
 
-SQL Server 2025 jest dużym krokiem naprzód.  
-Nowe mechanizmy adaptacyjne, rozbudowana obserwowalność oraz udoskonalony log i TempDB znacząco zwiększają stabilność oraz przewidywalność działania silnika.
+SQL Server 2025 przynosi rzeczywiste nowości: natywny `json`, typ `vector`, funkcje regex, usprawnienia IQP, Optimized Locking i nowe mechanizmy ochrony TempDB.
 
-Najważniejsze obszary zmian:
+Najważniejsza zasada DBA pozostaje bez zmian: **najpierw potwierdź funkcję w dokumentacji, następnie przetestuj ją na swoim obciążeniu**.
 
-1. **Automatyzacja i inteligentna adaptacja obciążeń**  
-2. **Widoczność i diagnostyka** (Query Store 3.0, nowe DMV, XE)  
-3. **Bezpieczeństwo i architektura zero trust**  
-4. **Nowoczesne typy danych i funkcje dla deweloperów** (JSONB)  
-5. **Pełna gotowość na konteneryzację i ARM64**
+Źródła:
 
-SQL Server 2025 to wersja, która zmienia sposób myślenia o wydajności, skalowalności i monitoringu.
+- [What's New in SQL Server 2025 — Microsoft Learn](https://learn.microsoft.com/en-us/sql/sql-server/what-s-new-in-sql-server-2025?view=sql-server-ver17)
+- [SQL Server 2025 Release Notes — Microsoft Learn](https://learn.microsoft.com/en-us/sql/sql-server/sql-server-2025-release-notes?view=sql-server-ver17)
+- [Editions and Supported Features — Microsoft Learn](https://learn.microsoft.com/en-us/sql/sql-server/editions-and-components-of-sql-server-2025?view=sql-server-ver17)
