@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1152pt" height="648pt" viewBox="0 0 1152 648" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-11-26T21:32:52.735154</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.8, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 648 
+L 1152 648 
+L 1152 0 
+L 0 0 
+z
+" style="fill: #f8fafc"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 100.93824 305.0784 
+L 489.80736 305.0784 
+Q 507.84768 305.0784 507.84768 297.4968 
+L 507.84768 176.1912 
+Q 507.84768 168.6096 489.80736 168.6096 
+L 100.93824 168.6096 
+Q 82.89792 168.6096 82.89792 176.1912 
+L 82.89792 297.4968 
+Q 82.89792 305.0784 100.93824 305.0784 
+z
+" clip-path="url(#pcc19e6dbe3)" style="fill: #b45309; fill-opacity: 0.070588; stroke: #b45309; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 662.19264 305.0784 
+L 1051.06176 305.0784 
+Q 1069.10208 305.0784 1069.10208 297.4968 
+L 1069.10208 176.1912 
+Q 1069.10208 168.6096 1051.06176 168.6096 
+L 662.19264 168.6096 
+Q 644.15232 168.6096 644.15232 176.1912 
+L 644.15232 297.4968 
+Q 644.15232 305.0784 662.19264 305.0784 
+z
+" clip-path="url(#pcc19e6dbe3)" style="fill: #b91c1c; fill-opacity: 0.070588; stroke: #b91c1c; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 301.38624 507.2544 
+L 850.61376 507.2544 
+Q 868.65408 507.2544 868.65408 499.6728 
+L 868.65408 391.0032 
+Q 868.65408 383.4216 850.61376 383.4216 
+L 301.38624 383.4216 
+Q 283.34592 383.4216 283.34592 391.0032 
+L 283.34592 499.6728 
+Q 283.34592 507.2544 301.38624 507.2544 
+z
+" clip-path="url(#pcc19e6dbe3)" style="fill: #15803d; fill-opacity: 0.070588; stroke: #15803d; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 19px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #b45309" x="295.3728" y="219.342013" transform="rotate(-0 295.3728 219.342013)">SPID 60 — blocker</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 14px; font-family: 'DejaVu Sans'; fill: #14263d" transform="translate(183.314831 255.281384)">sleeping • open transaction = 1</text>
+    <text style="font-size: 14px; font-family: 'DejaVu Sans'; fill: #14263d" transform="translate(183.184675 274.149666)">SqlConnection already disposed</text>
+   </g>
+   <g id="text_3">
+    <text style="font-weight: 700; font-size: 19px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #b91c1c" x="856.6272" y="219.342013" transform="rotate(-0 856.6272 219.342013)">SPID 59 — observer</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 14px; font-family: 'DejaVu Sans'; fill: #14263d" transform="translate(750.2447 254.892009)">request suspended • LCK_M_S</text>
+    <text style="font-size: 14px; font-family: 'DejaVu Sans'; fill: #14263d" transform="translate(768.706106 274.149666)">blocking_session_id = 60</text>
+   </g>
+   <g id="text_5">
+    <text style="font-weight: 700; font-size: 19px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #15803d" x="576" y="429.846274" transform="rotate(-0 576 429.846274)">sp_reset_connection</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 14px; font-family: 'DejaVu Sans'; fill: #14263d" transform="translate(441.396562 461.374544)">SPID 60 reused • @@TRANCOUNT = 0</text>
+    <text style="font-size: 14px; font-family: 'DejaVu Sans'; fill: #14263d" transform="translate(431.623906 480.242826)">Observer SELECT returns original value 0</text>
+   </g>
+   <g id="patch_5">
+    <path d="M 507.842909 236.844 
+Q 576.001587 236.844 641.924197 236.844 
+" style="fill: none; stroke: #b91c1c; stroke-width: 2; stroke-linecap: round"/>
+    <path d="M 637.124197 234.444 
+L 641.924197 236.844 
+L 637.124197 239.244 
+z
+" style="fill: #b91c1c; stroke: #b91c1c; stroke-width: 2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 297.230896 309.185498 
+Q 385.573071 344.249473 471.836904 378.48853 
+" style="fill: none; stroke: #64748b; stroke-width: 2; stroke-linecap: round"/>
+    <path d="M 468.260873 374.487029 
+L 471.836904 378.48853 
+L 466.490085 378.948454 
+z
+" style="fill: #64748b; stroke: #64748b; stroke-width: 2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 854.769104 309.185498 
+Q 766.426929 344.249473 680.163096 378.48853 
+" style="fill: none; stroke: #64748b; stroke-width: 2; stroke-linecap: round"/>
+    <path d="M 685.509915 378.948454 
+L 680.163096 378.48853 
+L 683.739127 374.487029 
+z
+" style="fill: #64748b; stroke: #64748b; stroke-width: 2; stroke-linecap: round"/>
+   </g>
+  </g>
+  <g id="text_7">
+   <text style="font-weight: 700; font-size: 29px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #14263d" x="74.88" y="48.6" transform="rotate(-0 74.88 48.6)">04  |  Blocking by a sleeping session</text>
+  </g>
+  <g id="text_8">
+   <text style="font-size: 14px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #64748b" x="74.88" y="81" transform="rotate(-0 74.88 81)">Observed blocking chain • nine DMV samples • reset confirmed by Extended Events</text>
+  </g>
+  <g id="text_9">
+   <text style="font-weight: 700; font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #64748b" x="74.88" y="618.84" transform="rotate(-0 74.88 618.84)">SQLManiak  |  EF Core through the eyes of a DBA  |  Lab 68</text>
+  </g>
+  <g id="text_10">
+   <text style="font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #64748b" x="74.88" y="579.96" transform="rotate(-0 74.88 579.96)">Mechanism diagram: owner reset observed at 21:14:00.711 UTC; observer completion recorded by application.</text>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pcc19e6dbe3">
+   <rect x="74.88" y="123.12" width="1002.24" height="421.2"/>
+  </clipPath>
+ </defs>
+</svg>
