@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1152pt" height="648pt" viewBox="0 0 1152 648" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-11-26T21:32:52.830298</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.8, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 648 
+L 1152 648 
+L 1152 0 
+L 0 0 
+z
+" style="fill: #f8fafc"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 241.25184 250.3224 
+L 910.74816 250.3224 
+Q 928.78848 250.3224 928.78848 242.7408 
+L 928.78848 155.1312 
+Q 928.78848 147.5496 910.74816 147.5496 
+L 241.25184 147.5496 
+Q 223.21152 147.5496 223.21152 155.1312 
+L 223.21152 242.7408 
+Q 223.21152 250.3224 241.25184 250.3224 
+z
+" clip-path="url(#pb91faf6e16)" style="fill: #2563eb; fill-opacity: 0.070588; stroke: #2563eb; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 241.25184 385.1064 
+L 910.74816 385.1064 
+Q 928.78848 385.1064 928.78848 377.5248 
+L 928.78848 289.9152 
+Q 928.78848 282.3336 910.74816 282.3336 
+L 241.25184 282.3336 
+Q 223.21152 282.3336 223.21152 289.9152 
+L 223.21152 377.5248 
+Q 223.21152 385.1064 241.25184 385.1064 
+z
+" clip-path="url(#pb91faf6e16)" style="fill: #b45309; fill-opacity: 0.070588; stroke: #b45309; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 241.25184 519.8904 
+L 910.74816 519.8904 
+Q 928.78848 519.8904 928.78848 512.3088 
+L 928.78848 424.6992 
+Q 928.78848 417.1176 910.74816 417.1176 
+L 241.25184 417.1176 
+Q 223.21152 417.1176 223.21152 424.6992 
+L 223.21152 512.3088 
+Q 223.21152 519.8904 241.25184 519.8904 
+z
+" clip-path="url(#pb91faf6e16)" style="fill: #15803d; fill-opacity: 0.070588; stroke: #15803d; stroke-width: 2; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 19px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #2563eb" x="576" y="187.499293" transform="rotate(-0 576 187.499293)">Application / EF Core</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 14px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #14263d" x="576" y="220.405285" transform="rotate(-0 576 220.405285)">Timeout • recovery • transaction lifecycle</text>
+   </g>
+   <g id="text_3">
+    <text style="font-weight: 700; font-size: 19px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #b45309" x="576" y="322.283293" transform="rotate(-0 576 322.283293)">Microsoft.Data.SqlClient</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 14px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #14263d" x="576" y="355.189285" transform="rotate(-0 576 355.189285)">Active • ready • pooled connections</text>
+   </g>
+   <g id="text_5">
+    <text style="font-weight: 700; font-size: 19px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #15803d" x="576" y="457.067293" transform="rotate(-0 576 457.067293)">SQL Server</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 14px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #14263d" x="576" y="489.973285" transform="rotate(-0 576 489.973285)">DMVs • blocking • Extended Events</text>
+   </g>
+   <g id="patch_5">
+    <path d="M 576 251.483168 
+Q 576 266.329511 576 278.939786 
+" style="fill: none; stroke: #64748b; stroke-width: 2; stroke-linecap: round"/>
+    <path d="M 578.4 274.139786 
+L 576 278.939786 
+L 573.6 274.139786 
+z
+" style="fill: #64748b; stroke: #64748b; stroke-width: 2; stroke-linecap: round"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 576 386.267168 
+Q 576 401.113511 576 413.723786 
+" style="fill: none; stroke: #64748b; stroke-width: 2; stroke-linecap: round"/>
+    <path d="M 578.4 408.923786 
+L 576 413.723786 
+L 573.6 408.923786 
+z
+" style="fill: #64748b; stroke: #64748b; stroke-width: 2; stroke-linecap: round"/>
+   </g>
+  </g>
+  <g id="text_7">
+   <text style="font-weight: 700; font-size: 29px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #14263d" x="74.88" y="48.6" transform="rotate(-0 74.88 48.6)">05  |  Three diagnostic perspectives</text>
+  </g>
+  <g id="text_8">
+   <text style="font-size: 14px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #64748b" x="74.88" y="81" transform="rotate(-0 74.88 81)">Correlate timestamps across application telemetry and SQL Server observations</text>
+  </g>
+  <g id="text_9">
+   <text style="font-weight: 700; font-size: 12px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #64748b" x="74.88" y="618.84" transform="rotate(-0 74.88 618.84)">SQLManiak  |  EF Core through the eyes of a DBA  |  Lab 68</text>
+  </g>
+  <g id="text_10">
+   <text style="font-size: 13px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #64748b" x="74.88" y="579.96" transform="rotate(-0 74.88 579.96)">Conceptual diagram — not a measured data series.</text>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pb91faf6e16">
+   <rect x="74.88" y="123.12" width="1002.24" height="421.2"/>
+  </clipPath>
+ </defs>
+</svg>
