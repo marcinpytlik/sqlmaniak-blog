@@ -7,7 +7,6 @@ description: "A practical runbook for extending job history, automating cleanup,
 tags: ["SQL Server", "SQL Agent", "Runbook", "Monitoring", "DBA"]
 author: "Marcin Pytlik | SQLManiak"
 banner: "/images/sql-agent-runbook-historia-alerty.png"
-canonical: "https://sqlmaniak.blog/sql-agent-runbook-historia-alerty"
 ---
 
 ## Introduction
