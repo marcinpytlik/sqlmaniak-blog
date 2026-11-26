@@ -7,7 +7,6 @@ description: "Wachstum der tempdb diagnostizieren und ihre Größe mit einem pra
 tags: ["SQL Server", "tempdb", "Performance", "DBA", "Runbook"]
 author: "Marcin Pytlik | SQLManiak"
 banner: "/images/tempdb-shrink-bez-mitow.png"
-canonical: "https://sqlmaniak.blog/tempdb-shrink-bez-mitow"
 ---
 
 ## Einleitung
