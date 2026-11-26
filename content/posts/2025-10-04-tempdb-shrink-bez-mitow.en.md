@@ -7,7 +7,6 @@ description: "Diagnose tempdb growth and safely reduce its size using a practica
 tags: ["SQL Server", "tempdb", "Performance", "DBA", "Runbook"]
 author: "Marcin Pytlik | SQLManiak"
 banner: "/images/tempdb-shrink-bez-mitow.png"
-canonical: "https://sqlmaniak.blog/tempdb-shrink-bez-mitow"
 ---
 
 ## Introduction
