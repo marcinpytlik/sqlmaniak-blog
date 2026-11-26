@@ -7,7 +7,6 @@ description: "Praxis-Runbook zur Verlängerung der Jobhistorie, automatischen Be
 tags: ["SQL Server", "SQL Agent", "Runbook", "Monitoring", "DBA"]
 author: "Marcin Pytlik | SQLManiak"
 banner: "/images/sql-agent-runbook-historia-alerty.png"
-canonical: "https://sqlmaniak.blog/sql-agent-runbook-historia-alerty"
 ---
 
 ## Einleitung
